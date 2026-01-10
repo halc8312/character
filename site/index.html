@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャラクター一覧 | Character Database</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="header">
+    <h1>キャラクターデータベース</h1>
+    <nav>
+      <a href="index.html" class="active">一覧</a>
+      <a href="graph.html">相関図</a>
+    </nav>
+  </header>
+  
+  <main class="container">
+    <div class="search-bar">
+      <input 
+        type="text" 
+        id="searchInput" 
+        class="search-input" 
+        placeholder="名前、ローマ字、別名、IDで検索..."
+        autocomplete="off"
+      >
+    </div>
+    
+    <div class="filter-section" id="filterSection">
+      <h3>タグで絞り込み</h3>
+      <div id="roleFilters" class="filter-group" style="margin-bottom: 0.75rem;">
+        <!-- Role filters will be inserted here -->
+      </div>
+      <div id="factionFilters" class="filter-group">
+        <!-- Faction filters will be inserted here -->
+      </div>
+    </div>
+    
+    <div class="status-bar">
+      <span id="resultCount">読み込み中...</span>
+    </div>
+    
+    <div id="characterGrid" class="character-grid">
+      <div class="loading">データを読み込んでいます...</div>
+    </div>
+  </main>
+  
+  <script src="assets/app.js"></script>
+  <script>
+    let allCharacters = [];
+    let activeTags = new Set();
+    
+    /**
+     * Render character cards
+     */
+    function renderCharacters(characters) {
+      const grid = document.getElementById('characterGrid');
+      const countEl = document.getElementById('resultCount');
+      
+      if (characters.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results">
+            <h3>キャラクターが見つかりません</h3>
+            <p>検索条件を変更してください</p>
+          </div>
+        `;
+        countEl.textContent = '0件';
+        return;
+      }
+      
+      countEl.textContent = `${characters.length}件`;
+      
+      grid.innerHTML = characters.map(char => {
+        const tags = (char.tags || []).slice(0, 4).map(t => App.createTagHtml(t)).join('');
+        return `
+          <a href="character.html?id=${App.escapeHtml(char.id)}" class="character-card">
+            <h2>${App.escapeHtml(char.name_display)}</h2>
+            <div class="romanized">${App.escapeHtml(char.name_romanized || char.id)}</div>
+            <div class="summary">${App.escapeHtml(char.role_in_story || char.ai_summary || '')}</div>
+            <div class="tags">${tags}</div>
+          </a>
+        `;
+      }).join('');
+    }
+    
+    /**
+     * Render filter checkboxes
+     */
+    function renderFilters() {
+      const roleFilters = document.getElementById('roleFilters');
+      const factionFilters = document.getElementById('factionFilters');
+      
+      const roleTags = App.extractTagsByPrefix(allCharacters, 'role');
+      const factionTags = App.extractTagsByPrefix(allCharacters, 'faction');
+      
+      // Render role filters
+      roleFilters.innerHTML = roleTags.map(tag => `
+        <label class="filter-tag" data-tag="${App.escapeHtml(tag)}">
+          <input type="checkbox" value="${App.escapeHtml(tag)}">
+          ${App.escapeHtml(tag.split('/')[1])}
+        </label>
+      `).join('');
+      
+      // Render faction filters
+      factionFilters.innerHTML = factionTags.map(tag => `
+        <label class="filter-tag" data-tag="${App.escapeHtml(tag)}">
+          <input type="checkbox" value="${App.escapeHtml(tag)}">
+          ${App.escapeHtml(tag.split('/')[1])}
+        </label>
+      `).join('');
+      
+      // Hide filter section if no filters
+      const filterSection = document.getElementById('filterSection');
+      if (roleTags.length === 0 && factionTags.length === 0) {
+        filterSection.style.display = 'none';
+      }
+    }
+    
+    /**
+     * Apply filters and search
+     */
+    function applyFiltersAndSearch() {
+      const searchQuery = document.getElementById('searchInput').value;
+      let filtered = App.searchCharacters(allCharacters, searchQuery);
+      filtered = App.filterByTags(filtered, Array.from(activeTags));
+      renderCharacters(filtered);
+    }
+    
+    /**
+     * Initialize the page
+     */
+    async function init() {
+      try {
+        await App.loadAllData();
+        allCharacters = App.data.characters;
+        
+        renderFilters();
+        renderCharacters(allCharacters);
+        
+        // Search input handler
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', App.debounce(() => {
+          applyFiltersAndSearch();
+        }, 200));
+        
+        // Filter click handlers
+        document.querySelectorAll('.filter-tag').forEach(el => {
+          el.addEventListener('click', function(e) {
+            const tag = this.dataset.tag;
+            const checkbox = this.querySelector('input');
+            
+            if (activeTags.has(tag)) {
+              activeTags.delete(tag);
+              this.classList.remove('active');
+              checkbox.checked = false;
+            } else {
+              activeTags.add(tag);
+              this.classList.add('active');
+              checkbox.checked = true;
+            }
+            
+            applyFiltersAndSearch();
+          });
+        });
+        
+        // Check for pre-selected tag from URL
+        const preTag = App.getQueryParam('tag');
+        if (preTag) {
+          activeTags.add(preTag);
+          const tagEl = document.querySelector(`[data-tag="${preTag}"]`);
+          if (tagEl) {
+            tagEl.classList.add('active');
+            tagEl.querySelector('input').checked = true;
+          }
+          applyFiltersAndSearch();
+        }
+        
+      } catch (error) {
+        console.error('Failed to initialize:', error);
+        document.getElementById('characterGrid').innerHTML = `
+          <div class="error">データの読み込みに失敗しました</div>
+        `;
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

@@ -26,10 +26,18 @@ AIによるキャラクター演技のために設計された、Git管理型の
 │   ├── system_prompt.md               # AIシステムプロンプト
 │   └── character_prompt_template.md   # キャラクター固有プロンプトテンプレート
 ├── scripts/
-│   └── validate_characters.py         # 検証スクリプト
+│   ├── validate_characters.py         # 検証スクリプト
+│   └── build_site_data.py             # サイトデータ生成スクリプト
+├── site/                              # GitHub Pages 用静的サイト
+│   ├── index.html                     # キャラクター一覧
+│   ├── character.html                 # キャラクター詳細
+│   ├── graph.html                     # 相関図
+│   ├── data/                          # 生成されるJSONデータ
+│   └── assets/                        # CSS/JavaScript
 └── .github/
     ├── workflows/
-    │   └── validate.yml               # CI検証ワークフロー
+    │   ├── validate.yml               # CI検証ワークフロー
+    │   └── pages.yml                  # GitHub Pages デプロイ
     ├── ISSUE_TEMPLATE/
     │   └── new_character.yml          # 新規キャラクター提案テンプレート
     └── pull_request_template.md       # PRチェックリスト
@@ -231,6 +239,91 @@ python scripts/validate_characters.py
 1. **キャラクター**：Issueテンプレートを使用して提案し、PRを提出
 2. **スキーマ/語彙の変更**：まずIssueで議論
 3. **すべてのPR**：CI検証に合格する必要があります
+
+## GitHub Pages（Webビューア）
+
+このリポジトリは GitHub Pages を使用してキャラクター一覧・詳細・相関図を Web 上で閲覧できます。
+
+### URL構造
+
+- `/index.html` - キャラクター一覧（検索・タグ絞り込み）
+- `/character.html?id=<id>` - キャラクター詳細ページ
+- `/graph.html` - 相関図（インタラクティブ）
+- `/graph.html?focus=<id>` - 特定キャラクターにフォーカスした相関図
+
+### GitHub Pages の有効化
+
+1. リポジトリの **Settings** > **Pages** を開く
+2. **Source** を **GitHub Actions** に設定
+3. main ブランチに push すると自動的にデプロイされます
+
+### 生成の流れ
+
+```
+characters/*.yml  →  scripts/build_site_data.py  →  site/data/*.json  →  GitHub Pages
+```
+
+1. キャラクターYAMLファイルを追加・編集
+2. main ブランチに push
+3. GitHub Actions (`pages.yml`) が自動実行：
+   - `build_site_data.py` が YAML から JSON を生成
+   - `site/` ディレクトリを GitHub Pages にデプロイ
+
+### ローカルでの確認
+
+```bash
+# 依存関係のインストール
+pip install pyyaml
+
+# データ生成
+python scripts/build_site_data.py
+
+# ローカルサーバー起動（例）
+cd site && python -m http.server 8000
+# ブラウザで http://localhost:8000 を開く
+```
+
+### レイアウト永続化（相関図）
+
+相関図のノード位置はカスタマイズして保存できます：
+
+1. `graph.html` を開く
+2. ノードをドラッグして位置を調整
+3. 「レイアウトを書き出し」ボタンをクリック
+4. ダウンロードした `layout.json` を `site/data/layout.json` として上書きコミット
+5. 次回デプロイ以降、ノード位置が保持されます
+
+**新規ノードの扱い：**
+- `layout.json` に座標がないノードは「新規ノード」として緑色で表示
+- 新規ノードは既存ノードの近くに自動配置され、レイアウトを馴染ませます
+- 「自動整列（全体）」ボタンで全ノードを再配置することもできます
+
+### データ生成時の検証
+
+`build_site_data.py` は以下をチェックします：
+
+| チェック | 動作 |
+|---------|------|
+| edges の source/target が存在しない | **エラー**（ビルド停止） |
+| edges.type が vocab.yml にない | **エラー**（ビルド停止） |
+| tags の prefix が vocab.yml にない | **警告**（ビルド続行） |
+
+### ディレクトリ構成（site/）
+
+```
+site/
+├── index.html            # キャラクター一覧
+├── character.html        # キャラクター詳細
+├── graph.html            # 相関図
+├── data/
+│   ├── characters.json   # 生成物
+│   ├── graph.json        # 生成物
+│   └── layout.json       # レイアウト永続化用
+└── assets/
+    ├── app.css           # スタイル
+    ├── app.js            # 共通JavaScript
+    └── graph.js          # Cytoscape.js 連携
+```
 
 ## ライセンス
 

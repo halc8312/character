@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キャラクター詳細 | Character Database</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="header">
+    <h1>キャラクターデータベース</h1>
+    <nav>
+      <a href="index.html">一覧</a>
+      <a href="graph.html">相関図</a>
+    </nav>
+  </header>
+  
+  <main class="container">
+    <a href="index.html" class="back-link">← 一覧に戻る</a>
+    
+    <div id="characterDetail" class="character-detail">
+      <div class="loading">データを読み込んでいます...</div>
+    </div>
+  </main>
+  
+  <script src="assets/app.js"></script>
+  <script>
+    /**
+     * Render character detail
+     */
+    function renderCharacterDetail(char, edges) {
+      const container = document.getElementById('characterDetail');
+      
+      if (!char) {
+        container.innerHTML = `
+          <div class="error">
+            <h3>キャラクターが見つかりません</h3>
+            <p>指定されたIDのキャラクターは存在しません。</p>
+            <a href="index.html" class="back-link">一覧に戻る</a>
+          </div>
+        `;
+        return;
+      }
+      
+      // Update page title
+      document.title = `${char.name_display} | Character Database`;
+      
+      // Build tags HTML
+      const tagsHtml = (char.tags || []).map(tag => {
+        const escaped = App.escapeHtml(tag);
+        return `<a href="index.html?tag=${encodeURIComponent(tag)}" class="tag">${escaped}</a>`;
+      }).join(' ');
+      
+      // Build relationships HTML
+      let relationsHtml = '';
+      if (edges && edges.length > 0) {
+        relationsHtml = edges.map(edge => {
+          const isSource = edge.source === char.id;
+          const otherId = isSource ? edge.target : edge.source;
+          const otherLabel = App.getNodeLabel(otherId);
+          
+          return `
+            <li class="relationship-item">
+              <a href="character.html?id=${App.escapeHtml(otherId)}" class="target">
+                ${App.escapeHtml(otherLabel)}
+              </a>
+              <span class="type">${App.escapeHtml(edge.type)}</span>
+              <span class="intensity">${App.formatIntensity(edge.intensity)}</span>
+              ${edge.summary ? `<div class="summary">${App.escapeHtml(edge.summary)}</div>` : ''}
+            </li>
+          `;
+        }).join('');
+      } else {
+        relationsHtml = '<li class="relationship-item">関係情報がありません</li>';
+      }
+      
+      container.innerHTML = `
+        <h1>${App.escapeHtml(char.name_display)}</h1>
+        <div class="romanized">${App.escapeHtml(char.name_romanized || '')}</div>
+        ${char.aliases && char.aliases.length > 0 ? 
+          `<div class="aliases">別名: ${char.aliases.map(a => App.escapeHtml(a)).join(', ')}</div>` 
+          : ''}
+        
+        <div class="detail-section">
+          <h3>基本情報</h3>
+          <p><strong>ID:</strong> ${App.escapeHtml(char.id)}</p>
+          ${char.age ? `<p><strong>年齢:</strong> ${App.escapeHtml(String(char.age))}</p>` : ''}
+          ${char.species ? `<p><strong>種族:</strong> ${App.escapeHtml(char.species)}</p>` : ''}
+          ${char.occupation ? `<p><strong>役割:</strong> ${App.escapeHtml(char.occupation)}</p>` : ''}
+          ${char.affiliation_primary ? `<p><strong>所属:</strong> ${App.escapeHtml(char.affiliation_primary)}</p>` : ''}
+        </div>
+        
+        <div class="detail-section">
+          <h3>タグ</h3>
+          <div class="tags">${tagsHtml || '（タグなし）'}</div>
+        </div>
+        
+        ${char.ai_summary || char.role_in_story ? `
+          <div class="detail-section">
+            <h3>AI要約 / 物語での役割</h3>
+            ${char.ai_summary ? `<p>${App.escapeHtml(char.ai_summary)}</p>` : ''}
+            ${char.role_in_story ? `<p>${App.escapeHtml(char.role_in_story)}</p>` : ''}
+          </div>
+        ` : ''}
+        
+        ${char.personality_summary ? `
+          <div class="detail-section">
+            <h3>性格</h3>
+            <p>${App.escapeHtml(char.personality_summary)}</p>
+          </div>
+        ` : ''}
+        
+        <div class="detail-section">
+          <h3>関係</h3>
+          <ul class="relationship-list">
+            ${relationsHtml}
+          </ul>
+        </div>
+        
+        <a href="graph.html?focus=${App.escapeHtml(char.id)}" class="graph-link">
+          相関図で開く
+        </a>
+      `;
+    }
+    
+    /**
+     * Initialize the page
+     */
+    async function init() {
+      const characterId = App.getQueryParam('id');
+      
+      if (!characterId) {
+        document.getElementById('characterDetail').innerHTML = `
+          <div class="error">
+            <h3>キャラクターIDが指定されていません</h3>
+            <p>URLに ?id=キャラクターID を追加してください。</p>
+            <a href="index.html" class="back-link">一覧に戻る</a>
+          </div>
+        `;
+        return;
+      }
+      
+      try {
+        await App.loadAllData();
+        
+        const char = App.getCharacterById(characterId);
+        const edges = App.getCharacterEdges(characterId);
+        
+        renderCharacterDetail(char, edges);
+        
+      } catch (error) {
+        console.error('Failed to load character:', error);
+        document.getElementById('characterDetail').innerHTML = `
+          <div class="error">データの読み込みに失敗しました</div>
+        `;
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
