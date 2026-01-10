@@ -118,7 +118,7 @@ relationships:
     type: ally
     description: "迷宮のような世界で道標となる星を教え、地に足をつける助言をする"
     intensity: 2
-    mutual: true
+    mutual: false
 
 story:
   role_in_narrative: "主人公たちが見失いがちな方角を示し、静かな導きを与える案内役"
