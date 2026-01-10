@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>相関図 | Character Database</title>
+  <link rel="stylesheet" href="assets/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js" integrity="sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb" crossorigin="anonymous">
+</head>
+<body>
+  <header class="header">
+    <h1>キャラクターデータベース</h1>
+    <nav>
+      <a href="index.html">一覧</a>
+      <a href="graph.html" class="active">相関図</a>
+    </nav>
+  </header>
+  
+  <main class="container" style="padding: 1rem; max-width: 100%;">
+    <div class="graph-container">
+      <div class="graph-main">
+        <div class="graph-controls">
+          <input 
+            type="text" 
+            id="graphSearch" 
+            class="search-input" 
+            placeholder="名前/IDで検索..."
+            autocomplete="off"
+          >
+          <button id="btnReset" class="secondary">リセット</button>
+          <button id="btnAutoLayout">自動整列（全体）</button>
+          <button id="btnExportLayout">レイアウトを書き出し</button>
+          <div class="toggle-group">
+            <input type="checkbox" id="neighborMode">
+            <label for="neighborMode">近傍だけ表示</label>
+          </div>
+        </div>
+        
+        <div class="status-bar">
+          <span id="graphStatus">読み込み中...</span>
+          <span id="newNodesIndicator" class="new-nodes-indicator" style="display: none;">
+            新規ノード: <span id="newNodesCount">0</span>
+          </span>
+        </div>
+        
+        <div id="cy"></div>
+      </div>
+      
+      <div class="graph-sidebar">
+        <div class="sidebar-panel">
+          <h3>役割フィルタ</h3>
+          <div id="roleFilters" class="filter-chips">
+            <!-- Role filters -->
+          </div>
+        </div>
+        
+        <div class="sidebar-panel">
+          <h3>関係タイプフィルタ</h3>
+          <div id="relationFilters" class="filter-chips">
+            <!-- Relation type filters -->
+          </div>
+        </div>
+        
+        <div class="sidebar-panel detail">
+          <h3>詳細</h3>
+          <div id="detailEmpty" class="detail-content active">
+            <p style="color: var(--text-muted);">ノードまたはエッジをクリックして詳細を表示</p>
+          </div>
+          <div id="nodeDetail" class="detail-content">
+            <!-- Node detail -->
+          </div>
+          <div id="edgeDetail" class="detail-content">
+            <!-- Edge detail -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="assets/app.js"></script>
+  <script src="assets/graph.js"></script>
+  <script>
+    let activeRoleTags = new Set();
+    let activeRelationTypes = new Set();
+    let selectedNodeId = null;
+    
+    /**
+     * Update status bar
+     */
+    function updateStatus(nodeCount, edgeCount) {
+      document.getElementById('graphStatus').textContent = 
+        `${nodeCount} ノード / ${edgeCount} エッジ`;
+    }
+    
+    /**
+     * Update new nodes indicator
+     */
+    function updateNewNodesIndicator() {
+      const count = GraphApp.getNewNodesCount();
+      const indicator = document.getElementById('newNodesIndicator');
+      const countEl = document.getElementById('newNodesCount');
+      
+      if (count > 0) {
+        indicator.style.display = 'inline-block';
+        countEl.textContent = count;
+      } else {
+        indicator.style.display = 'none';
+      }
+    }
+    
+    /**
+     * Render role filters
+     */
+    function renderRoleFilters(nodes) {
+      const container = document.getElementById('roleFilters');
+      const tags = new Set();
+      
+      nodes.forEach(node => {
+        (node.tags || []).forEach(tag => {
+          if (tag.startsWith('role/') || tag.startsWith('faction/')) {
+            tags.add(tag);
+          }
+        });
+      });
+      
+      const sortedTags = Array.from(tags).sort();
+      
+      container.innerHTML = sortedTags.map(tag => `
+        <span class="filter-chip" data-tag="${App.escapeHtml(tag)}">
+          ${App.escapeHtml(tag.split('/')[1])}
+        </span>
+      `).join('');
+      
+      // Add click handlers
+      container.querySelectorAll('.filter-chip').forEach(el => {
+        el.addEventListener('click', function() {
+          const tag = this.dataset.tag;
+          if (activeRoleTags.has(tag)) {
+            activeRoleTags.delete(tag);
+            this.classList.remove('active');
+          } else {
+            activeRoleTags.add(tag);
+            this.classList.add('active');
+          }
+          applyFilters();
+        });
+      });
+    }
+    
+    /**
+     * Render relation type filters
+     */
+    function renderRelationFilters() {
+      const container = document.getElementById('relationFilters');
+      const types = GraphApp.getRelationshipTypes();
+      
+      container.innerHTML = types.map(type => `
+        <span class="filter-chip" data-type="${App.escapeHtml(type)}">
+          ${App.escapeHtml(type)}
+        </span>
+      `).join('');
+      
+      // Add click handlers
+      container.querySelectorAll('.filter-chip').forEach(el => {
+        el.addEventListener('click', function() {
+          const type = this.dataset.type;
+          if (activeRelationTypes.has(type)) {
+            activeRelationTypes.delete(type);
+            this.classList.remove('active');
+          } else {
+            activeRelationTypes.add(type);
+            this.classList.add('active');
+          }
+          applyFilters();
+        });
+      });
+    }
+    
+    /**
+     * Apply all filters
+     */
+    function applyFilters() {
+      // Reset first
+      GraphApp.resetVisibility();
+      
+      // Apply tag filter
+      if (activeRoleTags.size > 0) {
+        GraphApp.filterByTags(Array.from(activeRoleTags));
+      }
+      
+      // Apply relation type filter
+      if (activeRelationTypes.size > 0) {
+        GraphApp.filterByRelationTypes(Array.from(activeRelationTypes));
+      }
+    }
+    
+    /**
+     * Show node detail
+     */
+    function showNodeDetail(node) {
+      const nodeId = node.id();
+      const label = node.data('label');
+      const tags = node.data('tags') || [];
+      
+      // Get character data
+      const char = App.getCharacterById(nodeId);
+      
+      // Get connected edges
+      const edges = node.connectedEdges();
+      const connections = edges.map(edge => {
+        const otherId = edge.source().id() === nodeId ? edge.target().id() : edge.source().id();
+        const otherLabel = edge.source().id() === nodeId ? edge.target().data('label') : edge.source().data('label');
+        return {
+          id: otherId,
+          label: otherLabel,
+          type: edge.data('type'),
+          intensity: edge.data('intensity')
+        };
+      });
+      
+      const tagsHtml = tags.map(t => `<span class="tag">${App.escapeHtml(t)}</span>`).join(' ');
+      const connectionsHtml = connections.map(c => `
+        <div class="connection-item">
+          <strong>${App.escapeHtml(c.label)}</strong>
+          <span class="tag">${App.escapeHtml(c.type)}</span>
+          ${App.formatIntensity(c.intensity)}
+        </div>
+      `).join('');
+      
+      document.getElementById('nodeDetail').innerHTML = `
+        <h4>${App.escapeHtml(label)}</h4>
+        <div class="tags">${tagsHtml || '（タグなし）'}</div>
+        ${char && char.ai_summary ? `<p style="margin-top: 0.5rem; font-size: 0.9rem;">${App.escapeHtml(char.ai_summary)}</p>` : ''}
+        ${char && char.role_in_story ? `<p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">${App.escapeHtml(char.role_in_story)}</p>` : ''}
+        <div class="connections">
+          <h5 style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted);">関係 (${connections.length})</h5>
+          ${connectionsHtml || '<p style="color: var(--text-muted);">なし</p>'}
+        </div>
+        <a href="character.html?id=${App.escapeHtml(nodeId)}" class="graph-link" style="margin-top: 1rem; display: inline-block; font-size: 0.85rem;">
+          詳細ページへ
+        </a>
+      `;
+      
+      // Show node detail panel
+      document.querySelectorAll('.detail-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('nodeDetail').classList.add('active');
+      
+      selectedNodeId = nodeId;
+    }
+    
+    /**
+     * Show edge detail
+     */
+    function showEdgeDetail(edge) {
+      const sourceLabel = edge.source().data('label');
+      const targetLabel = edge.target().data('label');
+      const type = edge.data('type');
+      const intensity = edge.data('intensity');
+      const summary = edge.data('summary');
+      
+      document.getElementById('edgeDetail').innerHTML = `
+        <h4>${App.escapeHtml(sourceLabel)} ↔ ${App.escapeHtml(targetLabel)}</h4>
+        <p style="margin-top: 0.5rem;">
+          <strong>関係タイプ:</strong> <span class="tag">${App.escapeHtml(type)}</span>
+        </p>
+        <p><strong>強度:</strong> ${App.formatIntensity(intensity)}</p>
+        ${summary ? `<p style="margin-top: 0.5rem;"><strong>概要:</strong> ${App.escapeHtml(summary)}</p>` : ''}
+      `;
+      
+      // Show edge detail panel
+      document.querySelectorAll('.detail-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('edgeDetail').classList.add('active');
+    }
+    
+    /**
+     * Initialize graph
+     */
+    async function init() {
+      try {
+        await App.loadAllData();
+        
+        const { nodes, edges } = App.data.graph;
+        const layout = App.data.layout;
+        
+        // Initialize Cytoscape
+        const container = document.getElementById('cy');
+        GraphApp.initGraph(container, nodes, edges, layout);
+        
+        // Update status
+        updateStatus(nodes.length, edges.length);
+        updateNewNodesIndicator();
+        
+        // Render filters
+        renderRoleFilters(nodes);
+        renderRelationFilters();
+        
+        // Set up event handlers
+        setupEventHandlers();
+        
+        // Check for focus parameter
+        const focusId = App.getQueryParam('focus');
+        if (focusId) {
+          setTimeout(() => {
+            const node = GraphApp.focusNode(focusId);
+            if (node) {
+              showNodeDetail(node);
+            }
+          }, 500);
+        }
+        
+      } catch (error) {
+        console.error('Failed to initialize graph:', error);
+        document.getElementById('graphStatus').textContent = 'エラー: グラフの読み込みに失敗しました';
+      }
+    }
+    
+    /**
+     * Set up event handlers
+     */
+    function setupEventHandlers() {
+      // Search input
+      const searchInput = document.getElementById('graphSearch');
+      searchInput.addEventListener('input', App.debounce(function() {
+        const node = GraphApp.searchAndHighlight(this.value);
+        if (node) {
+          showNodeDetail(node);
+        }
+      }, 300));
+      
+      searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          const node = GraphApp.searchAndHighlight(this.value);
+          if (node) {
+            showNodeDetail(node);
+          }
+        }
+      });
+      
+      // Reset button
+      document.getElementById('btnReset').addEventListener('click', function() {
+        GraphApp.resetVisibility();
+        activeRoleTags.clear();
+        activeRelationTypes.clear();
+        document.querySelectorAll('.filter-chip').forEach(el => el.classList.remove('active'));
+        document.getElementById('graphSearch').value = '';
+        document.getElementById('neighborMode').checked = false;
+        
+        // Reset detail panel
+        document.querySelectorAll('.detail-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('detailEmpty').classList.add('active');
+        selectedNodeId = null;
+        
+        // Fit view
+        GraphApp.cy.fit(50);
+      });
+      
+      // Auto layout button
+      document.getElementById('btnAutoLayout').addEventListener('click', function() {
+        if (confirm('全体のレイアウトを再計算します。既存の位置は失われます。よろしいですか？')) {
+          GraphApp.runFullLayout();
+          updateNewNodesIndicator();
+        }
+      });
+      
+      // Export layout button
+      document.getElementById('btnExportLayout').addEventListener('click', function() {
+        GraphApp.downloadLayout();
+      });
+      
+      // Neighbor mode toggle
+      document.getElementById('neighborMode').addEventListener('change', function() {
+        if (this.checked && selectedNodeId) {
+          GraphApp.showNeighborsOnly(selectedNodeId, 2);
+        } else {
+          GraphApp.resetVisibility();
+          applyFilters();
+        }
+      });
+      
+      // Cytoscape node click
+      GraphApp.cy.on('tap', 'node', function(evt) {
+        const node = evt.target;
+        showNodeDetail(node);
+        
+        // Highlight
+        GraphApp.cy.elements().removeClass('highlighted');
+        node.addClass('highlighted');
+        node.connectedEdges().addClass('highlighted');
+        
+        // Apply neighbor mode if enabled
+        if (document.getElementById('neighborMode').checked) {
+          GraphApp.showNeighborsOnly(node.id(), 2);
+        }
+      });
+      
+      // Cytoscape edge click
+      GraphApp.cy.on('tap', 'edge', function(evt) {
+        const edge = evt.target;
+        showEdgeDetail(edge);
+        
+        // Highlight
+        GraphApp.cy.elements().removeClass('highlighted');
+        edge.addClass('highlighted');
+        edge.source().addClass('highlighted');
+        edge.target().addClass('highlighted');
+      });
+      
+      // Click on background to deselect
+      GraphApp.cy.on('tap', function(evt) {
+        if (evt.target === GraphApp.cy) {
+          GraphApp.cy.elements().removeClass('highlighted');
+          
+          if (!document.getElementById('neighborMode').checked) {
+            // Don't reset detail panel, keep showing last selection
+          }
+        }
+      });
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

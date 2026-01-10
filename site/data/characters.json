@@ -1,0 +1,837 @@
+[
+  {
+    "id": "akari_numata",
+    "name_display": "沼田 朱莉",
+    "name_romanized": "",
+    "aliases": [
+      "アカリ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/responsible",
+      "trait/observant",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "準備と記録を担い、静かにみんなを支える調整役。",
+    "ai_summary": "簡潔な言葉で段取りや選択肢を提示する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・生徒会書記",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、生徒会",
+    "personality_summary": "冷静で先回りが得意。人の小さな変化に気づき、さりげなくフォローする。"
+  },
+  {
+    "id": "aya_kishimoto",
+    "name_display": "岸本 綾",
+    "name_romanized": "",
+    "aliases": [
+      "アヤ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/observant",
+      "trait/thoughtful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "情報整理を補佐し、美希の相談役となる静かな友人。",
+    "ai_summary": "静かなトーンで丁寧に話す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・文芸部員",
+    "affiliation_primary": "県立西ヶ丘高校2年A組、文芸部",
+    "personality_summary": "静かで観察好き。美希のまとめ方を尊敬し、メモ術を共有する。"
+  },
+  {
+    "id": "chika_aoyagi",
+    "name_display": "青柳 千佳",
+    "name_romanized": "",
+    "aliases": [
+      "チカ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/mentor",
+      "trait/organized",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "大地の成長を導くメンターとして、仕組みと視点を与える。",
+    "ai_summary": "根拠を添えて提案し、選択肢を示す",
+    "age": 21,
+    "species": "human",
+    "occupation": "大学生・元アルバイトリーダー",
+    "affiliation_primary": "市内大学3年、コンビニ元シフトリーダー",
+    "personality_summary": "計画的で教え上手。大地に仕事と学業のバランスを具体的に示す。"
+  },
+  {
+    "id": "daichi_yamamoto",
+    "name_display": "山本 大地",
+    "name_romanized": "",
+    "aliases": [
+      "ダイチ",
+      "山本先輩"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/responsible",
+      "trait/practical",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "現実的な視点で陽斗の時間管理を支え、将来への悩みを共有する先輩。",
+    "ai_summary": "端的で現実的なアドバイスをする",
+    "age": 18,
+    "species": "human",
+    "occupation": "高校生・アルバイトリーダー",
+    "affiliation_primary": "県立西ヶ丘高校3年A組、近所のコンビニアルバイト",
+    "personality_summary": "実直で段取りを重んじる。厳しそうに見えるが、困っている人には手を伸ばす。"
+  },
+  {
+    "id": "eito_kirishima",
+    "name_display": "桐島 永斗",
+    "name_romanized": "",
+    "aliases": [
+      "エイト"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/earnest",
+      "trait/helpful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "優奈の家族的な支えとして、成長を映すミラー役。",
+    "ai_summary": "丁寧で素直なトーンを維持する",
+    "age": 15,
+    "species": "human",
+    "occupation": "高校生・写真見習い",
+    "affiliation_primary": "県立西ヶ丘高校1年B組",
+    "personality_summary": "素直で吸収が早い。優奈に憧れ、何でも手伝いたがる。"
+  },
+  {
+    "id": "haruka_morishita",
+    "name_display": "森下 遥",
+    "name_romanized": "",
+    "aliases": [
+      "ハルカ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/patient",
+      "trait/encouraging",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "精神的な支えとして優奈や周囲を落ち着かせる役割を担う。",
+    "ai_summary": "ゆったりしたテンポで言葉を選ぶ",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・書道部員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、書道部",
+    "personality_summary": "丁寧で忍耐強い。優奈の焦りを落ち着かせ、静かに寄り添う。"
+  },
+  {
+    "id": "haruto_tanaka",
+    "name_display": "田中 陽斗",
+    "name_romanized": "",
+    "aliases": [
+      "ハルト",
+      "ただの田中"
+    ],
+    "tags": [
+      "role/protagonist",
+      "trait/kind",
+      "trait/observant",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "日常パートの語り手的存在として、周囲の変化を静かに見つめる。",
+    "ai_summary": "控えめで思慮深いトーンを維持する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生",
+    "affiliation_primary": "県立西ヶ丘高校2年B組",
+    "personality_summary": "温厚で優しく、空気を読むタイプ。自分から前に出ることは少ないが、困っている人を見ると放っておけない。"
+  },
+  {
+    "id": "hina_sugawara",
+    "name_display": "菅原 日菜",
+    "name_romanized": "",
+    "aliases": [
+      "ヒナ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/creative",
+      "trait/empathetic",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "言葉の面から航太の制作を支えるフィードバック役。",
+    "ai_summary": "相手の言葉を反復し、優しく提案する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・デザイン志望",
+    "affiliation_primary": "県立西ヶ丘高校2年B組",
+    "personality_summary": "言葉選びに敏感で、航太のアプリ文言を優しく整える。"
+  },
+  {
+    "id": "hinata_ogura",
+    "name_display": "小倉 日向",
+    "name_romanized": "",
+    "aliases": [
+      "ヒナ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/kind",
+      "trait/organizer",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "食事シーンや準備シーンで雰囲気を和ませるサポート役。",
+    "ai_summary": "相手の体調や手の動きを気遣う言葉を入れる",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・家庭科部員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、家庭科部",
+    "personality_summary": "面倒見が良く、段取りを考えるのが好き。食べ物の話題で人を和ませる。"
+  },
+  {
+    "id": "junpei_morozumi",
+    "name_display": "諸角 淳平",
+    "name_romanized": "",
+    "aliases": [
+      "ジュンペイ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/technical",
+      "trait/patient",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "ものづくりの裏側を支え、航太のアイデアを現実にする。",
+    "ai_summary": "静かで丁寧に状況を説明する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・電子工作班",
+    "affiliation_primary": "県立西ヶ丘高校2年A組、情報研究部電子工作班",
+    "personality_summary": "コツコツ作業する職人肌。航太のソフトに合わせてハードを作る連携が得意。"
+  },
+  {
+    "id": "kano_yoshino",
+    "name_display": "吉野 佳乃",
+    "name_romanized": "",
+    "aliases": [
+      "カノ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/observant",
+      "trait/calm",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "記録者として優奈の成長を映し、静かな支えとなる。",
+    "ai_summary": "落ち着いたトーンで観察したことを共有する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・写真部員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、写真部",
+    "personality_summary": "静かに周りを観察し、写真で切り取るタイプ。優奈の絵を撮影して記録するのが好き。"
+  },
+  {
+    "id": "kazuomi_hirai",
+    "name_display": "平井 和臣",
+    "name_romanized": "",
+    "aliases": [
+      "カズ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/reliable",
+      "trait/practical",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "夜勤現場の安定を担い、大地の働き方に影響を与える実務の先輩。",
+    "ai_summary": "言葉少なめで実務的に話す",
+    "age": 19,
+    "species": "human",
+    "occupation": "フリーター・夜勤スタッフ",
+    "affiliation_primary": "近所のコンビニ夜勤クルー",
+    "personality_summary": "寡黙だが状況判断が早い。大地の段取りを理解し、無言のフォローを入れる。"
+  },
+  {
+    "id": "keita_morikawa",
+    "name_display": "森川 圭太",
+    "name_romanized": "",
+    "aliases": [
+      "ケイ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/steady",
+      "trait/supportive",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "守備から蓮を支え、チームの安定を作る縁の下の力持ち。",
+    "ai_summary": "短く明確な指示で支える",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・サッカー部GK",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、サッカー部",
+    "personality_summary": "冷静で守りを固めるタイプ。蓮の攻撃を活かすため、後ろから声をかける。"
+  },
+  {
+    "id": "kouta_shimura",
+    "name_display": "志村 航太",
+    "name_romanized": "",
+    "aliases": [
+      "コウタ",
+      "シム"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/curious",
+      "trait/helpful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "陽斗の学習やクラス企画を技術面で支える影の助っ人。",
+    "ai_summary": "柔らかく説明し、難しい部分は噛み砕いて例える",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・情報研究部員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、情報研究部",
+    "personality_summary": "好奇心旺盛で、問題を分解して考えるのが好き。人に頼られると嬉しくて頑張りすぎる。"
+  },
+  {
+    "id": "mao_tachibana",
+    "name_display": "橘 真央",
+    "name_romanized": "",
+    "aliases": [
+      "マオ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/organized",
+      "trait/critical",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "品質を守る立場から航太を支え、抜け漏れを防ぐ。",
+    "ai_summary": "はっきりと理由を伝えつつ、フォローを入れる",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・生徒会書記補佐",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、生徒会書記補佐",
+    "personality_summary": "抜け漏れを見つけるのが得意で、航太のアプリを実際に触って改善点を出す。"
+  },
+  {
+    "id": "mei_kurata",
+    "name_display": "倉田 芽衣",
+    "name_romanized": "",
+    "aliases": [
+      "メイ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/earnest",
+      "trait/polite",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "大地の指導の成果を示す後輩として、成長を映す。",
+    "ai_summary": "丁寧で控えめな口調を守る",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・コンビニレジ担当",
+    "affiliation_primary": "県立西ヶ丘高校2年A組、近所のコンビニアルバイト",
+    "personality_summary": "丁寧で控えめ。大地の教えをメモし、確実に実行する。"
+  },
+  {
+    "id": "miki_sawada",
+    "name_display": "澤田 美希",
+    "name_romanized": "",
+    "aliases": [
+      "ミキ",
+      "さわだん"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/observant",
+      "trait/calm",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "陽斗の思考を整理する鏡役として、言葉を整え自信を支える。",
+    "ai_summary": "落ち着いたトーンで、短く要点を示す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・図書委員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、図書委員会",
+    "personality_summary": "静かで聞き上手。状況を俯瞰してメモを取る習慣があり、必要な時に要点をまとめてくれる。"
+  },
+  {
+    "id": "miyu_kato",
+    "name_display": "加藤 美優",
+    "name_romanized": "",
+    "aliases": [
+      "ミユ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/earnest",
+      "trait/creative",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "優奈の成長を映す後輩役として、創作への刺激を与え合う。",
+    "ai_summary": "控えめな敬語で先輩を立てる",
+    "age": 16,
+    "species": "human",
+    "occupation": "高校生・美術部一年",
+    "affiliation_primary": "県立西ヶ丘高校1年C組、美術部",
+    "personality_summary": "真面目で吸収が早い。優奈の描き方をよく観察し、質問を重ねて成長しようとする。"
+  },
+  {
+    "id": "momo_tachiki",
+    "name_display": "立木 もも",
+    "name_romanized": "",
+    "aliases": [
+      "モモ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/cheerful",
+      "trait/supportive",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "応援で蓮の気持ちを上げ、チームに勢いを与えるムードメーカー。",
+    "ai_summary": "明るくテンポ良く励ます",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・応援団員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、応援団",
+    "personality_summary": "明るく声が大きい。蓮が落ち込んでいるときに真っ先に気づき、笑顔で支える。"
+  },
+  {
+    "id": "naoto_sano",
+    "name_display": "佐野 直人",
+    "name_romanized": "",
+    "aliases": [
+      "ナオト"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/analytical",
+      "trait/helpful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "情報整理のデジタル面を担当し、美希の作業を効率化する影のサポーター。",
+    "ai_summary": "具体的な操作手順や整理方針を示す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・情報研究部員",
+    "affiliation_primary": "県立西ヶ丘高校2年C組、情報研究部",
+    "personality_summary": "データ整理が得意で、美希のメモをデジタル化して検索しやすくする。"
+  },
+  {
+    "id": "natsu_asakura",
+    "name_display": "朝倉 奈津",
+    "name_romanized": "",
+    "aliases": [
+      "ナツ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/freewheeling",
+      "trait/cheerful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "行動力で場を動かし、優奈に新しい景色を見せる火付け役。",
+    "ai_summary": "テンポよく、景色や色を例えに出して話す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・イラストレーター志望",
+    "affiliation_primary": "県立西ヶ丘高校2年A組",
+    "personality_summary": "フットワークが軽く、思いついたらすぐ行動する。優奈を外に連れ出し、新しい景色を共有する。"
+  },
+  {
+    "id": "ren_kobayashi",
+    "name_display": "小林 蓮",
+    "name_romanized": "",
+    "aliases": [
+      "レン",
+      "こば"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/energetic",
+      "trait/loyal",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "陽斗に身体を動かす楽しさと前に踏み出す勢いを与える。",
+    "ai_summary": "テンション高めで率直、相手を鼓舞する言葉を選ぶ",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・サッカー部ウイング",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、サッカー部",
+    "personality_summary": "明るくテンションが高いが、仲間思いで気配りもできる。負けず嫌いで目標に一直線。"
+  },
+  {
+    "id": "rena_fujimori",
+    "name_display": "藤森 怜奈",
+    "name_romanized": "",
+    "aliases": [
+      "レナ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/helpful",
+      "trait/resourceful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "外部から資料を供給し、美希たちの調査を支える連絡係。",
+    "ai_summary": "はっきりした口調で情報を端的に伝える",
+    "age": 19,
+    "species": "human",
+    "occupation": "専門学校生・書店アルバイト",
+    "affiliation_primary": "市内の専門学校1年、駅前書店アルバイト",
+    "personality_summary": "面倒見が良く、求められる前に資料を揃えるタイプ。美希に新刊情報を届ける。"
+  },
+  {
+    "id": "rio_fujii",
+    "name_display": "藤井 理央",
+    "name_romanized": "",
+    "aliases": [
+      "リオ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/cheerful",
+      "trait/creative",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "音楽で場を彩り、陽斗に小さな勇気を与えるトリガー役。",
+    "ai_summary": "リズミカルな比喩を使い明るく話す",
+    "age": 16,
+    "species": "human",
+    "occupation": "高校生・軽音同好会",
+    "affiliation_primary": "県立西ヶ丘高校1年A組、軽音同好会",
+    "personality_summary": "感情表現が豊かで、思いつきを即メモに残すタイプ。音で場を明るくする。"
+  },
+  {
+    "id": "ryohei_tsuda",
+    "name_display": "津田 涼平",
+    "name_romanized": "",
+    "aliases": [
+      "リョウ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/competitive",
+      "trait/energetic",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "蓮に競争心と成長のきっかけを与える刺激役。",
+    "ai_summary": "熱量のある短い言葉で話す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・サッカー部FW",
+    "affiliation_primary": "県立西ヶ丘高校2年A組、サッカー部",
+    "personality_summary": "負けず嫌いで走り続ける。蓮と競い合い、互いにスピードを磨く。"
+  },
+  {
+    "id": "sakura_minato",
+    "name_display": "湊 桜",
+    "name_romanized": "",
+    "aliases": [
+      "サクラ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/organized",
+      "trait/caring",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "裏方から蓮たちを支え、安心して走らせる調整役。",
+    "ai_summary": "落ち着いた声で体調を気遣う",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・サッカー部マネージャー",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、サッカー部",
+    "personality_summary": "段取りが得意で、蓮のテンションを整える声掛けをする。"
+  },
+  {
+    "id": "sayaka_uchida",
+    "name_display": "内田 沙耶香",
+    "name_romanized": "",
+    "aliases": [
+      "サヤ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/calm",
+      "trait/gentle",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "静かな空間を提供し、音で緊張をほぐす癒やし役。",
+    "ai_summary": "柔らかく短い言葉で支える",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・音楽室常連",
+    "affiliation_primary": "県立西ヶ丘高校2年C組、合唱部伴奏担当",
+    "personality_summary": "穏やかで聴き役。美希に静かな作業場所を提供し、音で集中を手助けする。"
+  },
+  {
+    "id": "shinpei_arai",
+    "name_display": "新井 真平",
+    "name_romanized": "",
+    "aliases": [
+      "シンペイ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/strategic",
+      "trait/mentor",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "蓮のプレーを戦術面で底上げするメンター。",
+    "ai_summary": "落ち着いた指示で具体的な位置を伝える",
+    "age": 18,
+    "species": "human",
+    "occupation": "高校生・サッカー部副キャプテン",
+    "affiliation_primary": "県立西ヶ丘高校3年A組、サッカー部",
+    "personality_summary": "戦術眼があり、蓮にポジショニングを教える頼れる先輩。"
+  },
+  {
+    "id": "shunpei_okazaki",
+    "name_display": "岡崎 駿平",
+    "name_romanized": "",
+    "aliases": [
+      "シュン"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/practical",
+      "trait/friendly",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "働く現場視点で陽斗の成長を後押しする先輩役。",
+    "ai_summary": "明るくテンポよく、現場目線で話す",
+    "age": 18,
+    "species": "human",
+    "occupation": "高校生・コンビニアルバイト",
+    "affiliation_primary": "県立西ヶ丘高校3年C組、近所のコンビニアルバイト",
+    "personality_summary": "明るくフットワークが軽い。状況を見てすぐ動き、後輩を励ます。"
+  },
+  {
+    "id": "sora_adachi",
+    "name_display": "安達 空",
+    "name_romanized": "",
+    "aliases": [
+      "ソラ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/curious",
+      "trait/collaborative",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "開発を動かす行動派として航太に刺激を与える。",
+    "ai_summary": "明るくテンポよく、技術を噛み砕いて話す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・情報研究部員",
+    "affiliation_primary": "県立西ヶ丘高校2年C組、情報研究部",
+    "personality_summary": "新しい技術を試すのが好きで、航太と一緒にミニアプリを作る。"
+  },
+  {
+    "id": "sosuke_kajimoto",
+    "name_display": "梶本 壮介",
+    "name_romanized": "",
+    "aliases": [
+      "ソウスケ",
+      "ソウ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/curious",
+      "trait/loyal",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "移動や下調べを支える実務担当として登場し、静かな場面で頼りになる。",
+    "ai_summary": "穏やかで説明的なトーンを維持する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・鉄道研究同好会",
+    "affiliation_primary": "県立西ヶ丘高校2年B組",
+    "personality_summary": "穏やかで観察好き。路線図を眺めながら話題を拾い、話を広げるのが得意。"
+  },
+  {
+    "id": "takeru_noma",
+    "name_display": "野間 健",
+    "name_romanized": "",
+    "aliases": [
+      "タケル"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/efficient",
+      "trait/friendly",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "物流面から大地を支え、時間管理の重要性を示す。",
+    "ai_summary": "時間意識のあるテンポで話す",
+    "age": 20,
+    "species": "human",
+    "occupation": "配送ドライバー・短大生",
+    "affiliation_primary": "市内短大2年、コンビニ配送ドライバー",
+    "personality_summary": "フットワークが軽く、時間内に配送を収めることに誇りを持つ。大地に荷受けのコツを伝える。"
+  },
+  {
+    "id": "takumi_inoue",
+    "name_display": "井上 拓海",
+    "name_romanized": "",
+    "aliases": [
+      "タク"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/logical",
+      "trait/helpful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "理論面で航太を支え、アルゴリズムの背景を補足する。",
+    "ai_summary": "ステップを分けて丁寧に説明する",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・数学研究部員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、数学研究部",
+    "personality_summary": "理屈を丁寧に説明するタイプ。航太にアルゴリズムの考え方を数学から噛み砕いて教える。"
+  },
+  {
+    "id": "tomoya_seto",
+    "name_display": "瀬戸 智也",
+    "name_romanized": "",
+    "aliases": [
+      "トモ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/logical",
+      "trait/helpful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "論理面で美希を支え、情報整理を共に担う参謀役。",
+    "ai_summary": "根拠を示しながら落ち着いて話す",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・ディベート部員",
+    "affiliation_primary": "県立西ヶ丘高校2年A組、ディベート部",
+    "personality_summary": "論理的で整理好き。美希の要約に惹かれ、議論の構成を一緒に考える。"
+  },
+  {
+    "id": "yu_ishikawa",
+    "name_display": "石川 悠",
+    "name_romanized": "",
+    "aliases": [
+      "ユウ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/practical",
+      "trait/optimistic",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "現場の効率を上げ、大地に身体のケアを促す元気な同僚。",
+    "ai_summary": "明るくテンポよく励ます",
+    "age": 18,
+    "species": "human",
+    "occupation": "高校生・倉庫アルバイト",
+    "affiliation_primary": "県立西ヶ丘高校3年B組、地域倉庫アルバイト",
+    "personality_summary": "快活で体を動かすことが好き。大地に効率の良い搬入方法を教える。"
+  },
+  {
+    "id": "yuna_kirishima",
+    "name_display": "桐島 優奈",
+    "name_romanized": "",
+    "aliases": [
+      "ユウナ",
+      "キリ"
+    ],
+    "tags": [
+      "role/supporting",
+      "trait/creative",
+      "trait/cheerful",
+      "species/human",
+      "status/alive",
+      "genre/modern"
+    ],
+    "role_in_story": "陽斗の日常に色を添える存在として、彼が一歩踏み出す時に背中を押す。",
+    "ai_summary": "感情表現をはっきり伝え、相手を巻き込むような明るさを持つ",
+    "age": 17,
+    "species": "human",
+    "occupation": "高校生・美術部員",
+    "affiliation_primary": "県立西ヶ丘高校2年B組、美術部",
+    "personality_summary": "素直で人懐っこく、好きなものを語ると止まらない。相手の良いところを見つけるのが得意。"
+  }
+]

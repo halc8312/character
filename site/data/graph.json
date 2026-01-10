@@ -1,0 +1,823 @@
+{
+  "nodes": [
+    {
+      "id": "akari_numata",
+      "label": "沼田 朱莉",
+      "tags": [
+        "role/supporting",
+        "trait/responsible",
+        "trait/observant",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "aya_kishimoto",
+      "label": "岸本 綾",
+      "tags": [
+        "role/supporting",
+        "trait/observant",
+        "trait/thoughtful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "chika_aoyagi",
+      "label": "青柳 千佳",
+      "tags": [
+        "role/supporting",
+        "trait/mentor",
+        "trait/organized",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "daichi_yamamoto",
+      "label": "山本 大地",
+      "tags": [
+        "role/supporting",
+        "trait/responsible",
+        "trait/practical",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "eito_kirishima",
+      "label": "桐島 永斗",
+      "tags": [
+        "role/supporting",
+        "trait/earnest",
+        "trait/helpful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "haruka_morishita",
+      "label": "森下 遥",
+      "tags": [
+        "role/supporting",
+        "trait/patient",
+        "trait/encouraging",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "haruto_tanaka",
+      "label": "田中 陽斗",
+      "tags": [
+        "role/protagonist",
+        "trait/kind",
+        "trait/observant",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "hina_sugawara",
+      "label": "菅原 日菜",
+      "tags": [
+        "role/supporting",
+        "trait/creative",
+        "trait/empathetic",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "hinata_ogura",
+      "label": "小倉 日向",
+      "tags": [
+        "role/supporting",
+        "trait/kind",
+        "trait/organizer",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "junpei_morozumi",
+      "label": "諸角 淳平",
+      "tags": [
+        "role/supporting",
+        "trait/technical",
+        "trait/patient",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "kano_yoshino",
+      "label": "吉野 佳乃",
+      "tags": [
+        "role/supporting",
+        "trait/observant",
+        "trait/calm",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "kazuomi_hirai",
+      "label": "平井 和臣",
+      "tags": [
+        "role/supporting",
+        "trait/reliable",
+        "trait/practical",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "keita_morikawa",
+      "label": "森川 圭太",
+      "tags": [
+        "role/supporting",
+        "trait/steady",
+        "trait/supportive",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "kouta_shimura",
+      "label": "志村 航太",
+      "tags": [
+        "role/supporting",
+        "trait/curious",
+        "trait/helpful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "mao_tachibana",
+      "label": "橘 真央",
+      "tags": [
+        "role/supporting",
+        "trait/organized",
+        "trait/critical",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "mei_kurata",
+      "label": "倉田 芽衣",
+      "tags": [
+        "role/supporting",
+        "trait/earnest",
+        "trait/polite",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "miki_sawada",
+      "label": "澤田 美希",
+      "tags": [
+        "role/supporting",
+        "trait/observant",
+        "trait/calm",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "miyu_kato",
+      "label": "加藤 美優",
+      "tags": [
+        "role/supporting",
+        "trait/earnest",
+        "trait/creative",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "momo_tachiki",
+      "label": "立木 もも",
+      "tags": [
+        "role/supporting",
+        "trait/cheerful",
+        "trait/supportive",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "naoto_sano",
+      "label": "佐野 直人",
+      "tags": [
+        "role/supporting",
+        "trait/analytical",
+        "trait/helpful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "natsu_asakura",
+      "label": "朝倉 奈津",
+      "tags": [
+        "role/supporting",
+        "trait/freewheeling",
+        "trait/cheerful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "ren_kobayashi",
+      "label": "小林 蓮",
+      "tags": [
+        "role/supporting",
+        "trait/energetic",
+        "trait/loyal",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "rena_fujimori",
+      "label": "藤森 怜奈",
+      "tags": [
+        "role/supporting",
+        "trait/helpful",
+        "trait/resourceful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "rio_fujii",
+      "label": "藤井 理央",
+      "tags": [
+        "role/supporting",
+        "trait/cheerful",
+        "trait/creative",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "ryohei_tsuda",
+      "label": "津田 涼平",
+      "tags": [
+        "role/supporting",
+        "trait/competitive",
+        "trait/energetic",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "sakura_minato",
+      "label": "湊 桜",
+      "tags": [
+        "role/supporting",
+        "trait/organized",
+        "trait/caring",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "sayaka_uchida",
+      "label": "内田 沙耶香",
+      "tags": [
+        "role/supporting",
+        "trait/calm",
+        "trait/gentle",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "shinpei_arai",
+      "label": "新井 真平",
+      "tags": [
+        "role/supporting",
+        "trait/strategic",
+        "trait/mentor",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "shunpei_okazaki",
+      "label": "岡崎 駿平",
+      "tags": [
+        "role/supporting",
+        "trait/practical",
+        "trait/friendly",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "sora_adachi",
+      "label": "安達 空",
+      "tags": [
+        "role/supporting",
+        "trait/curious",
+        "trait/collaborative",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "sosuke_kajimoto",
+      "label": "梶本 壮介",
+      "tags": [
+        "role/supporting",
+        "trait/curious",
+        "trait/loyal",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "takeru_noma",
+      "label": "野間 健",
+      "tags": [
+        "role/supporting",
+        "trait/efficient",
+        "trait/friendly",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "takumi_inoue",
+      "label": "井上 拓海",
+      "tags": [
+        "role/supporting",
+        "trait/logical",
+        "trait/helpful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "tomoya_seto",
+      "label": "瀬戸 智也",
+      "tags": [
+        "role/supporting",
+        "trait/logical",
+        "trait/helpful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "yu_ishikawa",
+      "label": "石川 悠",
+      "tags": [
+        "role/supporting",
+        "trait/practical",
+        "trait/optimistic",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    },
+    {
+      "id": "yuna_kirishima",
+      "label": "桐島 優奈",
+      "tags": [
+        "role/supporting",
+        "trait/creative",
+        "trait/cheerful",
+        "species/human",
+        "status/alive",
+        "genre/modern"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "akari_numata__friend__haruto_tanaka",
+      "source": "akari_numata",
+      "target": "haruto_tanaka",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "クラスメイトとして陽斗の遠慮がちな意見を拾い、会議で代弁する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "aya_kishimoto__friend__miki_sawada",
+      "source": "aya_kishimoto",
+      "target": "miki_sawada",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "図書室仲間でメモ術を共有する友人。美希の落ち着きに憧れ、校正を手伝う。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "chika_aoyagi__friend__daichi_yamamoto",
+      "source": "chika_aoyagi",
+      "target": "daichi_yamamoto",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "元リーダーとして大地に働き方と学びのバランスを助言する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "daichi_yamamoto__friend__haruto_tanaka",
+      "source": "daichi_yamamoto",
+      "target": "haruto_tanaka",
+      "type": "friend",
+      "intensity": 3,
+      "summary": "バイト仲間。仕事の段取りを教えつつ、陽斗の学業との両立を気にかける。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "daichi_yamamoto__friend__kazuomi_hirai",
+      "source": "daichi_yamamoto",
+      "target": "kazuomi_hirai",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "夜勤の相棒。安全確認と段取りを共有し、互いにフォローする。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "daichi_yamamoto__friend__yu_ishikawa",
+      "source": "daichi_yamamoto",
+      "target": "yu_ishikawa",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "物流バイト仲間。荷捌きの効率や体の使い方を教えてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "daichi_yamamoto__friend__mei_kurata",
+      "source": "daichi_yamamoto",
+      "target": "mei_kurata",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "レジ担当の後輩。ミスを減らすメモを一緒に作り、成長を見守る。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "daichi_yamamoto__friend__takeru_noma",
+      "source": "daichi_yamamoto",
+      "target": "takeru_noma",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "配送ドライバー。荷受けの段取りや休憩の取り方を共有する相手。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "eito_kirishima__friend__yuna_kirishima",
+      "source": "eito_kirishima",
+      "target": "yuna_kirishima",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "年下のいとことして優奈を慕い、展示の手伝いや写真記録を担当する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruka_morishita__friend__yuna_kirishima",
+      "source": "haruka_morishita",
+      "target": "yuna_kirishima",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "制作で焦る優奈に呼吸を整える方法を教え、落ち着く時間を共有する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__yuna_kirishima",
+      "source": "haruto_tanaka",
+      "target": "yuna_kirishima",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "隣家の幼なじみ。放課後に一緒に帰り、文化祭の相談を気軽にできる相手。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__ren_kobayashi",
+      "source": "haruto_tanaka",
+      "target": "ren_kobayashi",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "クラスメイトでサッカー部員。勉強を教える代わりに運動を教わる交換関係。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__miki_sawada",
+      "source": "haruto_tanaka",
+      "target": "miki_sawada",
+      "type": "friend",
+      "intensity": 3,
+      "summary": "図書委員の相談役。ノートのまとめ方や発表原稿を静かに支えてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__kouta_shimura",
+      "source": "haruto_tanaka",
+      "target": "kouta_shimura",
+      "type": "friend",
+      "intensity": 3,
+      "summary": "情報研究部のクラスメイト。デジタル面でノート整理を手伝ってくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__sosuke_kajimoto",
+      "source": "haruto_tanaka",
+      "target": "sosuke_kajimoto",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "電車好きのクラスメイト。移動計画や小旅行の段取りを相談する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__hinata_ogura",
+      "source": "haruto_tanaka",
+      "target": "hinata_ogura",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "家庭科部の同級生。弁当作りや段取りを一緒に考える仲。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__rio_fujii",
+      "source": "haruto_tanaka",
+      "target": "rio_fujii",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "隣人の軽音仲間。音楽を聴かせ合い、感想を交換する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "haruto_tanaka__friend__shunpei_okazaki",
+      "source": "haruto_tanaka",
+      "target": "shunpei_okazaki",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "バイト先の先輩。現場の手際や働き方を教えてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "hina_sugawara__friend__kouta_shimura",
+      "source": "hina_sugawara",
+      "target": "kouta_shimura",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "航太のアプリ文言を整える協力者。ユーザー目線で意見を伝える。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "junpei_morozumi__friend__kouta_shimura",
+      "source": "junpei_morozumi",
+      "target": "kouta_shimura",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "航太のソフトに合わせてハードを作る頼れる相棒。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "kano_yoshino__friend__yuna_kirishima",
+      "source": "kano_yoshino",
+      "target": "yuna_kirishima",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "作品を撮影する写真仲間。優奈の創作過程を記録し、展示を陰から支える。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "keita_morikawa__friend__ren_kobayashi",
+      "source": "keita_morikawa",
+      "target": "ren_kobayashi",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "中学からのチームメイト。蓮の突破を後ろから支え、声掛けで連携する。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "kouta_shimura__friend__sora_adachi",
+      "source": "kouta_shimura",
+      "target": "sora_adachi",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "ハッカソン仲間。プロトタイピングの速さで開発を引っ張ってくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "kouta_shimura__friend__takumi_inoue",
+      "source": "kouta_shimura",
+      "target": "takumi_inoue",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "数学好きの勉強仲間。アルゴリズムの考え方を噛み砕いて教えてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "kouta_shimura__friend__mao_tachibana",
+      "source": "kouta_shimura",
+      "target": "mao_tachibana",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "テストとレビューを担当する友人。抜け漏れを指摘し品質を上げてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "miki_sawada__friend__tomoya_seto",
+      "source": "miki_sawada",
+      "target": "tomoya_seto",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "ディベート部の友人。論点整理や資料管理を相談する相手。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "miki_sawada__friend__rena_fujimori",
+      "source": "miki_sawada",
+      "target": "rena_fujimori",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "書店バイトの先輩。必要な資料を迅速に届けてくれる相談役。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "miki_sawada__friend__naoto_sano",
+      "source": "miki_sawada",
+      "target": "naoto_sano",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "デジタル整理を手伝う情報研の仲間。ノートのタグ付けを支援してくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "miki_sawada__friend__sayaka_uchida",
+      "source": "miki_sawada",
+      "target": "sayaka_uchida",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "音楽室を共有する友人。静かな伴奏で集中を助けてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "miyu_kato__friend__yuna_kirishima",
+      "source": "miyu_kato",
+      "target": "yuna_kirishima",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "美術部の尊敬する先輩。優奈の感性を学びつつ、放課後に一緒にデッサンをする仲。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "momo_tachiki__friend__ren_kobayashi",
+      "source": "momo_tachiki",
+      "target": "ren_kobayashi",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "クラスメイトとして蓮を全力で応援し、動画やボードで励ます。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "natsu_asakura__friend__yuna_kirishima",
+      "source": "natsu_asakura",
+      "target": "yuna_kirishima",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "スケッチ仲間として街を歩き回る。優奈の繊細な線に刺激を受け、外に連れ出す役。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "ren_kobayashi__friend__ryohei_tsuda",
+      "source": "ren_kobayashi",
+      "target": "ryohei_tsuda",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "同ポジションのライバル。競い合いながらスピードと決定力を高め合う。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "ren_kobayashi__friend__sakura_minato",
+      "source": "ren_kobayashi",
+      "target": "sakura_minato",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "マネージャー。コンディション管理や練習時間をサポートしてくれる。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    },
+    {
+      "id": "ren_kobayashi__friend__shinpei_arai",
+      "source": "ren_kobayashi",
+      "target": "shinpei_arai",
+      "type": "friend",
+      "intensity": 4,
+      "summary": "戦術を教えてくれる先輩。ポジショニングや戻りを指導してもらう。",
+      "tags": [
+        "dynamic/mutual"
+      ]
+    }
+  ]
+}
