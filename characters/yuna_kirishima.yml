@@ -113,6 +113,31 @@ relationships:
     description: "隣同士の幼なじみ。放課後に一緒に帰り、互いの悩みを小声で共有する。"
     intensity: 4
     mutual: true
+  - target_id: miyu_kato
+    type: friend
+    description: "美術部の後輩。デッサンを一緒に練習し、展示を支えてくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: natsu_asakura
+    type: friend
+    description: "街スケッチに誘ってくれる行動派の友人。新しい景色を共有する相手。"
+    intensity: 4
+    mutual: true
+  - target_id: kano_yoshino
+    type: friend
+    description: "写真部の仲間。作品の制作過程を撮影し、記録を任せられる。"
+    intensity: 4
+    mutual: true
+  - target_id: haruka_morishita
+    type: friend
+    description: "書道部の友人。制作前に呼吸を整える方法を教えてくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: eito_kirishima
+    type: friend
+    description: "年下のいとこ。展示の記録写真や設営を積極的に手伝ってくれる。"
+    intensity: 4
+    mutual: true
 
 story:
   role_in_narrative: "陽斗の日常に色を添える存在として、彼が一歩踏み出す時に背中を押す。"

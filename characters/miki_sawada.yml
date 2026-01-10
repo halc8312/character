@@ -113,6 +113,31 @@ relationships:
     description: "ノート術を教え合う静かな友人。陽斗が困ると、短い助言をそっと渡す。"
     intensity: 3
     mutual: true
+  - target_id: aya_kishimoto
+    type: friend
+    description: "文芸部の仲間。引用整理や校正を一緒に行い、静かに支え合う。"
+    intensity: 4
+    mutual: true
+  - target_id: tomoya_seto
+    type: friend
+    description: "ディベート部の友人。論点整理や資料管理を相談する相手。"
+    intensity: 4
+    mutual: true
+  - target_id: rena_fujimori
+    type: friend
+    description: "書店バイトの先輩。必要な資料を迅速に届けてくれる相談役。"
+    intensity: 4
+    mutual: true
+  - target_id: naoto_sano
+    type: friend
+    description: "デジタル整理を手伝う情報研の仲間。ノートのタグ付けを支援してくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: sayaka_uchida
+    type: friend
+    description: "音楽室を共有する友人。静かな伴奏で集中を助けてくれる。"
+    intensity: 4
+    mutual: true
 
 story:
   role_in_narrative: "陽斗の思考を整理する鏡役として、言葉を整え自信を支える。"
