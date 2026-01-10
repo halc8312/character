@@ -1,21 +1,21 @@
-name: New Character Proposal
-description: Propose a new character to be added to the database
-title: "[Character] "
+name: 新規キャラクター提案
+description: データベースに追加する新しいキャラクターを提案
+title: "[キャラクター] "
 labels: ["new-character"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for proposing a new character! Please fill out the information below.
-        This will help create a consistent character file.
+        新しいキャラクターを提案していただきありがとうございます！以下の情報を入力してください。
+        これにより一貫したキャラクターファイルの作成に役立ちます。
 
   - type: input
     id: character_id
     attributes:
-      label: Character ID
+      label: キャラクターID
       description: |
-        Unique identifier for the character.
-        Must be lowercase letters, numbers, and underscores only (e.g., `john_smith`, `hero_01`).
+        キャラクターの一意の識別子。
+        小文字、数字、アンダースコアのみ使用可能（例：`john_smith`, `hero_01`）。
       placeholder: "your_character_id"
     validations:
       required: true
@@ -23,17 +23,17 @@ body:
   - type: input
     id: character_name
     attributes:
-      label: Character Name
-      description: Full name of the character
-      placeholder: "John Smith"
+      label: キャラクター名
+      description: キャラクターのフルネーム
+      placeholder: "田中 太郎"
     validations:
       required: true
 
   - type: input
     id: age
     attributes:
-      label: Age
-      description: Character's age (number or descriptive like "immortal", "unknown")
+      label: 年齢
+      description: キャラクターの年齢（数字または「不死」「不明」などの説明的な言葉）
       placeholder: "25"
     validations:
       required: true
@@ -41,87 +41,87 @@ body:
   - type: dropdown
     id: role
     attributes:
-      label: Story Role
-      description: Primary role in the narrative
+      label: ストーリーでの役割
+      description: 物語における主な役割
       options:
-        - Protagonist
-        - Antagonist
-        - Supporting Character
-        - Minor Character
-        - Other
+        - 主人公
+        - 敵役
+        - 脇役
+        - 端役
+        - その他
     validations:
       required: true
 
   - type: textarea
     id: personality
     attributes:
-      label: Personality
-      description: Key personality traits and characteristics
+      label: 性格
+      description: 主な性格特性と特徴
       placeholder: |
-        - Brave and determined
-        - Quick to anger but loyal
-        - Has a dry sense of humor
+        - 勇敢で決断力がある
+        - 怒りやすいが忠実
+        - ドライなユーモアがある
     validations:
       required: true
 
   - type: textarea
     id: speech_style
     attributes:
-      label: Speech Style / Voice
-      description: How does this character speak? Include dialect, formality level, catchphrases, etc.
+      label: 話し方 / 声
+      description: このキャラクターはどのように話しますか？方言、丁寧さのレベル、決め台詞などを含めてください。
       placeholder: |
-        Speaks formally with occasional old-fashioned phrases.
-        Often says "Indeed" and "As you wish."
+        時折古風なフレーズを交えたフォーマルな話し方。
+        よく「なるほど」「承知しました」と言う。
     validations:
       required: true
 
   - type: textarea
     id: background
     attributes:
-      label: Background
-      description: Brief backstory and history
+      label: 背景
+      description: 簡潔な経歴と歴史
       placeholder: |
-        Born in a small village, trained as a knight from age 12...
+        小さな村で生まれ、12歳から騎士として訓練を受けた...
     validations:
       required: true
 
   - type: textarea
     id: goals
     attributes:
-      label: Goals & Motivations
-      description: What drives this character? What are they trying to achieve?
+      label: 目標と動機
+      description: このキャラクターを動かすものは何ですか？何を達成しようとしていますか？
       placeholder: |
-        Primary goal: Protect their homeland
-        Motivation: Guilt over past failure
+        主な目標: 故郷を守る
+        動機: 過去の失敗への罪悪感
     validations:
       required: true
 
   - type: textarea
     id: secrets
     attributes:
-      label: Secrets (optional)
-      description: Any secrets this character keeps (these won't be revealed by AI unless appropriate)
+      label: 秘密（オプション）
+      description: このキャラクターが隠している秘密（適切な場合を除き、AIによって明かされません）
       placeholder: |
-        - Secretly doubts the king's motives
-        - Has a forbidden love
+        - 密かに王の動機を疑っている
+        - 禁じられた恋がある
 
   - type: textarea
     id: relationships
     attributes:
-      label: Relationships
+      label: 関係性
       description: |
-        Key relationships with other characters. 
-        For existing characters, use their character ID.
+        他のキャラクターとの主な関係。
+        既存のキャラクターの場合は、キャラクターIDを使用してください。
       placeholder: |
-        - alice_wonder: friend (childhood companions)
-        - dark_lord: enemy (nemesis)
+        - alice_wonder: 友人（幼なじみ）
+        - dark_lord: 敵（宿敵）
 
   - type: textarea
     id: tags
     attributes:
-      label: Suggested Tags
+      label: 推奨タグ
       description: |
-        Tags in prefix/value format. Valid prefixes: role, trait, species, origin, faction, status, archetype, power, era, genre
+        prefix/value 形式のタグ。有効なプレフィックス: role, trait, species, origin, faction, status, archetype, power, era, genre
       placeholder: |
         - role/protagonist
         - trait/brave
@@ -133,24 +133,24 @@ body:
   - type: textarea
     id: ai_boundaries
     attributes:
-      label: AI Portrayal Boundaries
-      description: What should the AI avoid when portraying this character?
+      label: AI演技の境界
+      description: このキャラクターを演じる際にAIが避けるべきことは何ですか？
       placeholder: |
-        - Never break character
-        - Do not reveal the secret identity
-        - Avoid graphic violence
+        - キャラクターを破らない
+        - 秘密のアイデンティティを明かさない
+        - 過激な暴力を避ける
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: Pre-submission Checklist
-      description: Please confirm the following
+      label: 提出前チェックリスト
+      description: 以下を確認してください
       options:
-        - label: Character ID follows naming rules (lowercase, numbers, underscores only)
+        - label: キャラクターIDが命名規則に従っている（小文字、数字、アンダースコアのみ）
           required: true
-        - label: Tags use valid prefixes from vocab.yml
+        - label: タグが vocab.yml の有効なプレフィックスを使用している
           required: true
-        - label: Relationships reference existing character IDs (or will be added together)
+        - label: 関係性が既存のキャラクターIDを参照している（または一緒に追加される）
           required: true
-        - label: I have reviewed the character template (_TEMPLATE.character.yml)
+        - label: キャラクターテンプレート (_TEMPLATE.character.yml) を確認した
           required: true

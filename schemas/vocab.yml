@@ -1,17 +1,17 @@
-# Controlled Vocabulary for Character Database
-# This file defines valid values for tags and relationship types.
-# Update this file to add new categories as your world expands.
+# キャラクターデータベースの制御語彙
+# このファイルはタグと関係性タイプの有効な値を定義します。
+# 世界観が拡張されるにつれて、このファイルを更新して新しいカテゴリを追加してください。
 
-# Relationship types between characters
-# Used in characters/*.yml relationships[].type
+# キャラクター間の関係性タイプ
+# characters/*.yml の relationships[].type で使用されます
 relationship_types:
-  # Family relationships
+  # 家族関係
   - parent
   - child
   - sibling
   - spouse
   - relative
-  # Social relationships
+  # 社会的関係
   - friend
   - rival
   - enemy
@@ -20,63 +20,63 @@ relationship_types:
   - student
   - colleague
   - acquaintance
-  # Romantic relationships
+  # 恋愛関係
   - lover
   - ex_lover
   - crush
-  # Professional relationships
+  # 職業的関係
   - employer
   - employee
   - partner
   - subordinate
   - superior
-  # Other
+  # その他
   - unknown
   - other
 
-# Valid tag prefixes
-# Tags must follow the format: prefix/value
-# e.g., role/protagonist, trait/brave, species/human
+# 有効なタグプレフィックス
+# タグは prefix/value 形式に従う必要があります
+# 例: role/protagonist, trait/brave, species/human
 tag_prefixes:
-  - role        # Story role (protagonist, antagonist, supporting, etc.)
-  - trait       # Personality traits (brave, cunning, kind, etc.)
-  - species     # Species or race (human, elf, android, etc.)
-  - origin      # Origin or homeland (kingdom_a, earth, etc.)
-  - faction     # Faction or organization membership
-  - status      # Current status (alive, deceased, missing, etc.)
-  - archetype   # Character archetype (hero, trickster, sage, etc.)
-  - power       # Power type or magic system affinity
-  - era         # Time period or era
-  - genre       # Genre tag (fantasy, scifi, modern, etc.)
+  - role        # ストーリーでの役割（protagonist, antagonist, supporting など）
+  - trait       # 性格特性（brave, cunning, kind など）
+  - species     # 種族（human, elf, android など）
+  - origin      # 出身地や起源（kingdom_a, earth など）
+  - faction     # 所属組織やグループ
+  - status      # 現在の状態（alive, deceased, missing など）
+  - archetype   # キャラクター原型（hero, trickster, sage など）
+  - power       # 能力タイプや魔法システムとの親和性
+  - era         # 時代
+  - genre       # ジャンルタグ（fantasy, scifi, modern など）
 
-# Recommended tags for common use cases
-# These are suggestions, not requirements
+# よく使われるケースの推奨タグ
+# これらは提案であり、必須ではありません
 recommended_tags:
-  # Role tags
+  # 役割タグ
   - role/protagonist
   - role/antagonist
   - role/supporting
   - role/minor
   - role/narrator
-  # Common traits
+  # よくある特性
   - trait/brave
   - trait/cunning
   - trait/kind
   - trait/ruthless
   - trait/mysterious
   - trait/comedic
-  # Species examples
+  # 種族の例
   - species/human
   - species/elf
   - species/dwarf
   - species/android
   - species/vampire
-  # Status tags
+  # 状態タグ
   - status/alive
   - status/deceased
   - status/missing
   - status/unknown
-  # Archetype tags
+  # 原型タグ
   - archetype/hero
   - archetype/mentor
   - archetype/trickster

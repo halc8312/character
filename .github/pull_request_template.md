@@ -1,41 +1,41 @@
-## Description
+## 説明
 
-<!-- Briefly describe the changes in this PR -->
+<!-- このPRの変更点を簡潔に説明してください -->
 
-## Type of Change
+## 変更の種類
 
-- [ ] New character (`characters/<id>.yml`)
-- [ ] Character update/edit
-- [ ] Schema change
-- [ ] Vocabulary update (`vocab.yml`)
-- [ ] Documentation update
-- [ ] CI/Tooling update
-- [ ] Other: <!-- specify -->
+- [ ] 新規キャラクター (`characters/<id>.yml`)
+- [ ] キャラクターの更新/編集
+- [ ] スキーマの変更
+- [ ] 語彙の更新 (`vocab.yml`)
+- [ ] ドキュメントの更新
+- [ ] CI/ツールの更新
+- [ ] その他: <!-- 詳細を記入 -->
 
-## Pre-merge Checklist
+## マージ前チェックリスト
 
-### For Character Changes
-- [ ] CI validation passes (`validate_characters.py`)
-- [ ] Character file follows `_TEMPLATE.character.yml` structure
-- [ ] Character ID matches filename (`<id>.yml`)
-- [ ] All relationships reference existing character IDs
-- [ ] Relationship types are valid (in `vocab.yml`)
-- [ ] Tags use valid prefixes (in `vocab.yml`)
-- [ ] `meta.updated` date is set to today (YYYY-MM-DD)
+### キャラクターの変更の場合
+- [ ] CI検証に合格 (`validate_characters.py`)
+- [ ] キャラクターファイルが `_TEMPLATE.character.yml` の構造に従っている
+- [ ] キャラクターIDがファイル名と一致 (`<id>.yml`)
+- [ ] すべての関係性が既存のキャラクターIDを参照している
+- [ ] 関係性タイプが有効（`vocab.yml` 内にある）
+- [ ] タグが有効なプレフィックスを使用（`vocab.yml` 内にある）
+- [ ] `meta.updated` の日付が今日に設定されている (YYYY-MM-DD)
 
-### For Schema/Vocabulary Changes
-- [ ] Changes are backward compatible (or version is bumped)
-- [ ] Existing characters still pass validation
-- [ ] README is updated if needed
+### スキーマ/語彙の変更の場合
+- [ ] 変更が後方互換性を持つ（またはバージョンが更新されている）
+- [ ] 既存のキャラクターがまだ検証に合格する
+- [ ] 必要に応じてREADMEが更新されている
 
-### General
-- [ ] I have tested my changes locally
-- [ ] Documentation is updated (if applicable)
+### 全般
+- [ ] ローカルで変更をテスト済み
+- [ ] ドキュメントが更新されている（該当する場合）
 
-## Related Issues
+## 関連Issue
 
-<!-- Link any related issues: Fixes #123, Relates to #456 -->
+<!-- 関連するIssueをリンク: Fixes #123, Relates to #456 -->
 
-## Notes for Reviewers
+## レビュアーへのメモ
 
-<!-- Any additional context for reviewers -->
+<!-- レビュアー向けの追加コンテキスト -->

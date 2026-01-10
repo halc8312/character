@@ -1,54 +1,54 @@
-# Character Database
+# キャラクターデータベース
 
-A Git-managed story character database designed for AI-powered character portrayal. This repository provides a structured template for defining fictional characters that can be read by AI systems to "act as" those characters.
+AIによるキャラクター演技のために設計された、Git管理型のストーリーキャラクターデータベースです。このリポジトリは、AIシステムがキャラクターを「演じる」ために読み取れる、フィクションキャラクターを定義するための構造化テンプレートを提供します。
 
-## Overview
+## 概要
 
-This repository serves as the **Single Source of Truth** for character definitions, with:
-- Consistent schema for all characters
-- Machine-readable YAML format
-- AI portrayal guidelines built-in
-- CI validation for data integrity
+このリポジトリは、キャラクター定義の**唯一の信頼できる情報源**として機能し、以下を提供します：
+- 全キャラクターに対する一貫したスキーマ
+- 機械可読なYAML形式
+- AI演技ガイドラインの組み込み
+- データ整合性のためのCI検証
 
-## Repository Structure
+## リポジトリ構成
 
 ```
 .
-├── README.md                          # This file
+├── README.md                          # このファイル
 ├── schemas/
-│   ├── character.schema.json          # JSON Schema for character validation
-│   └── vocab.yml                      # Controlled vocabulary (tags, relationship types)
+│   ├── character.schema.json          # キャラクター検証用JSONスキーマ
+│   └── vocab.yml                      # 制御語彙（タグ、関係性タイプ）
 ├── characters/
-│   └── _TEMPLATE.character.yml        # Template for new characters
+│   └── _TEMPLATE.character.yml        # 新規キャラクター用テンプレート
 ├── relations/
-│   └── graph.yml                      # Relationship graph (optional centralized view)
+│   └── graph.yml                      # 関係性グラフ（オプションの集中管理ビュー）
 ├── prompts/
-│   ├── system_prompt.md               # AI system prompt
-│   └── character_prompt_template.md   # Character-specific prompt template
+│   ├── system_prompt.md               # AIシステムプロンプト
+│   └── character_prompt_template.md   # キャラクター固有プロンプトテンプレート
 ├── scripts/
-│   └── validate_characters.py         # Validation script
+│   └── validate_characters.py         # 検証スクリプト
 └── .github/
     ├── workflows/
-    │   └── validate.yml               # CI validation workflow
+    │   └── validate.yml               # CI検証ワークフロー
     ├── ISSUE_TEMPLATE/
-    │   └── new_character.yml          # New character proposal template
-    └── pull_request_template.md       # PR checklist
+    │   └── new_character.yml          # 新規キャラクター提案テンプレート
+    └── pull_request_template.md       # PRチェックリスト
 ```
 
-## Character ID Naming Rules
+## キャラクターID命名規則
 
-Character IDs must:
-- Use only **lowercase letters**, **numbers**, and **underscores**
-- Match the pattern: `^[a-z0-9_]+$`
-- Match the filename exactly (e.g., `john_smith.yml` → `id: john_smith`)
+キャラクターIDは以下の条件を満たす必要があります：
+- **小文字**、**数字**、**アンダースコア**のみ使用
+- パターン `^[a-z0-9_]+$` に一致
+- ファイル名と完全に一致（例：`john_smith.yml` → `id: john_smith`）
 
-**Examples:**
+**例：**
 - ✅ `alice_wonder`, `hero_01`, `dark_lord`
 - ❌ `Alice-Wonder`, `Hero 01`, `DarkLord`
 
-## Tag System
+## タグシステム
 
-Tags classify characters using a `prefix/value` format:
+タグは `prefix/value` 形式でキャラクターを分類します：
 
 ```yaml
 tags:
@@ -58,180 +58,180 @@ tags:
   - status/alive
 ```
 
-### Valid Tag Prefixes
+### 有効なタグプレフィックス
 
-| Prefix | Description | Examples |
+| プレフィックス | 説明 | 例 |
 |--------|-------------|----------|
-| `role` | Story role | `protagonist`, `antagonist`, `supporting` |
-| `trait` | Personality trait | `brave`, `cunning`, `kind` |
-| `species` | Species/race | `human`, `elf`, `android` |
-| `origin` | Homeland/origin | `kingdom_a`, `earth` |
-| `faction` | Organization | `rebels`, `empire` |
-| `status` | Current status | `alive`, `deceased`, `missing` |
-| `archetype` | Character archetype | `hero`, `mentor`, `trickster` |
-| `power` | Power/magic type | `fire_magic`, `telepathy` |
-| `era` | Time period | `medieval`, `future` |
-| `genre` | Genre tag | `fantasy`, `scifi`, `modern` |
+| `role` | ストーリーでの役割 | `protagonist`, `antagonist`, `supporting` |
+| `trait` | 性格特性 | `brave`, `cunning`, `kind` |
+| `species` | 種族 | `human`, `elf`, `android` |
+| `origin` | 出身地・起源 | `kingdom_a`, `earth` |
+| `faction` | 所属組織 | `rebels`, `empire` |
+| `status` | 現在の状態 | `alive`, `deceased`, `missing` |
+| `archetype` | キャラクター原型 | `hero`, `mentor`, `trickster` |
+| `power` | 能力・魔法タイプ | `fire_magic`, `telepathy` |
+| `era` | 時代 | `medieval`, `future` |
+| `genre` | ジャンルタグ | `fantasy`, `scifi`, `modern` |
 
-### Adding New Tag Prefixes
+### 新規タグプレフィックスの追加
 
-To add a new prefix:
-1. Edit `schemas/vocab.yml`
-2. Add the prefix to `tag_prefixes` list
-3. Optionally add recommended tags to `recommended_tags`
-4. Submit a PR
+新しいプレフィックスを追加するには：
+1. `schemas/vocab.yml` を編集
+2. `tag_prefixes` リストにプレフィックスを追加
+3. 必要に応じて `recommended_tags` に推奨タグを追加
+4. PRを提出
 
-**Validation Behavior:** Tags with invalid prefixes will cause validation errors.
+**検証動作：** 無効なプレフィックスを持つタグは検証エラーを引き起こします。
 
-## Relationship System
+## 関係性システム
 
-Relationships are defined in each character's `relationships` array:
+関係性は各キャラクターの `relationships` 配列で定義されます：
 
 ```yaml
 relationships:
-  - target_id: alice_wonder    # Must be existing character ID
-    type: friend               # Must be in vocab.yml
-    description: "Childhood friends"
-    intensity: 4               # -5 (hostile) to 5 (close)
+  - target_id: alice_wonder    # 既存のキャラクターIDである必要があります
+    type: friend               # vocab.yml に存在する必要があります
+    description: "幼なじみ"
+    intensity: 4               # -5（敵対的）〜 5（親密）
     mutual: true
 ```
 
-### Valid Relationship Types
+### 有効な関係性タイプ
 
-| Category | Types |
+| カテゴリ | タイプ |
 |----------|-------|
-| Family | `parent`, `child`, `sibling`, `spouse`, `relative` |
-| Social | `friend`, `rival`, `enemy`, `ally`, `mentor`, `student`, `colleague`, `acquaintance` |
-| Romantic | `lover`, `ex_lover`, `crush` |
-| Professional | `employer`, `employee`, `partner`, `subordinate`, `superior` |
-| Other | `unknown`, `other` |
+| 家族 | `parent`, `child`, `sibling`, `spouse`, `relative` |
+| 社会的 | `friend`, `rival`, `enemy`, `ally`, `mentor`, `student`, `colleague`, `acquaintance` |
+| 恋愛 | `lover`, `ex_lover`, `crush` |
+| 職業的 | `employer`, `employee`, `partner`, `subordinate`, `superior` |
+| その他 | `unknown`, `other` |
 
-### Adding New Relationship Types
+### 新規関係性タイプの追加
 
-1. Edit `schemas/vocab.yml`
-2. Add the type to `relationship_types` list
-3. Submit a PR
+1. `schemas/vocab.yml` を編集
+2. `relationship_types` リストにタイプを追加
+3. PRを提出
 
-### Graph.yml (Optional)
+### Graph.yml（オプション）
 
-`relations/graph.yml` provides an optional centralized view of relationships. The authoritative source remains each character's `relationships` array. Use `graph.yml` for:
-- Visualization tools
-- Cross-referencing
-- Network analysis
+`relations/graph.yml` は関係性のオプションの集中管理ビューを提供します。信頼できる情報源は各キャラクターの `relationships` 配列です。`graph.yml` は以下の用途に使用できます：
+- 可視化ツール
+- クロスリファレンス
+- ネットワーク分析
 
-## Adding a New Character
+## 新規キャラクターの追加
 
-### Step 1: Create Issue (Optional)
-Use the [New Character template](.github/ISSUE_TEMPLATE/new_character.yml) to propose the character.
+### ステップ1：Issueを作成（オプション）
+[新規キャラクターテンプレート](.github/ISSUE_TEMPLATE/new_character.yml)を使用してキャラクターを提案します。
 
-### Step 2: Create Character File
-1. Copy `characters/_TEMPLATE.character.yml` to `characters/<your_id>.yml`
-2. Replace placeholder values with actual character data
-3. Ensure `id` matches the filename
+### ステップ2：キャラクターファイルの作成
+1. `characters/_TEMPLATE.character.yml` を `characters/<your_id>.yml` にコピー
+2. プレースホルダーの値を実際のキャラクターデータに置き換え
+3. `id` がファイル名と一致していることを確認
 
-### Step 3: Validate Locally
+### ステップ3：ローカルで検証
 ```bash
-# Install dependencies
+# 依存関係のインストール
 pip install pyyaml jsonschema
 
-# Run validation
+# 検証の実行
 python scripts/validate_characters.py
 ```
 
-### Step 4: Submit PR
-1. Create a branch and commit your changes
-2. Open a Pull Request
-3. CI will automatically validate
-4. Address any issues if validation fails
+### ステップ4：PRを提出
+1. ブランチを作成して変更をコミット
+2. プルリクエストを開く
+3. CIが自動的に検証を実行
+4. 検証が失敗した場合は問題を修正
 
-## Using with AI
+## AIでの使用方法
 
-### Step 1: Set Up System Prompt
+### ステップ1：システムプロンプトの設定
 
-Copy the contents of `prompts/system_prompt.md` as the AI's system prompt. This establishes:
-- Character portrayal guidelines
-- Boundary rules
-- Meta-commentary restrictions
-- Safety guidelines
+`prompts/system_prompt.md` の内容をAIのシステムプロンプトとしてコピーします。これにより以下が確立されます：
+- キャラクター演技ガイドライン
+- 境界ルール
+- メタコメンタリーの制限
+- 安全ガイドライン
 
-### Step 2: Create Character Prompt
+### ステップ2：キャラクタープロンプトの作成
 
-1. Copy `prompts/character_prompt_template.md`
-2. Replace `{{CHARACTER_YAML}}` with the full contents of your character's YAML file
-3. Use this as the AI's character-specific prompt
+1. `prompts/character_prompt_template.md` をコピー
+2. `{{CHARACTER_YAML}}` をキャラクターのYAMLファイルの全内容に置き換え
+3. これをAIのキャラクター固有プロンプトとして使用
 
-### Example Setup
+### 設定例
 
 ```
-[System Prompt]
-<contents of prompts/system_prompt.md>
+[システムプロンプト]
+<prompts/system_prompt.md の内容>
 
-[User/Character Prompt]
-<contents of prompts/character_prompt_template.md with {{CHARACTER_YAML}} replaced>
+[ユーザー/キャラクタープロンプト]
+<{{CHARACTER_YAML}} を置き換えた prompts/character_prompt_template.md の内容>
 
-[User Message]
-Hello! How are you today?
+[ユーザーメッセージ]
+こんにちは！今日の調子はどうですか？
 ```
 
-The AI will respond as the character, using their defined voice, personality, and knowledge.
+AIは、定義された声、性格、知識を使用してキャラクターとして応答します。
 
-## CI Validation
+## CI検証
 
-The GitHub Actions workflow validates on every PR and push to main branches.
+GitHub Actionsワークフローは、すべてのPRとメインブランチへのプッシュで検証を実行します。
 
-### What Gets Checked
+### 検証内容
 
-| Check | Description |
+| チェック | 説明 |
 |-------|-------------|
-| **Schema Validation** | All required keys present, correct types |
-| **ID/Filename Match** | Character `id` matches the filename |
-| **Relationship Targets** | All `target_id` values reference existing characters |
-| **Relationship Types** | All `type` values exist in `vocab.yml` |
-| **Tag Prefixes** | All tag prefixes exist in `vocab.yml` (error) |
-| **Date Formats** | `meta.created` and `meta.updated` are valid YYYY-MM-DD |
-| **Graph.yml** | If populated, references valid character IDs and types |
+| **スキーマ検証** | 全必須キーの存在、正しい型 |
+| **ID/ファイル名の一致** | キャラクターの `id` がファイル名と一致 |
+| **関係性ターゲット** | 全 `target_id` 値が既存のキャラクターを参照 |
+| **関係性タイプ** | 全 `type` 値が `vocab.yml` に存在 |
+| **タグプレフィックス** | 全タグプレフィックスが `vocab.yml` に存在（エラー） |
+| **日付形式** | `meta.created` と `meta.updated` が有効な YYYY-MM-DD |
+| **Graph.yml** | 入力されている場合、有効なキャラクターIDとタイプを参照 |
 
-### Running Validation Locally
+### ローカルでの検証実行
 
 ```bash
 pip install pyyaml jsonschema
 python scripts/validate_characters.py
 ```
 
-## Character File Reference
+## キャラクターファイルリファレンス
 
-### Required Keys
+### 必須キー
 
-Every character file must include:
+すべてのキャラクターファイルには以下を含める必要があります：
 
-| Key | Description |
+| キー | 説明 |
 |-----|-------------|
-| `version` | Schema version (e.g., "1.0") |
-| `id` | Unique identifier |
-| `profile` | Name, age, gender, role, etc. |
-| `tags` | Classification tags |
-| `appearance` | Physical description |
-| `personality` | Traits, strengths, weaknesses |
-| `background` | History and backstory |
-| `goals` | Objectives and desires |
-| `motivations` | What drives the character |
-| `conflicts` | Internal and external conflicts |
-| `abilities` | Skills and powers |
-| `behavior` | Speech style, mannerisms |
-| `secrets` | Hidden information (can be empty `[]`) |
-| `relationships` | Connections to other characters (can be empty `[]`) |
-| `story` | Role in the narrative |
-| `ai_portrayal` | Guidelines and boundaries for AI |
-| `meta` | Created/updated dates, author |
+| `version` | スキーマバージョン（例：「1.0」） |
+| `id` | 一意の識別子 |
+| `profile` | 名前、年齢、性別、役割など |
+| `tags` | 分類タグ |
+| `appearance` | 外見の説明 |
+| `personality` | 性格特性、長所、短所 |
+| `background` | 経歴と背景 |
+| `goals` | 目的と願望 |
+| `motivations` | キャラクターを動かすもの |
+| `conflicts` | 内的・外的な葛藤 |
+| `abilities` | スキルと能力 |
+| `behavior` | 話し方、癖 |
+| `secrets` | 隠された情報（空の `[]` も可） |
+| `relationships` | 他のキャラクターとの関係（空の `[]` も可） |
+| `story` | 物語での役割 |
+| `ai_portrayal` | AIのためのガイドラインと境界 |
+| `meta` | 作成日/更新日、作者 |
 
-See `characters/_TEMPLATE.character.yml` for the full structure with examples.
+完全な構造と例については `characters/_TEMPLATE.character.yml` を参照してください。
 
-## Contributing
+## 貢献方法
 
-1. **Characters**: Use the Issue template to propose, then submit a PR
-2. **Schema/Vocab Changes**: Discuss in an Issue first
-3. **All PRs**: Must pass CI validation
+1. **キャラクター**：Issueテンプレートを使用して提案し、PRを提出
+2. **スキーマ/語彙の変更**：まずIssueで議論
+3. **すべてのPR**：CI検証に合格する必要があります
 
-## License
+## ライセンス
 
-[Add your license here]
+[ここにライセンスを追加]

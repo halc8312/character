@@ -1,26 +1,26 @@
-# Character Relationship Graph
-# This file provides an optional centralized view of character relationships.
-# The authoritative source for relationships is each character's relationships array.
-# This graph can be used for visualization or cross-referencing.
+# キャラクター関係性グラフ
+# このファイルはキャラクター関係性のオプションの集中管理ビューを提供します。
+# 関係性の信頼できる情報源は各キャラクターの relationships 配列です。
+# このグラフは可視化やクロスリファレンスに使用できます。
 #
-# Structure:
-#   a: source character ID
-#   b: target character ID
-#   type: relationship type (from vocab.yml relationship_types)
-#   intensity: -5 (hostile) to 5 (very close)
-#   summary: brief description
-#   tags: optional tags for filtering
+# 構造:
+#   a: ソースキャラクターID
+#   b: ターゲットキャラクターID
+#   type: 関係性タイプ（vocab.yml の relationship_types から）
+#   intensity: -5（敵対的）〜 5（非常に親密）
+#   summary: 簡単な説明
+#   tags: フィルタリング用のオプションタグ
 #
-# Example:
+# 例:
 #   - a: alice
 #     b: bob
 #     type: friend
 #     intensity: 4
-#     summary: "Childhood friends who trust each other deeply"
+#     summary: "深く信頼し合う幼なじみ"
 #     tags: ["core_cast", "established"]
 
 edges: []
 
-# Note: The validation script (scripts/validate_characters.py) validates graph.yml
-# to ensure all character IDs (a, b) exist in characters/ directory
-# and that relationship types are valid according to vocab.yml.
+# 注: 検証スクリプト（scripts/validate_characters.py）は graph.yml を検証し、
+# すべてのキャラクターID（a, b）が characters/ ディレクトリに存在し、
+# 関係性タイプが vocab.yml に従って有効であることを確認します。
