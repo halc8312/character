@@ -1,26 +1,26 @@
-# Character Template
-# Copy this file and rename to <your_character_id>.yml
-# Replace all placeholder values with actual character data.
-# See README.md for detailed instructions.
+# キャラクターテンプレート
+# このファイルをコピーして <your_character_id>.yml にリネームしてください
+# すべてのプレースホルダーの値を実際のキャラクターデータに置き換えてください
+# 詳細な手順については README.md を参照してください
 
 version: "1.0"
 
-# Unique identifier - must match filename (without .yml)
-# Format: lowercase letters, numbers, and underscores only
+# 一意の識別子 - ファイル名（.yml なし）と一致する必要があります
+# 形式: 小文字、数字、アンダースコアのみ
 id: your_character_id
 
 profile:
-  name: "Character Full Name"
+  name: "キャラクターのフルネーム"
   aliases:
-    - "Nickname"
-    - "Title"
+    - "ニックネーム"
+    - "称号"
   age: 25
-  gender: "male"  # or "female", "non-binary", etc.
-  role: "Main character's role in the story"
-  affiliation: "Organization or group"
+  gender: "male"  # または "female", "non-binary" など
+  role: "物語でのキャラクターの役割"
+  affiliation: "所属組織やグループ"
 
-# Classification tags in prefix/value format
-# Valid prefixes: role, trait, species, origin, faction, status, archetype, power, era, genre
+# prefix/value 形式の分類タグ
+# 有効なプレフィックス: role, trait, species, origin, faction, status, archetype, power, era, genre
 tags:
   - role/supporting
   - trait/brave
@@ -28,116 +28,116 @@ tags:
   - status/alive
 
 appearance:
-  summary: "Brief visual description of the character"
+  summary: "キャラクターの外見の簡単な説明"
   height: "175cm"
-  build: "Average"
-  hair: "Black, short"
-  eyes: "Brown"
+  build: "普通"
+  hair: "黒髪、短い"
+  eyes: "茶色"
   distinctive_features:
-    - "Notable scar or marking"
-    - "Unique accessory"
-  typical_attire: "Casual modern clothing"
+    - "目立つ傷や印"
+    - "特徴的なアクセサリー"
+  typical_attire: "カジュアルな現代服"
 
 personality:
-  summary: "One-paragraph personality overview"
+  summary: "性格の概要を1段落で"
   traits:
-    - "Primary trait"
-    - "Secondary trait"
-    - "Third trait"
+    - "主要な特性"
+    - "副次的な特性"
+    - "3つ目の特性"
   strengths:
-    - "Key strength"
+    - "主な長所"
   weaknesses:
-    - "Key weakness"
+    - "主な短所"
   fears:
-    - "Primary fear"
+    - "主な恐れ"
   values:
-    - "Core value"
+    - "核となる価値観"
 
 background:
-  summary: "Brief background summary"
-  birthplace: "City, Country/World"
-  upbringing: "How they were raised"
-  education: "Educational background"
+  summary: "背景の簡単な要約"
+  birthplace: "都市、国/世界"
+  upbringing: "どのように育てられたか"
+  education: "教育背景"
   key_events:
-    - "Significant life event 1"
-    - "Significant life event 2"
+    - "重要なライフイベント1"
+    - "重要なライフイベント2"
 
 goals:
-  primary: "Main objective"
+  primary: "主な目標"
   secondary:
-    - "Secondary goal"
-  hidden: "Secret goal (optional)"
+    - "副次的な目標"
+  hidden: "隠された目標（オプション）"
 
 motivations:
-  primary: "What drives this character most"
+  primary: "このキャラクターを最も動かすもの"
   secondary:
-    - "Secondary motivation"
+    - "副次的な動機"
 
 conflicts:
-  internal: "Internal struggle or dilemma"
+  internal: "内的な葛藤やジレンマ"
   external:
-    - "External conflict or obstacle"
+    - "外的な衝突や障害"
 
 abilities:
   skills:
-    - "Primary skill"
-    - "Secondary skill"
+    - "主なスキル"
+    - "副次的なスキル"
   special_abilities:
-    - "Special power or ability (if any)"
+    - "特殊な能力（もしあれば）"
   limitations:
-    - "Limitation on abilities"
+    - "能力の制限"
 
 behavior:
-  speech_style: "How the character speaks (formal, casual, dialect, etc.)"
+  speech_style: "キャラクターの話し方（フォーマル、カジュアル、方言など）"
   mannerisms:
-    - "Habitual gesture or behavior"
+    - "習慣的なジェスチャーや行動"
   catchphrases:
-    - "Characteristic phrase"
+    - "特徴的なフレーズ"
   emotional_responses:
-    anger: "How they express anger"
-    joy: "How they express joy"
-    sadness: "How they express sadness"
+    anger: "怒りの表し方"
+    joy: "喜びの表し方"
+    sadness: "悲しみの表し方"
 
-# Secrets the character keeps (can be empty array [])
+# キャラクターが隠している秘密（空の配列 [] も可）
 secrets:
-  - description: "A secret the character keeps"
+  - description: "キャラクターが隠している秘密"
     known_by:
       - other_character_id
-    impact: "What happens if this is revealed"
+    impact: "これが明らかになった場合の影響"
 
-# Relationships with other characters (can be empty array [])
-# target_id must reference an existing character file
-# type must be a value from vocab.yml relationship_types
+# 他のキャラクターとの関係（空の配列 [] も可）
+# target_id は既存のキャラクターファイルを参照する必要があります
+# type は vocab.yml の relationship_types の値である必要があります
 relationships:
   - target_id: other_character_id
     type: friend
-    description: "Description of their relationship"
-    intensity: 3  # -5 (hostile) to 5 (close)
+    description: "関係の説明"
+    intensity: 3  # -5（敵対的）〜 5（親密）
     mutual: true
 
 story:
-  role_in_narrative: "How this character serves the story"
-  arc_summary: "Character's development arc"
+  role_in_narrative: "このキャラクターが物語にどう貢献するか"
+  arc_summary: "キャラクターの成長アーク"
   key_scenes:
-    - "Important scene 1"
-    - "Important scene 2"
+    - "重要なシーン1"
+    - "重要なシーン2"
 
-# Guidelines for AI portrayal
+# AI演技のガイドライン
 ai_portrayal:
   guidelines:
-    - "Always maintain their core personality trait"
-    - "Speak in their established speech style"
-    - "Reference their background when appropriate"
+    - "常に核となる性格特性を維持する"
+    - "確立された話し方で話す"
+    - "適切な場合に背景を参照する"
   boundaries:
-    - "Never break character to explain OOC details"
-    - "Do not reveal secrets unless narratively appropriate"
-  voice_notes: "Additional notes on portraying their voice"
+    - "OOCの詳細を説明するためにキャラクターを破らない"
+    - "物語的に適切でない限り秘密を明かさない"
+  voice_notes: "声の演技に関する追加のメモ"
   example_dialogue:
-    - "Example line showing their speech pattern"
-    - "Another characteristic line"
+    - "話し方のパターンを示す例文"
+    - "別の特徴的なセリフ"
 
 meta:
   created: "2025-01-10"
   updated: "2025-01-10"
-  author: "Your Name"
-  notes: "Additional notes about this character file"
+  author: "あなたの名前"
+  notes: "このキャラクターファイルに関する追加のメモ"
