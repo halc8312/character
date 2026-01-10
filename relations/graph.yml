@@ -21,6 +21,6 @@
 
 edges: []
 
-# TODO: Consider implementing validation for graph.yml in validate_characters.py
-# to check that all character IDs (a, b) exist in characters/ directory
+# Note: The validation script (scripts/validate_characters.py) validates graph.yml
+# to ensure all character IDs (a, b) exist in characters/ directory
 # and that relationship types are valid according to vocab.yml.

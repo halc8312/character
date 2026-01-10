@@ -19,7 +19,6 @@ Exit codes:
 """
 
 import sys
-import os
 import re
 from datetime import datetime
 from pathlib import Path
