@@ -133,6 +133,31 @@ relationships:
     description: "情報研究部のクラスメイト。デジタル面でノート整理を手伝ってくれる。"
     intensity: 3
     mutual: true
+  - target_id: sosuke_kajimoto
+    type: friend
+    description: "電車好きのクラスメイト。移動計画や小旅行の段取りを相談する。"
+    intensity: 4
+    mutual: true
+  - target_id: hinata_ogura
+    type: friend
+    description: "家庭科部の同級生。弁当作りや段取りを一緒に考える仲。"
+    intensity: 4
+    mutual: true
+  - target_id: rio_fujii
+    type: friend
+    description: "隣人の軽音仲間。音楽を聴かせ合い、感想を交換する。"
+    intensity: 4
+    mutual: true
+  - target_id: akari_numata
+    type: friend
+    description: "生徒会書記。会議で意見を汲み取り、段取りを助けてくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: shunpei_okazaki
+    type: friend
+    description: "バイト先の先輩。現場の手際や働き方を教えてくれる。"
+    intensity: 4
+    mutual: true
 
 story:
   role_in_narrative: "日常パートの語り手的存在として、周囲の変化を静かに見つめる。"

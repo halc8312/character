@@ -114,6 +114,31 @@ relationships:
     description: "クラスメイトで、勉強を手伝ってもらう代わりに運動を教える関係。"
     intensity: 4
     mutual: true
+  - target_id: keita_morikawa
+    type: friend
+    description: "ゴールキーパーの仲間。守備からの声掛けで連携し合う。"
+    intensity: 4
+    mutual: true
+  - target_id: ryohei_tsuda
+    type: friend
+    description: "同ポジションのライバル。競い合いながらスピードと決定力を高め合う。"
+    intensity: 4
+    mutual: true
+  - target_id: sakura_minato
+    type: friend
+    description: "マネージャー。コンディション管理や練習時間をサポートしてくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: shinpei_arai
+    type: friend
+    description: "戦術を教えてくれる先輩。ポジショニングや戻りを指導してもらう。"
+    intensity: 4
+    mutual: true
+  - target_id: momo_tachiki
+    type: friend
+    description: "クラスメイトで応援団員。試合後に声をかけ、気持ちを上げてくれる。"
+    intensity: 4
+    mutual: true
 
 story:
   role_in_narrative: "陽斗に身体を動かす楽しさと前に踏み出す勢いを与える。"

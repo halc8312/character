@@ -113,6 +113,31 @@ relationships:
     description: "バイト仲間。仕事の段取りを教えつつ、陽斗の学業との両立を気にかける。"
     intensity: 3
     mutual: true
+  - target_id: kazuomi_hirai
+    type: friend
+    description: "夜勤の相棒。安全確認と段取りを共有し、互いにフォローする。"
+    intensity: 4
+    mutual: true
+  - target_id: yu_ishikawa
+    type: friend
+    description: "物流バイト仲間。荷捌きの効率や体の使い方を教えてくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: mei_kurata
+    type: friend
+    description: "レジ担当の後輩。ミスを減らすメモを一緒に作り、成長を見守る。"
+    intensity: 4
+    mutual: true
+  - target_id: takeru_noma
+    type: friend
+    description: "配送ドライバー。荷受けの段取りや休憩の取り方を共有する相手。"
+    intensity: 4
+    mutual: true
+  - target_id: chika_aoyagi
+    type: friend
+    description: "元リーダーの大学生。働き方と学業のバランスを具体的に助言してくれる。"
+    intensity: 4
+    mutual: true
 
 story:
   role_in_narrative: "現実的な視点で陽斗の時間管理を支え、将来への悩みを共有する先輩。"

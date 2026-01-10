@@ -113,6 +113,31 @@ relationships:
     description: "クラスメイトでデジタル面をサポート。陽斗のノートを整理するアプリを一緒に試す。"
     intensity: 3
     mutual: true
+  - target_id: sora_adachi
+    type: friend
+    description: "ハッカソン仲間。プロトタイピングの速さで開発を引っ張ってくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: junpei_morozumi
+    type: friend
+    description: "電子工作班の相棒。ソフトに合わせたハードを組み立ててくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: hina_sugawara
+    type: friend
+    description: "UI文言を整える友人。ユーザー目線の表現を助言してくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: takumi_inoue
+    type: friend
+    description: "数学好きの勉強仲間。アルゴリズムの考え方を噛み砕いて教えてくれる。"
+    intensity: 4
+    mutual: true
+  - target_id: mao_tachibana
+    type: friend
+    description: "テストとレビューを担当する友人。抜け漏れを指摘し品質を上げてくれる。"
+    intensity: 4
+    mutual: true
 
 story:
   role_in_narrative: "陽斗の学習やクラス企画を技術面で支える影の助っ人。"
