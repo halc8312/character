@@ -1,0 +1,84 @@
+# Controlled Vocabulary for Character Database
+# This file defines valid values for tags and relationship types.
+# Update this file to add new categories as your world expands.
+
+# Relationship types between characters
+# Used in characters/*.yml relationships[].type
+relationship_types:
+  # Family relationships
+  - parent
+  - child
+  - sibling
+  - spouse
+  - relative
+  # Social relationships
+  - friend
+  - rival
+  - enemy
+  - ally
+  - mentor
+  - student
+  - colleague
+  - acquaintance
+  # Romantic relationships
+  - lover
+  - ex_lover
+  - crush
+  # Professional relationships
+  - employer
+  - employee
+  - partner
+  - subordinate
+  - superior
+  # Other
+  - unknown
+  - other
+
+# Valid tag prefixes
+# Tags must follow the format: prefix/value
+# e.g., role/protagonist, trait/brave, species/human
+tag_prefixes:
+  - role        # Story role (protagonist, antagonist, supporting, etc.)
+  - trait       # Personality traits (brave, cunning, kind, etc.)
+  - species     # Species or race (human, elf, android, etc.)
+  - origin      # Origin or homeland (kingdom_a, earth, etc.)
+  - faction     # Faction or organization membership
+  - status      # Current status (alive, deceased, missing, etc.)
+  - archetype   # Character archetype (hero, trickster, sage, etc.)
+  - power       # Power type or magic system affinity
+  - era         # Time period or era
+  - genre       # Genre tag (fantasy, scifi, modern, etc.)
+
+# Recommended tags for common use cases
+# These are suggestions, not requirements
+recommended_tags:
+  # Role tags
+  - role/protagonist
+  - role/antagonist
+  - role/supporting
+  - role/minor
+  - role/narrator
+  # Common traits
+  - trait/brave
+  - trait/cunning
+  - trait/kind
+  - trait/ruthless
+  - trait/mysterious
+  - trait/comedic
+  # Species examples
+  - species/human
+  - species/elf
+  - species/dwarf
+  - species/android
+  - species/vampire
+  # Status tags
+  - status/alive
+  - status/deceased
+  - status/missing
+  - status/unknown
+  # Archetype tags
+  - archetype/hero
+  - archetype/mentor
+  - archetype/trickster
+  - archetype/sage
+  - archetype/innocent

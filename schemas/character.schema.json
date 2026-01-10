@@ -1,0 +1,471 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/halc8312/character/schemas/character.schema.json",
+  "title": "Character Schema",
+  "description": "Schema for story character definition files",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "profile",
+    "tags",
+    "appearance",
+    "personality",
+    "background",
+    "goals",
+    "motivations",
+    "conflicts",
+    "abilities",
+    "behavior",
+    "secrets",
+    "relationships",
+    "story",
+    "ai_portrayal",
+    "meta"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique character identifier (must match filename)",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "profile": {
+      "type": "object",
+      "description": "Basic character profile",
+      "required": ["name", "age", "gender", "role"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the character"
+        },
+        "aliases": {
+          "type": "array",
+          "description": "Alternative names or nicknames",
+          "items": {
+            "type": "string"
+          }
+        },
+        "age": {
+          "oneOf": [
+            { "type": "integer", "minimum": 0 },
+            { "type": "string" }
+          ],
+          "description": "Character's age (number or descriptive string)"
+        },
+        "gender": {
+          "type": "string",
+          "description": "Character's gender"
+        },
+        "role": {
+          "type": "string",
+          "description": "Character's role in the story"
+        },
+        "affiliation": {
+          "type": "string",
+          "description": "Organization or group affiliation"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Classification tags in prefix/value format",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]+\\/[a-z0-9_\\-]+$"
+      }
+    },
+    "appearance": {
+      "type": "object",
+      "description": "Physical appearance details",
+      "required": ["summary"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Brief appearance summary"
+        },
+        "height": {
+          "type": "string",
+          "description": "Character's height"
+        },
+        "build": {
+          "type": "string",
+          "description": "Body build/type"
+        },
+        "hair": {
+          "type": "string",
+          "description": "Hair description"
+        },
+        "eyes": {
+          "type": "string",
+          "description": "Eye description"
+        },
+        "distinctive_features": {
+          "type": "array",
+          "description": "Notable physical features",
+          "items": {
+            "type": "string"
+          }
+        },
+        "typical_attire": {
+          "type": "string",
+          "description": "Typical clothing/attire"
+        }
+      }
+    },
+    "personality": {
+      "type": "object",
+      "description": "Personality traits and characteristics",
+      "required": ["summary", "traits"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Brief personality summary"
+        },
+        "traits": {
+          "type": "array",
+          "description": "Key personality traits",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "strengths": {
+          "type": "array",
+          "description": "Personal strengths",
+          "items": {
+            "type": "string"
+          }
+        },
+        "weaknesses": {
+          "type": "array",
+          "description": "Personal weaknesses",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fears": {
+          "type": "array",
+          "description": "Fears and phobias",
+          "items": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "array",
+          "description": "Core values",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "background": {
+      "type": "object",
+      "description": "Character backstory and history",
+      "required": ["summary"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Brief background summary"
+        },
+        "birthplace": {
+          "type": "string",
+          "description": "Place of birth"
+        },
+        "upbringing": {
+          "type": "string",
+          "description": "How they were raised"
+        },
+        "education": {
+          "type": "string",
+          "description": "Educational background"
+        },
+        "key_events": {
+          "type": "array",
+          "description": "Significant life events",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "goals": {
+      "type": "object",
+      "description": "Character's goals and objectives",
+      "required": ["primary"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Main goal or objective"
+        },
+        "secondary": {
+          "type": "array",
+          "description": "Secondary goals",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hidden": {
+          "type": "string",
+          "description": "Hidden or secret goal"
+        }
+      }
+    },
+    "motivations": {
+      "type": "object",
+      "description": "What drives the character",
+      "required": ["primary"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Main motivation"
+        },
+        "secondary": {
+          "type": "array",
+          "description": "Secondary motivations",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "object",
+      "description": "Internal and external conflicts",
+      "required": ["internal"],
+      "additionalProperties": false,
+      "properties": {
+        "internal": {
+          "type": "string",
+          "description": "Internal conflict or struggle"
+        },
+        "external": {
+          "type": "array",
+          "description": "External conflicts",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "abilities": {
+      "type": "object",
+      "description": "Skills and abilities",
+      "required": ["skills"],
+      "additionalProperties": false,
+      "properties": {
+        "skills": {
+          "type": "array",
+          "description": "Key skills",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "special_abilities": {
+          "type": "array",
+          "description": "Special or supernatural abilities",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "description": "Limitations on abilities",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "behavior": {
+      "type": "object",
+      "description": "Behavioral patterns and speech",
+      "required": ["speech_style"],
+      "additionalProperties": false,
+      "properties": {
+        "speech_style": {
+          "type": "string",
+          "description": "How the character speaks"
+        },
+        "mannerisms": {
+          "type": "array",
+          "description": "Typical mannerisms and habits",
+          "items": {
+            "type": "string"
+          }
+        },
+        "catchphrases": {
+          "type": "array",
+          "description": "Characteristic phrases",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emotional_responses": {
+          "type": "object",
+          "description": "How they respond to emotions",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "secrets": {
+      "type": "array",
+      "description": "Character secrets (may be empty)",
+      "items": {
+        "type": "object",
+        "required": ["description"],
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "The secret"
+          },
+          "known_by": {
+            "type": "array",
+            "description": "Character IDs who know this secret",
+            "items": {
+              "type": "string"
+            }
+          },
+          "impact": {
+            "type": "string",
+            "description": "Impact if revealed"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "description": "Relationships with other characters (may be empty)",
+      "items": {
+        "type": "object",
+        "required": ["target_id", "type", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "target_id": {
+            "type": "string",
+            "description": "ID of the related character",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of relationship (must be in vocab.yml)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the relationship"
+          },
+          "intensity": {
+            "type": "integer",
+            "description": "Relationship intensity (-5 to 5)",
+            "minimum": -5,
+            "maximum": 5
+          },
+          "mutual": {
+            "type": "boolean",
+            "description": "Whether the relationship is mutual"
+          }
+        }
+      }
+    },
+    "story": {
+      "type": "object",
+      "description": "Story-related information",
+      "required": ["role_in_narrative"],
+      "additionalProperties": false,
+      "properties": {
+        "role_in_narrative": {
+          "type": "string",
+          "description": "Role in the overall narrative"
+        },
+        "arc_summary": {
+          "type": "string",
+          "description": "Character arc summary"
+        },
+        "key_scenes": {
+          "type": "array",
+          "description": "Important scenes involving this character",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ai_portrayal": {
+      "type": "object",
+      "description": "Guidelines for AI portrayal",
+      "required": ["guidelines", "boundaries"],
+      "additionalProperties": false,
+      "properties": {
+        "guidelines": {
+          "type": "array",
+          "description": "Guidelines for portraying this character",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "boundaries": {
+          "type": "array",
+          "description": "Topics or actions to avoid",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "voice_notes": {
+          "type": "string",
+          "description": "Notes on character voice"
+        },
+        "example_dialogue": {
+          "type": "array",
+          "description": "Example dialogue lines",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "description": "Metadata",
+      "required": ["created", "updated", "author"],
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "type": "string",
+          "description": "Creation date (YYYY-MM-DD)",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "updated": {
+          "type": "string",
+          "description": "Last update date (YYYY-MM-DD)",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "author": {
+          "type": "string",
+          "description": "Author or contributor"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes"
+        }
+      }
+    }
+  }
+}
