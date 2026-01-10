@@ -107,7 +107,32 @@ secrets:
     known_by: []
     impact: "実行できれば自信になるが、失敗すれば注目が怖くて塞ぎ込むかもしれない"
 
-relationships: []
+relationships:
+  - target_id: yuna_kirishima
+    type: friend
+    description: "隣家の幼なじみ。放課後に一緒に帰り、文化祭の相談を気軽にできる相手。"
+    intensity: 4
+    mutual: true
+  - target_id: ren_kobayashi
+    type: friend
+    description: "クラスメイトでサッカー部員。勉強を教える代わりに運動を教わる交換関係。"
+    intensity: 4
+    mutual: true
+  - target_id: miki_sawada
+    type: friend
+    description: "図書委員の相談役。ノートのまとめ方や発表原稿を静かに支えてくれる。"
+    intensity: 3
+    mutual: true
+  - target_id: daichi_yamamoto
+    type: friend
+    description: "バイト先の先輩。時間管理や段取りを実践的に教えてくれる。"
+    intensity: 3
+    mutual: true
+  - target_id: kouta_shimura
+    type: friend
+    description: "情報研究部のクラスメイト。デジタル面でノート整理を手伝ってくれる。"
+    intensity: 3
+    mutual: true
 
 story:
   role_in_narrative: "日常パートの語り手的存在として、周囲の変化を静かに見つめる。"
@@ -135,4 +160,4 @@ meta:
   created: "2026-01-10"
   updated: "2026-01-10"
   author: "AI Assistant"
-  notes: "READMEのテンプレートに従って作成。平凡さと等身大の視点を重視。"
+  notes: "READMEのテンプレートに従って作成。平凡さと等身大の視点を重視。友人関係を追加。"
