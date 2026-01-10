@@ -1,0 +1,26 @@
+# Character Relationship Graph
+# This file provides an optional centralized view of character relationships.
+# The authoritative source for relationships is each character's relationships array.
+# This graph can be used for visualization or cross-referencing.
+#
+# Structure:
+#   a: source character ID
+#   b: target character ID
+#   type: relationship type (from vocab.yml relationship_types)
+#   intensity: -5 (hostile) to 5 (very close)
+#   summary: brief description
+#   tags: optional tags for filtering
+#
+# Example:
+#   - a: alice
+#     b: bob
+#     type: friend
+#     intensity: 4
+#     summary: "Childhood friends who trust each other deeply"
+#     tags: ["core_cast", "established"]
+
+edges: []
+
+# TODO: Consider implementing validation for graph.yml in validate_characters.py
+# to check that all character IDs (a, b) exist in characters/ directory
+# and that relationship types are valid according to vocab.yml.

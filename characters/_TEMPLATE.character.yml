@@ -1,0 +1,143 @@
+# Character Template
+# Copy this file and rename to <your_character_id>.yml
+# Replace all placeholder values with actual character data.
+# See README.md for detailed instructions.
+
+version: "1.0"
+
+# Unique identifier - must match filename (without .yml)
+# Format: lowercase letters, numbers, and underscores only
+id: your_character_id
+
+profile:
+  name: "Character Full Name"
+  aliases:
+    - "Nickname"
+    - "Title"
+  age: 25
+  gender: "male"  # or "female", "non-binary", etc.
+  role: "Main character's role in the story"
+  affiliation: "Organization or group"
+
+# Classification tags in prefix/value format
+# Valid prefixes: role, trait, species, origin, faction, status, archetype, power, era, genre
+tags:
+  - role/supporting
+  - trait/brave
+  - species/human
+  - status/alive
+
+appearance:
+  summary: "Brief visual description of the character"
+  height: "175cm"
+  build: "Average"
+  hair: "Black, short"
+  eyes: "Brown"
+  distinctive_features:
+    - "Notable scar or marking"
+    - "Unique accessory"
+  typical_attire: "Casual modern clothing"
+
+personality:
+  summary: "One-paragraph personality overview"
+  traits:
+    - "Primary trait"
+    - "Secondary trait"
+    - "Third trait"
+  strengths:
+    - "Key strength"
+  weaknesses:
+    - "Key weakness"
+  fears:
+    - "Primary fear"
+  values:
+    - "Core value"
+
+background:
+  summary: "Brief background summary"
+  birthplace: "City, Country/World"
+  upbringing: "How they were raised"
+  education: "Educational background"
+  key_events:
+    - "Significant life event 1"
+    - "Significant life event 2"
+
+goals:
+  primary: "Main objective"
+  secondary:
+    - "Secondary goal"
+  hidden: "Secret goal (optional)"
+
+motivations:
+  primary: "What drives this character most"
+  secondary:
+    - "Secondary motivation"
+
+conflicts:
+  internal: "Internal struggle or dilemma"
+  external:
+    - "External conflict or obstacle"
+
+abilities:
+  skills:
+    - "Primary skill"
+    - "Secondary skill"
+  special_abilities:
+    - "Special power or ability (if any)"
+  limitations:
+    - "Limitation on abilities"
+
+behavior:
+  speech_style: "How the character speaks (formal, casual, dialect, etc.)"
+  mannerisms:
+    - "Habitual gesture or behavior"
+  catchphrases:
+    - "Characteristic phrase"
+  emotional_responses:
+    anger: "How they express anger"
+    joy: "How they express joy"
+    sadness: "How they express sadness"
+
+# Secrets the character keeps (can be empty array [])
+secrets:
+  - description: "A secret the character keeps"
+    known_by:
+      - other_character_id
+    impact: "What happens if this is revealed"
+
+# Relationships with other characters (can be empty array [])
+# target_id must reference an existing character file
+# type must be a value from vocab.yml relationship_types
+relationships:
+  - target_id: other_character_id
+    type: friend
+    description: "Description of their relationship"
+    intensity: 3  # -5 (hostile) to 5 (close)
+    mutual: true
+
+story:
+  role_in_narrative: "How this character serves the story"
+  arc_summary: "Character's development arc"
+  key_scenes:
+    - "Important scene 1"
+    - "Important scene 2"
+
+# Guidelines for AI portrayal
+ai_portrayal:
+  guidelines:
+    - "Always maintain their core personality trait"
+    - "Speak in their established speech style"
+    - "Reference their background when appropriate"
+  boundaries:
+    - "Never break character to explain OOC details"
+    - "Do not reveal secrets unless narratively appropriate"
+  voice_notes: "Additional notes on portraying their voice"
+  example_dialogue:
+    - "Example line showing their speech pattern"
+    - "Another characteristic line"
+
+meta:
+  created: "2025-01-10"
+  updated: "2025-01-10"
+  author: "Your Name"
+  notes: "Additional notes about this character file"

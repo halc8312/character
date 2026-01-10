@@ -1,0 +1,156 @@
+name: New Character Proposal
+description: Propose a new character to be added to the database
+title: "[Character] "
+labels: ["new-character"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for proposing a new character! Please fill out the information below.
+        This will help create a consistent character file.
+
+  - type: input
+    id: character_id
+    attributes:
+      label: Character ID
+      description: |
+        Unique identifier for the character.
+        Must be lowercase letters, numbers, and underscores only (e.g., `john_smith`, `hero_01`).
+      placeholder: "your_character_id"
+    validations:
+      required: true
+
+  - type: input
+    id: character_name
+    attributes:
+      label: Character Name
+      description: Full name of the character
+      placeholder: "John Smith"
+    validations:
+      required: true
+
+  - type: input
+    id: age
+    attributes:
+      label: Age
+      description: Character's age (number or descriptive like "immortal", "unknown")
+      placeholder: "25"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Story Role
+      description: Primary role in the narrative
+      options:
+        - Protagonist
+        - Antagonist
+        - Supporting Character
+        - Minor Character
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: personality
+    attributes:
+      label: Personality
+      description: Key personality traits and characteristics
+      placeholder: |
+        - Brave and determined
+        - Quick to anger but loyal
+        - Has a dry sense of humor
+    validations:
+      required: true
+
+  - type: textarea
+    id: speech_style
+    attributes:
+      label: Speech Style / Voice
+      description: How does this character speak? Include dialect, formality level, catchphrases, etc.
+      placeholder: |
+        Speaks formally with occasional old-fashioned phrases.
+        Often says "Indeed" and "As you wish."
+    validations:
+      required: true
+
+  - type: textarea
+    id: background
+    attributes:
+      label: Background
+      description: Brief backstory and history
+      placeholder: |
+        Born in a small village, trained as a knight from age 12...
+    validations:
+      required: true
+
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals & Motivations
+      description: What drives this character? What are they trying to achieve?
+      placeholder: |
+        Primary goal: Protect their homeland
+        Motivation: Guilt over past failure
+    validations:
+      required: true
+
+  - type: textarea
+    id: secrets
+    attributes:
+      label: Secrets (optional)
+      description: Any secrets this character keeps (these won't be revealed by AI unless appropriate)
+      placeholder: |
+        - Secretly doubts the king's motives
+        - Has a forbidden love
+
+  - type: textarea
+    id: relationships
+    attributes:
+      label: Relationships
+      description: |
+        Key relationships with other characters. 
+        For existing characters, use their character ID.
+      placeholder: |
+        - alice_wonder: friend (childhood companions)
+        - dark_lord: enemy (nemesis)
+
+  - type: textarea
+    id: tags
+    attributes:
+      label: Suggested Tags
+      description: |
+        Tags in prefix/value format. Valid prefixes: role, trait, species, origin, faction, status, archetype, power, era, genre
+      placeholder: |
+        - role/protagonist
+        - trait/brave
+        - species/human
+        - archetype/hero
+    validations:
+      required: true
+
+  - type: textarea
+    id: ai_boundaries
+    attributes:
+      label: AI Portrayal Boundaries
+      description: What should the AI avoid when portraying this character?
+      placeholder: |
+        - Never break character
+        - Do not reveal the secret identity
+        - Avoid graphic violence
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following
+      options:
+        - label: Character ID follows naming rules (lowercase, numbers, underscores only)
+          required: true
+        - label: Tags use valid prefixes from vocab.yml
+          required: true
+        - label: Relationships reference existing character IDs (or will be added together)
+          required: true
+        - label: I have reviewed the character template (_TEMPLATE.character.yml)
+          required: true
