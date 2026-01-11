@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+# このワークフローは GitHub Actions を使用して GitHub Pages へ自動デプロイします
+# docs フォルダは不要です - site/ フォルダから直接デプロイされます
+
 on:
   push:
     branches: [ main, master ]
