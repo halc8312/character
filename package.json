@@ -1,0 +1,15 @@
+{
+  "name": "character",
+  "version": "1.0.0",
+  "description": "AIによるキャラクター演技のために設計された、Git管理型のストーリーキャラクターデータベースです。このリポジトリは、AIシステムがキャラクターを「演じる」ために読み取れる、フィクションキャラクターを定義するための構造化テンプレートを提供します。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cytoscape": "^3.28.1"
+  }
+}
