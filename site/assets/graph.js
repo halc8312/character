@@ -7,6 +7,8 @@ const GraphApp = {
   cy: null,
   layout: {},
   newNodes: new Set(),
+  currentResponsiveKey: null,
+  resizeHandler: null,
   
   /**
    * Initialize Cytoscape graph
@@ -60,6 +62,9 @@ const GraphApp = {
       minZoom: 0.2,
       maxZoom: 3
     });
+
+    this.applyResponsiveStyles();
+    this.bindResizeHandler();
     
     // Position new nodes and run partial layout
     this.positionNewNodes();
@@ -179,6 +184,90 @@ const GraphApp = {
         style: { 'line-color': '#607d8b' }
       }
     ];
+  },
+
+  /**
+   * Get responsive style configuration
+   */
+  getResponsiveConfig() {
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      return {
+        key: 'mobile',
+        nodeSize: 28,
+        fontSize: 10,
+        textMarginY: 6,
+        edgeMin: 1,
+        edgeMax: 3
+      };
+    }
+
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      return {
+        key: 'tablet',
+        nodeSize: 34,
+        fontSize: 11,
+        textMarginY: 7,
+        edgeMin: 1,
+        edgeMax: 3.5
+      };
+    }
+
+    return {
+      key: 'desktop',
+      nodeSize: 40,
+      fontSize: 12,
+      textMarginY: 8,
+      edgeMin: 1,
+      edgeMax: 4
+    };
+  },
+
+  /**
+   * Apply responsive styles based on viewport size
+   */
+  applyResponsiveStyles() {
+    if (!this.cy) return;
+
+    const config = this.getResponsiveConfig();
+    if (this.currentResponsiveKey === config.key) return;
+
+    this.currentResponsiveKey = config.key;
+
+    this.cy.style()
+      .selector('node')
+      .style({
+        'width': config.nodeSize,
+        'height': config.nodeSize,
+        'font-size': config.fontSize,
+        'text-margin-y': config.textMarginY
+      })
+      .selector('node.highlighted')
+      .style({
+        'width': config.nodeSize + 10,
+        'height': config.nodeSize + 10
+      })
+      .selector('edge')
+      .style({
+        'width': `mapData(intensity, 1, 5, ${config.edgeMin}, ${config.edgeMax})`
+      })
+      .update();
+
+    this.cy.resize();
+  },
+
+  /**
+   * Bind resize handler for responsive styles
+   */
+  bindResizeHandler() {
+    if (this.resizeHandler) {
+      window.removeEventListener('resize', this.resizeHandler);
+    }
+
+    this.resizeHandler = () => {
+      this.applyResponsiveStyles();
+    };
+
+    window.addEventListener('resize', this.resizeHandler);
   },
   
   /**
