@@ -2,6 +2,8 @@
 
 AIによるキャラクター演技のために設計された、Git管理型のストーリーキャラクターデータベースです。このリポジトリは、AIシステムがキャラクターを「演じる」ために読み取れる、フィクションキャラクターを定義するための構造化テンプレートを提供します。
 
+> 🚀 **GitHub Pages セットアップ**: [QUICKSTART.md](QUICKSTART.md) で3ステップで完了！（docs フォルダは不要です）
+
 ## 概要
 
 このリポジトリは、キャラクター定義の**唯一の信頼できる情報源**として機能し、以下を提供します：
@@ -244,6 +246,8 @@ python scripts/validate_characters.py
 
 このリポジトリは GitHub Pages を使用してキャラクター一覧・詳細・相関図を Web 上で閲覧できます。
 
+> 📘 **詳細なデプロイメントガイド**: [DEPLOYMENT.md](DEPLOYMENT.md) を参照してください
+
 ### URL構造
 
 - `/index.html` - キャラクター一覧（検索・タグ絞り込み）
@@ -253,9 +257,25 @@ python scripts/validate_characters.py
 
 ### GitHub Pages の有効化
 
+**重要：docsフォルダは必要ありません！**
+
+このリポジトリは GitHub Actions を使用して自動デプロイされるため、`docs` フォルダを作成する必要はありません。
+
+#### セットアップ手順
+
 1. リポジトリの **Settings** > **Pages** を開く
 2. **Source** を **GitHub Actions** に設定
 3. main ブランチに push すると自動的にデプロイされます
+
+#### GitHub Pages デプロイ方法の比較
+
+| 方法 | 必要なフォルダ | メリット | デメリット |
+|------|---------------|---------|----------|
+| **GitHub Actions** (推奨・現在の設定) | `site/` のみ | ・ビルドプロセスの自動化<br>・柔軟なカスタマイズ<br>・生成されたファイルのみデプロイ | ・Actions の設定が必要 |
+| docs フォルダ | `docs/` | ・設定が簡単<br>・Actions 不要 | ・ビルドを手動実行<br>・生成ファイルをコミット |
+| ルートディレクトリ | ルート直下 | ・設定が簡単 | ・リポジトリが散らかる |
+
+**現在の設定（GitHub Actions）を使用することを強く推奨します。**
 
 ### 生成の流れ
 
@@ -324,6 +344,47 @@ site/
     ├── app.js            # 共通JavaScript
     └── graph.js          # Cytoscape.js 連携
 ```
+
+## よくある質問（FAQ）
+
+### Q: GitHub Pages で公開するには docs フォルダが必要ですか？
+
+**A: いいえ、必要ありません。**
+
+このリポジトリは GitHub Actions を使用して自動的にデプロイされるため、`docs` フォルダを作成する必要はありません。
+
+**現在の設定：**
+- `site/` フォルダに HTML/CSS/JavaScript ファイルを配置
+- `.github/workflows/pages.yml` が自動的にビルドとデプロイを実行
+- `docs` フォルダの作成や手動コピーは不要
+
+**有効化方法：**
+1. リポジトリの **Settings** > **Pages** を開く
+2. **Source** を **GitHub Actions** に設定
+3. main ブランチに push すると自動的にデプロイされます
+
+詳細は「[GitHub Pages（Webビューア）](#github-pageswebビューア)」セクションを参照してください。
+
+### Q: ローカルでサイトを確認するには？
+
+**A:** 以下のコマンドを実行します：
+
+```bash
+# データ生成
+python scripts/build_site_data.py
+
+# ローカルサーバー起動
+cd site && python -m http.server 8000
+# ブラウザで http://localhost:8000 を開く
+```
+
+### Q: キャラクターを追加したら自動的にサイトに反映されますか？
+
+**A:** はい。main ブランチに push すると、GitHub Actions が自動的に：
+1. `build_site_data.py` を実行してデータを生成
+2. `site/` フォルダを GitHub Pages にデプロイ
+
+変更は数分以内にサイトに反映されます。
 
 ## ライセンス
 
