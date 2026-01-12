@@ -37,6 +37,13 @@
           "type": "string",
           "description": "Short name or abbreviation"
         },
+        "aliases": {
+          "type": "array",
+          "description": "Alternative names (old names, abbreviations, translations)",
+          "items": {
+            "type": "string"
+          }
+        },
         "type": {
           "type": "string",
           "description": "Type of location (must be in vocab.yml location_types)"

@@ -351,12 +351,8 @@ def main():
         else:
             print("INFO: No map files found (excluding template)")
     
-    # Validate links
-    if links_path.exists() and 'links' in schemas:
-        print("Validating character_locations.yml...")
-        errors, warnings = validate_links(links_path, schemas['links'], character_ids, location_ids, vocab)
-        all_errors.extend(errors)
-        all_warnings.extend(warnings)
+    # Note: Link validation is now handled by validate_links.py
+    # Run `python scripts/validate_links.py` for character_locations.yml validation
     
     # Output results
     for warning in all_warnings:

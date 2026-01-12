@@ -49,3 +49,6 @@ jobs:
       
       - name: Run location validation
         run: python scripts/validate_locations.py
+      
+      - name: Run link validation
+        run: python scripts/validate_links.py

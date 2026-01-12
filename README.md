@@ -332,6 +332,9 @@ id: nishigaoka_central_plaza       # ファイル名と一致必須
 profile:
   name: "中央広場"                  # 表示名（日本語OK）
   short: "広場"                     # 短縮名（任意）
+  aliases:                          # 別名（任意）: 旧称、略称、英語名など
+    - "西ヶ丘中央広場"
+    - "Central Plaza"
   type: landmark                    # vocab.yml の location_types から
   parent_id: nishigaoka_downtown    # 親ロケーション（任意、階層構造用）
   description: "噴水と露店が並ぶ待ち合わせの定番。"
@@ -355,6 +358,12 @@ meta:
   updated: "2026-01-12"
   author: "your_name"
 ```
+
+**aliases フィールドの用途:**
+- 旧地名（例：旧称、合併前の名称）
+- 略称・通称
+- 英語名・ローマ字表記
+- 検索時に name + aliases + id が対象になります
 
 ### 地図（Map）ビューの概念
 
@@ -465,16 +474,21 @@ links:
 
 ### CI検証内容（ロケーション）
 
-| チェック | 説明 |
-|----------|------|
-| スキーマ検証 | location/map/links が各スキーマに一致 |
-| ID/ファイル名一致 | `id` がファイル名と一致 |
-| parent_id 存在 | 参照先ロケーションが存在 |
-| 循環参照 | parent_id チェーンに循環がない |
-| type 検証 | vocab.yml の location_types に含まれる |
-| タグプレフィックス | vocab.yml の tag_prefixes に含まれる |
-| リンク検証 | character_id と location_id が存在、kind が有効 |
-| カーディナリティ | birthplace/current は1件のみ |
+CI では3つの検証スクリプトが実行されます：
+- `validate_characters.py` - キャラクター検証
+- `validate_locations.py` - ロケーション/地図検証
+- `validate_links.py` - リンク検証（カーディナリティ含む）
+
+| チェック | スクリプト | 説明 |
+|----------|-----------|------|
+| スキーマ検証 | locations/links | location/map/links が各スキーマに一致 |
+| ID/ファイル名一致 | locations | `id` がファイル名と一致 |
+| parent_id 存在 | locations | 参照先ロケーションが存在 |
+| 循環参照 | locations | parent_id チェーンに循環がない |
+| type 検証 | locations | vocab.yml の location_types に含まれる |
+| タグプレフィックス | locations | vocab.yml の tag_prefixes に含まれる |
+| リンク検証 | links | character_id と location_id が存在、kind が有効 |
+| カーディナリティ | links | birthplace/current は1件のみ |
 
 ### FAQ（ロケーション）
 

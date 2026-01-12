@@ -13,6 +13,9 @@ id: your_location_id
 profile:
   name: "場所のフルネーム"
   short: "短縮名"              # 任意
+  aliases:                      # 任意: 旧称、略称、別名など
+    - "旧名"
+    - "略称"
   type: landmark               # vocab.yml の location_types から選択
   parent_id: parent_location   # 任意: 親ロケーションのID（階層構造用）
   description: "この場所の説明文。特徴や雰囲気を記述します。"

@@ -212,7 +212,7 @@
     }
     
     /**
-     * Search locations
+     * Search locations (including name, id, description, and aliases)
      */
     function searchLocations(locations, query) {
       if (!query || !query.trim()) return locations;
@@ -222,6 +222,12 @@
         if (loc.name && loc.name.toLowerCase().includes(q)) return true;
         if (loc.id && loc.id.toLowerCase().includes(q)) return true;
         if (loc.description && loc.description.toLowerCase().includes(q)) return true;
+        // Search in aliases
+        if (loc.aliases && Array.isArray(loc.aliases)) {
+          for (const alias of loc.aliases) {
+            if (alias.toLowerCase().includes(q)) return true;
+          }
+        }
         return false;
       });
     }
