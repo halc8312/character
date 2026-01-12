@@ -129,6 +129,24 @@ def validate_locations(locations_dir: Path, schema: dict, vocab: dict) -> tuple[
         if parent_id and parent_id not in location_ids:
             errors.append(f"Location '{loc_id}': parent_id '{parent_id}' does not exist")
     
+    # Third pass: check for circular references in parent_id chain
+    def has_cycle(start_id, visited):
+        """Check if following parent_id chain from start_id creates a cycle."""
+        if start_id in visited:
+            return True
+        visited.add(start_id)
+        data = locations_data.get(start_id)
+        if not data:
+            return False
+        parent_id = data.get('profile', {}).get('parent_id')
+        if not parent_id:
+            return False
+        return has_cycle(parent_id, visited)
+    
+    for loc_id in locations_data:
+        if has_cycle(loc_id, set()):
+            errors.append(f"Location '{loc_id}': circular reference detected in parent_id chain")
+    
     return errors, warnings
 
 

@@ -251,23 +251,67 @@ python scripts/validate_characters.py
 
 ## ロケーションデータベース
 
-キャラクターが住む街や場所を管理するためのシステムです。階層構造で場所を定義し、キャラクターとの関連付けが可能です。
+このリポジトリはキャラクターに加えて、キャラクターが住む街・地区・建物などの **ロケーション情報** をYAMLで管理します。  
+ロケーション定義は **唯一の信頼できる情報源（SSOT）** とし、スキーマ検証・語彙制御・CIによってデータ整合性を保ちます。
 
-### ディレクトリ構成
+### ディレクトリ構成（ロケーション関連）
 
-- `locations/` - 場所の定義（SSOT）
-- `maps/` - 地図ビューの定義
-- `links/` - キャラクター⇄ロケーションの紐付け
+```
+schemas/
+  location.schema.json           # ロケーション検証用スキーマ
+  map.schema.json                # 地図検証用スキーマ
+  links.schema.json              # 紐付け検証用スキーマ
+  vocab.yml                      # 拡張済み（location_types, link_kinds等）
+
+locations/
+  _TEMPLATE.location.yml         # テンプレート
+  <location_id>.location.yml     # ロケーション定義
+
+maps/
+  _TEMPLATE.map.yml              # テンプレート
+  <map_id>.map.yml               # 地図ビュー定義
+
+links/
+  character_locations.yml        # キャラ⇄ロケーション紐付け
+
+site/
+  locations.html                 # ロケーション一覧
+  location.html                  # ロケーション詳細
+  map.html                       # 地図ビュー（Cytoscape）
+  data/
+    locations.json               # 生成物
+    maps.json                    # 生成物
+    character_locations.json     # 生成物
+    location_graph_<map_id>.json # 地図用グラフデータ
+    location_layout_<map_id>.json # 地図レイアウト（永続化用）
+```
 
 ### ロケーションID命名規則
 
-ロケーションIDは以下の条件を満たす必要があります：
-- **小文字**、**数字**、**アンダースコア**のみ使用
-- パターン `^[a-z0-9_]+$` に一致
-- ファイル名と一致（例：`nishigaoka_city.location.yml` → `id: nishigaoka_city`）
-- 推奨形式: `親ID_場所名`（例：`nishigaoka_downtown`, `downtown_central_plaza`）
+ロケーションIDはキャラクターIDと同じルールに従います：
 
-### ロケーションタイプ
+- `id` は **小文字英数とアンダースコアのみ**（`^[a-z0-9_]+$`）
+- **ファイル名と完全一致**（例：`nishigaoka_city.location.yml` → `id: nishigaoka_city`）
+- 表示名（日本語など）は `profile.name` を使用
+
+**例：**
+- ✅ `nishigaoka_city`, `downtown_block_03`, `central_plaza`
+- ❌ `西ヶ丘市`, `NishigaokaCity`, `nishigaoka-city`
+
+### 階層構造（parent_id）
+
+ロケーションは `parent_id` で階層化できます。推奨される階層：
+
+```
+world → continent → country → region → city → district → building → room
+```
+
+**重要なルール：**
+- `parent_id` は存在するロケーションIDを参照する必要があります
+- **循環参照は禁止**（CIでエラーになります）
+  - ❌ AがBを親に持ち、BがAを親に持つ
+
+### ロケーションタイプ（location_types）
 
 `vocab.yml` で定義されている有効なタイプ：
 
@@ -283,20 +327,20 @@ python scripts/validate_characters.py
 
 ```yaml
 version: "1.0"
-id: nishigaoka_central_plaza
+id: nishigaoka_central_plaza       # ファイル名と一致必須
 
 profile:
-  name: "中央広場"
-  short: "広場"
-  type: landmark               # vocab.yml の location_types から
-  parent_id: nishigaoka_downtown  # 親ロケーション（階層構造）
+  name: "中央広場"                  # 表示名（日本語OK）
+  short: "広場"                     # 短縮名（任意）
+  type: landmark                    # vocab.yml の location_types から
+  parent_id: nishigaoka_downtown    # 親ロケーション（任意、階層構造用）
   description: "噴水と露店が並ぶ待ち合わせの定番。"
 
 tags:
   - location/landmark
   - district/downtown
 
-lore:
+lore:                               # 世界観設定（任意）
   history: "50年前に整備された市民の憩いの場"
   rumors:
     - "満月の夜、噴水が青く光るという噂"
@@ -312,28 +356,32 @@ meta:
   author: "your_name"
 ```
 
-### 地図（Map）YAMLリファレンス
+### 地図（Map）ビューの概念
 
-地図は「特定の範囲のロケーションを可視化するビュー」です。
+地図は **SSOTではなく「ビュー」** です。「どのロケーション集合を、どの粒度で可視化するか」を定義します。
+
+- `root_location_id`: 地図の起点となるロケーション
+- `include.depth`: 何階層下まで表示するか
+- `include.types`: 表示対象のタイプ（空の場合は全て）
 
 ```yaml
 version: "1.0"
-id: nishigaoka_city
+id: nishigaoka_city               # ファイル名と一致必須
 
 profile:
   name: "西ヶ丘市 全体図"
   description: "主要地区とランドマークの俯瞰図"
 
-root_location_id: nishigaoka_city    # この配下を地図に表示
+root_location_id: nishigaoka_city  # この配下を地図に表示
 include:
-  depth: 3                           # 何階層下まで含めるか
-  types:                             # 表示対象タイプ（空 = 全て）
+  depth: 3                         # 何階層下まで含めるか
+  types:                           # 表示対象タイプ（空 = 全て）
     - district
     - landmark
     - building
 
 display:
-  layout: auto                       # auto または saved
+  layout: auto                     # auto: 自動配置, saved: 保存済み使用
   show_labels: true
 
 meta:
@@ -342,16 +390,17 @@ meta:
   author: "your_name"
 ```
 
-### キャラクター⇄ロケーション紐付け
+### キャラクター ⇄ ロケーション紐付け（Links）
 
-既存のキャラクターYAMLを編集せずに、`links/character_locations.yml` で紐付けを管理します。
+キャラクターとロケーションの関連は `links/character_locations.yml` で一括管理します。  
+これにより、既存のキャラクターYAMLを編集せずに紐付けを追加できます。
 
 ```yaml
 version: "1.0"
 links:
-  - character_id: haruto_tanaka
-    kind: home                       # vocab.yml の link_kinds から
-    location_id: nishigaoka_residential
+  - character_id: haruto_tanaka    # characters/ に存在するID
+    kind: home                      # vocab.yml の link_kinds から
+    location_id: nishigaoka_residential  # locations/ に存在するID
     note: "実家がある住宅街"
   - character_id: haruto_tanaka
     kind: school
@@ -359,41 +408,84 @@ links:
   - character_id: haruto_tanaka
     kind: hangout
     location_id: nishigaoka_central_plaza
-    intensity: 4                     # 0-5: 訪問頻度
+    intensity: 4                   # 0-5: 訪問頻度（任意）
 ```
 
-### 有効なリンクタイプ（link_kinds）
+### リンクタイプ（link_kinds）
 
-| タイプ | 説明 |
-|--------|------|
-| `home` | 自宅・住居 |
-| `birthplace` | 出生地 |
-| `current` | 現在地 |
-| `workplace` | 勤務先 |
-| `school` | 通学先 |
-| `hangout` | よく訪れる場所 |
-| `hideout` | 隠れ家 |
-| `owned` | 所有物件 |
-| `frequented` | 頻繁に訪れる |
-| `avoided` | 避けている場所 |
-| `memorable` | 思い出の場所 |
+| タイプ | 説明 | 複数可 |
+|--------|------|--------|
+| `home` | 自宅・現住居 | ○（引越し履歴など） |
+| `birthplace` | 出生地 | △（基本1つ） |
+| `current` | 現在地 | △ |
+| `workplace` | 勤務先 | ○ |
+| `school` | 通学先 | ○ |
+| `hangout` | よく訪れる場所 | ○ |
+| `hideout` | 隠れ家 | ○ |
+| `owned` | 所有物件 | ○ |
+| `frequented` | 頻繁に訪れる | ○ |
+| `avoided` | 避けている場所 | ○ |
+| `memorable` | 思い出の場所 | ○ |
 
-### 新規ロケーションの追加手順
+### ロケーションの追加手順
 
-1. `locations/_TEMPLATE.location.yml` を `locations/<id>.location.yml` にコピー
-2. プレースホルダーを実際のデータに置き換え
-3. 必要に応じて `links/character_locations.yml` にキャラクターとの紐付けを追加
-4. ローカルで検証: `python scripts/validate_locations.py`
-5. PRを提出
-
-### 地図の作成手順
-
-1. `maps/_TEMPLATE.map.yml` を `maps/<id>.map.yml` にコピー
-2. `root_location_id` に表示したいロケーションのIDを指定
-3. `include.depth` と `include.types` で表示範囲を調整
+1. `locations/_TEMPLATE.location.yml` を `locations/<location_id>.location.yml` にコピー
+2. `id`・`profile`・`type`・`parent_id`（任意）などを埋める
+3. ローカルで検証:
+   ```bash
+   pip install pyyaml jsonschema
+   python scripts/validate_locations.py
+   ```
 4. PRを提出
-5. デプロイ後、`map.html?map=<id>` で地図を閲覧
-6. 「レイアウトを書き出し」で位置を保存可能
+
+### 地図ビューの追加手順
+
+1. `maps/_TEMPLATE.map.yml` を `maps/<map_id>.map.yml` にコピー
+2. `root_location_id`（地図の起点）や include 条件を設定
+3. PRを提出
+4. デプロイ後、`/map.html?map=<map_id>` で閲覧
+
+### レイアウト永続化（地図）
+
+地図のノード位置はカスタマイズして保存できます（相関図と同じ体験）：
+
+1. `map.html?map=<map_id>` を開く
+2. ノードをドラッグして位置を調整
+3. 「レイアウトを書き出し」ボタンをクリック
+4. ダウンロードした `location_layout_<map_id>.json` を `site/data/` に配置してコミット
+5. 次回デプロイ以降、ノード位置が保持されます
+
+### GitHub Pages（ロケーション関連）
+
+- `/locations.html` - ロケーション一覧（階層ツリー、タイプフィルタ）
+- `/location.html?id=<location_id>` - ロケーション詳細（関連キャラクター表示）
+- `/map.html?map=<map_id>` - 地図ビュー（Cytoscapeで可視化）
+
+### CI検証内容（ロケーション）
+
+| チェック | 説明 |
+|----------|------|
+| スキーマ検証 | location/map/links が各スキーマに一致 |
+| ID/ファイル名一致 | `id` がファイル名と一致 |
+| parent_id 存在 | 参照先ロケーションが存在 |
+| 循環参照 | parent_id チェーンに循環がない |
+| type 検証 | vocab.yml の location_types に含まれる |
+| タグプレフィックス | vocab.yml の tag_prefixes に含まれる |
+| リンク検証 | character_id と location_id が存在、kind が有効 |
+
+### FAQ（ロケーション）
+
+**Q: 階層はどこまで深くできますか？**  
+A: 技術的な制限はありませんが、運用上は `world → city → district → building → room` 程度（5階層）を推奨します。
+
+**Q: 同じキャラクターに複数の `home` を設定できますか？**  
+A: はい。引越し履歴や別荘などを表現できます。`since` フィールドで時期を記録できます。
+
+**Q: 地図画像（SVG/PNG）を使いたい場合は？**  
+A: 将来的に `map.yml` に `background_image` を追加し、Cytoscapeの背景に敷く形で対応可能です。現在はCytoscapeのレイアウト機能のみサポートしています。
+
+**Q: ロケーションを削除したらリンクはどうなりますか？**  
+A: CIで `location_id` の存在チェックが入るため、削除前にリンクを更新する必要があります。
 
 ## 貢献方法
 
