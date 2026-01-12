@@ -19,21 +19,34 @@ AIによるキャラクター演技のために設計された、Git管理型の
 ├── README.md                          # このファイル
 ├── schemas/
 │   ├── character.schema.json          # キャラクター検証用JSONスキーマ
-│   └── vocab.yml                      # 制御語彙（タグ、関係性タイプ）
+│   ├── location.schema.json           # ロケーション検証用JSONスキーマ
+│   ├── map.schema.json                # 地図検証用JSONスキーマ
+│   ├── links.schema.json              # キャラ⇄ロケーション紐付けスキーマ
+│   └── vocab.yml                      # 制御語彙（タグ、関係性タイプ、ロケーションタイプ）
 ├── characters/
 │   └── _TEMPLATE.character.yml        # 新規キャラクター用テンプレート
+├── locations/
+│   └── _TEMPLATE.location.yml         # 新規ロケーション用テンプレート
+├── maps/
+│   └── _TEMPLATE.map.yml              # 新規地図用テンプレート
+├── links/
+│   └── character_locations.yml        # キャラクター⇄ロケーション紐付け
 ├── relations/
 │   └── graph.yml                      # 関係性グラフ（オプションの集中管理ビュー）
 ├── prompts/
 │   ├── system_prompt.md               # AIシステムプロンプト
 │   └── character_prompt_template.md   # キャラクター固有プロンプトテンプレート
 ├── scripts/
-│   ├── validate_characters.py         # 検証スクリプト
+│   ├── validate_characters.py         # キャラクター検証スクリプト
+│   ├── validate_locations.py          # ロケーション検証スクリプト
 │   └── build_site_data.py             # サイトデータ生成スクリプト
 ├── site/                              # GitHub Pages 用静的サイト
 │   ├── index.html                     # キャラクター一覧
 │   ├── character.html                 # キャラクター詳細
 │   ├── graph.html                     # 相関図
+│   ├── locations.html                 # ロケーション一覧
+│   ├── location.html                  # ロケーション詳細
+│   ├── map.html                       # 地図ビュー
 │   ├── data/                          # 生成されるJSONデータ
 │   └── assets/                        # CSS/JavaScript
 └── .github/
@@ -236,6 +249,277 @@ python scripts/validate_characters.py
 
 完全な構造と例については `characters/_TEMPLATE.character.yml` を参照してください。
 
+## ロケーションデータベース
+
+このリポジトリはキャラクターに加えて、キャラクターが住む街・地区・建物などの **ロケーション情報** をYAMLで管理します。  
+ロケーション定義は **唯一の信頼できる情報源（SSOT）** とし、スキーマ検証・語彙制御・CIによってデータ整合性を保ちます。
+
+### ディレクトリ構成（ロケーション関連）
+
+```
+schemas/
+  location.schema.json           # ロケーション検証用スキーマ
+  map.schema.json                # 地図検証用スキーマ
+  links.schema.json              # 紐付け検証用スキーマ
+  vocab.yml                      # 拡張済み（location_types, link_kinds等）
+
+locations/
+  _TEMPLATE.location.yml         # テンプレート
+  <location_id>.location.yml     # ロケーション定義
+
+maps/
+  _TEMPLATE.map.yml              # テンプレート
+  <map_id>.map.yml               # 地図ビュー定義
+
+links/
+  character_locations.yml        # キャラ⇄ロケーション紐付け
+
+site/
+  locations.html                 # ロケーション一覧
+  location.html                  # ロケーション詳細
+  map.html                       # 地図ビュー（Cytoscape）
+  data/
+    locations.json               # 生成物
+    maps.json                    # 生成物
+    character_locations.json     # 生成物
+    location_graph_<map_id>.json # 地図用グラフデータ
+    location_layout_<map_id>.json # 地図レイアウト（永続化用）
+```
+
+### ロケーションID命名規則
+
+ロケーションIDはキャラクターIDと同じルールに従います：
+
+- `id` は **小文字英数とアンダースコアのみ**（`^[a-z0-9_]+$`）
+- **ファイル名と完全一致**（例：`nishigaoka_city.location.yml` → `id: nishigaoka_city`）
+- 表示名（日本語など）は `profile.name` を使用
+
+**例：**
+- ✅ `nishigaoka_city`, `downtown_block_03`, `central_plaza`
+- ❌ `西ヶ丘市`, `NishigaokaCity`, `nishigaoka-city`
+
+### 階層構造（parent_id）
+
+ロケーションは `parent_id` で階層化できます。推奨される階層：
+
+```
+world → continent → country → region → city → district → building → room
+```
+
+**重要なルール：**
+- `parent_id` は存在するロケーションIDを参照する必要があります
+- **循環参照は禁止**（CIでエラーになります）
+  - ❌ AがBを親に持ち、BがAを親に持つ
+
+### ロケーションタイプ（location_types）
+
+`vocab.yml` で定義されている有効なタイプ：
+
+| カテゴリ | タイプ |
+|----------|--------|
+| 大規模 | `world`, `continent`, `country`, `region`, `city` |
+| 中規模 | `district`, `neighborhood`, `street` |
+| 施設・建物 | `building`, `house`, `shop`, `school`, `temple`, `guild`, `office`, `hospital`, `station` |
+| 建物内部 | `room`, `floor` |
+| ランドマーク・自然 | `landmark`, `park`, `plaza`, `forest`, `mountain`, `river`, `lake` |
+
+### ロケーションYAMLリファレンス
+
+```yaml
+version: "1.0"
+id: nishigaoka_central_plaza       # ファイル名と一致必須
+
+profile:
+  name: "中央広場"                  # 表示名（日本語OK）
+  short: "広場"                     # 短縮名（任意）
+  aliases:                          # 別名（任意）: 旧称、略称、英語名など
+    - "西ヶ丘中央広場"
+    - "Central Plaza"
+  type: landmark                    # vocab.yml の location_types から
+  parent_id: nishigaoka_downtown    # 親ロケーション（任意、階層構造用）
+  description: "噴水と露店が並ぶ待ち合わせの定番。"
+
+tags:
+  - location/landmark
+  - district/downtown
+
+lore:                               # 世界観設定（任意）
+  history: "50年前に整備された市民の憩いの場"
+  rumors:
+    - "満月の夜、噴水が青く光るという噂"
+  rules:
+    - "大声での演説は禁止"
+  notable_features:
+    - "大噴水"
+    - "露店街"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "your_name"
+```
+
+**aliases フィールドの用途:**
+- 旧地名（例：旧称、合併前の名称）
+- 略称・通称
+- 英語名・ローマ字表記
+- 検索時に name + aliases + id が対象になります
+
+### 地図（Map）ビューの概念
+
+地図は **SSOTではなく「ビュー」** です。「どのロケーション集合を、どの粒度で可視化するか」を定義します。
+
+- `root_location_id`: 地図の起点となるロケーション
+- `include.depth`: 何階層下まで表示するか
+- `include.types`: 表示対象のタイプ（空の場合は全て）
+
+```yaml
+version: "1.0"
+id: nishigaoka_city               # ファイル名と一致必須
+
+profile:
+  name: "西ヶ丘市 全体図"
+  description: "主要地区とランドマークの俯瞰図"
+
+root_location_id: nishigaoka_city  # この配下を地図に表示
+include:
+  depth: 3                         # 何階層下まで含めるか
+  types:                           # 表示対象タイプ（空 = 全て）
+    - district
+    - landmark
+    - building
+
+display:
+  layout: auto                     # auto: 自動配置, saved: 保存済み使用
+  show_labels: true
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "your_name"
+```
+
+### キャラクター ⇄ ロケーション紐付け（Links）
+
+キャラクターとロケーションの関連は `links/character_locations.yml` で一括管理します。  
+これにより、既存のキャラクターYAMLを編集せずに紐付けを追加できます。
+
+```yaml
+version: "1.0"
+links:
+  - character_id: haruto_tanaka    # characters/ に存在するID
+    kind: home                      # vocab.yml の link_kinds から
+    location_id: nishigaoka_residential  # locations/ に存在するID
+    note: "実家がある住宅街"
+  - character_id: haruto_tanaka
+    kind: school
+    location_id: nishigaoka_high_school
+  - character_id: haruto_tanaka
+    kind: hangout
+    location_id: nishigaoka_central_plaza
+    intensity: 4                   # 0-5: 訪問頻度（任意）
+```
+
+### リンクタイプ（link_kinds）とカーディナリティ
+
+| タイプ | 説明 | カーディナリティ | CI検証 |
+|--------|------|------------------|--------|
+| `birthplace` | 出生地 | **1件のみ** | ✅ |
+| `current` | 現在地 | **1件のみ** | ✅ |
+| `home` | 自宅・現住居 | 複数可（引越し履歴など） | - |
+| `workplace` | 勤務先 | 複数可 | - |
+| `school` | 通学先 | 複数可 | - |
+| `hangout` | よく訪れる場所 | 複数可 | - |
+| `hideout` | 隠れ家 | 複数可 | - |
+| `owned` | 所有物件 | 複数可 | - |
+| `frequented` | 頻繁に訪れる | 複数可 | - |
+| `avoided` | 避けている場所 | 複数可 | - |
+| `memorable` | 思い出の場所 | 複数可 | - |
+
+**注意:** `birthplace` と `current` は1キャラクターにつき1件のみ許可されます。複数登録するとCIでエラーになります。
+
+### ロケーションの追加手順
+
+1. `locations/_TEMPLATE.location.yml` を `locations/<location_id>.location.yml` にコピー
+2. `id`・`profile`・`type`・`parent_id`（任意）などを埋める
+3. ローカルで検証:
+   ```bash
+   pip install pyyaml jsonschema
+   python scripts/validate_locations.py
+   ```
+4. PRを提出
+
+### 地図ビューの追加手順
+
+1. `maps/_TEMPLATE.map.yml` を `maps/<map_id>.map.yml` にコピー
+2. `root_location_id`（地図の起点）や include 条件を設定
+3. PRを提出
+4. デプロイ後、`/map.html?map=<map_id>` で閲覧
+
+### レイアウト永続化（地図）
+
+地図のノード位置はカスタマイズして保存できます（相関図と同じ体験）：
+
+1. `map.html?map=<map_id>` を開く
+2. ノードをドラッグして位置を調整
+3. 「レイアウトを書き出し」ボタンをクリック
+4. ダウンロードした `location_layout_<map_id>.json` を `site/data/` に配置してコミット
+5. 次回デプロイ以降、ノード位置が保持されます
+
+### GitHub Pages（ロケーション関連）
+
+- `/locations.html` - ロケーション一覧（階層ツリー、タイプフィルタ）
+- `/location.html?id=<location_id>` - ロケーション詳細（関連キャラクター表示）
+- `/map.html?map=<map_id>` - 地図ビュー（Cytoscapeで可視化）
+
+### CI検証内容（ロケーション）
+
+CI では3つの検証スクリプトが実行されます：
+- `validate_characters.py` - キャラクター検証
+- `validate_locations.py` - ロケーション/地図検証
+- `validate_links.py` - リンク検証（カーディナリティ含む）
+
+| チェック | スクリプト | 説明 |
+|----------|-----------|------|
+| スキーマ検証 | locations/links | location/map/links が各スキーマに一致 |
+| ID/ファイル名一致 | locations | `id` がファイル名と一致 |
+| parent_id 存在 | locations | 参照先ロケーションが存在 |
+| 循環参照 | locations | parent_id チェーンに循環がない |
+| type 検証 | locations | vocab.yml の location_types に含まれる |
+| タグプレフィックス | locations | vocab.yml の tag_prefixes に含まれる |
+| リンク検証 | links | character_id と location_id が存在、kind が有効 |
+| カーディナリティ | links | birthplace/current は1件のみ |
+
+### FAQ（ロケーション）
+
+**Q: 階層はどこまで深くできますか？**  
+A: 技術的な制限はありませんが、運用上は `world → city → district → building → room` 程度（5階層）を推奨します。
+
+**Q: 同じキャラクターに複数の `home` を設定できますか？**  
+A: はい。引越し履歴や別荘などを表現できます。`since` フィールドで時期を記録できます。
+
+**Q: `birthplace` や `current` は複数設定できますか？**  
+A: いいえ。これらは1キャラクターにつき1件のみです。複数登録するとCIでエラーになります。カーディナリティは `vocab.yml` の `link_cardinality` で定義されています。
+
+**Q: ロケーションを追加したのに地図に表示されません**  
+A: Map定義（`maps/*.map.yml`）は「ビュー」であり、`root_location_id` 配下のロケーションのみ表示されます。以下を確認してください：
+- ロケーションの `parent_id` が `root_location_id` の子孫になっているか
+- `include.depth` の範囲内か
+- `include.types` に該当タイプが含まれているか（空の場合は全て表示）
+
+**Q: 地図のレイアウトを保存したい**  
+A: 相関図と同じ体験です：
+1. `map.html?map=<map_id>` でノードをドラッグして配置
+2. 「レイアウト書き出し」をクリック
+3. ダウンロードされた `location_layout_<map_id>.json` を `site/data/` に配置してコミット
+4. 新規ロケーションはレイアウトファイルに座標がないため自動配置されます。再度書き出しで固定できます。
+
+**Q: 地図画像（SVG/PNG）を使いたい場合は？**  
+A: 将来的に `map.yml` に `background_image` を追加し、Cytoscapeの背景に敷く形で対応可能です。現在はCytoscapeのレイアウト機能のみサポートしています。
+
+**Q: ロケーションを削除したらリンクはどうなりますか？**  
+A: CIで `location_id` の存在チェックが入るため、削除前にリンクを更新する必要があります。
+
 ## 貢献方法
 
 1. **キャラクター**：Issueテンプレートを使用して提案し、PRを提出
@@ -244,7 +528,7 @@ python scripts/validate_characters.py
 
 ## GitHub Pages（Webビューア）
 
-このリポジトリは GitHub Pages を使用してキャラクター一覧・詳細・相関図を Web 上で閲覧できます。
+このリポジトリは GitHub Pages を使用してキャラクター一覧・詳細・相関図・ロケーション情報を Web 上で閲覧できます。
 
 > 📘 **詳細なデプロイメントガイド**: [DEPLOYMENT.md](DEPLOYMENT.md) を参照してください
 
@@ -254,6 +538,9 @@ python scripts/validate_characters.py
 - `/character.html?id=<id>` - キャラクター詳細ページ
 - `/graph.html` - 相関図（インタラクティブ）
 - `/graph.html?focus=<id>` - 特定キャラクターにフォーカスした相関図
+- `/locations.html` - ロケーション一覧（階層ツリー表示）
+- `/location.html?id=<id>` - ロケーション詳細ページ
+- `/map.html?map=<id>` - 地図ビュー（Cytoscapeによる可視化）
 
 ### GitHub Pages の有効化
 
@@ -280,14 +567,30 @@ python scripts/validate_characters.py
 ### 生成の流れ
 
 ```
-characters/*.yml  →  scripts/build_site_data.py  →  site/data/*.json  →  GitHub Pages
+characters/*.yml     ─┐
+locations/*.yml      ─┼→  scripts/build_site_data.py  →  site/data/*.json  →  GitHub Pages
+maps/*.yml           ─┤
+links/*.yml          ─┘
 ```
 
-1. キャラクターYAMLファイルを追加・編集
+1. YAML ファイル（キャラクター、ロケーション、地図、紐付け）を追加・編集
 2. main ブランチに push
 3. GitHub Actions (`pages.yml`) が自動実行：
    - `build_site_data.py` が YAML から JSON を生成
    - `site/` ディレクトリを GitHub Pages にデプロイ
+
+### 生成されるファイル
+
+| ファイル | 内容 |
+|----------|------|
+| `characters.json` | キャラクター一覧データ |
+| `graph.json` | キャラクター相関図データ |
+| `layout.json` | 相関図レイアウト |
+| `locations.json` | ロケーション一覧データ |
+| `maps.json` | 地図定義一覧 |
+| `character_locations.json` | キャラ⇄ロケーション紐付け |
+| `location_graph_<map_id>.json` | 地図用グラフデータ |
+| `location_layout_<map_id>.json` | 地図レイアウト |
 
 ### ローカルでの確認
 

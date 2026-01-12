@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケーション詳細 | Character Database</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="header">
+    <h1>キャラクターデータベース</h1>
+    <nav>
+      <a href="index.html">一覧</a>
+      <a href="graph.html">相関図</a>
+      <a href="locations.html">ロケーション</a>
+    </nav>
+  </header>
+  
+  <main class="container">
+    <a href="locations.html" class="back-link">← ロケーション一覧に戻る</a>
+    
+    <div id="locationDetail" class="location-detail">
+      <div class="loading">データを読み込んでいます...</div>
+    </div>
+  </main>
+  
+  <script src="assets/app.js"></script>
+  <script>
+    /**
+     * Get icon for location type
+     */
+    function getTypeIcon(type) {
+      const icons = {
+        world: '🌍', continent: '🗺️', country: '🏳️', region: '📍',
+        city: '🏙️', district: '🏘️', neighborhood: '🏠', street: '🛤️',
+        building: '🏢', house: '🏡', shop: '🏪', school: '🏫',
+        temple: '⛩️', guild: '🏛️', office: '🏢', hospital: '🏥',
+        station: '🚉', room: '🚪', floor: '📶', landmark: '🗿',
+        park: '🌳', plaza: '⛲', forest: '🌲', mountain: '⛰️',
+        river: '🏞️', lake: '💧'
+      };
+      return icons[type] || '📌';
+    }
+    
+    /**
+     * Render location detail
+     */
+    function renderLocationDetail(location, locations, characters, links) {
+      const container = document.getElementById('locationDetail');
+      
+      if (!location) {
+        container.innerHTML = `
+          <div class="error">
+            <h3>ロケーションが見つかりません</h3>
+            <p>指定されたIDのロケーションは存在しません。</p>
+            <a href="locations.html" class="back-link">一覧に戻る</a>
+          </div>
+        `;
+        return;
+      }
+      
+      // Update page title
+      document.title = `${location.name} | Character Database`;
+      
+      // Find parent
+      const parent = location.parent_id ? locations.find(l => l.id === location.parent_id) : null;
+      
+      // Find children
+      const children = locations.filter(l => l.parent_id === location.id);
+      
+      // Find related characters through links
+      const relatedLinks = links.filter(link => link.location_id === location.id);
+      const charMap = {};
+      characters.forEach(c => { charMap[c.id] = c; });
+      
+      // Group links by kind
+      const linksByKind = {};
+      relatedLinks.forEach(link => {
+        if (!linksByKind[link.kind]) linksByKind[link.kind] = [];
+        const char = charMap[link.character_id];
+        if (char) {
+          linksByKind[link.kind].push({ ...link, character: char });
+        }
+      });
+      
+      // Build tags HTML
+      const tagsHtml = (location.tags || []).map(tag => {
+        const escaped = App.escapeHtml(tag);
+        return `<span class="tag">${escaped}</span>`;
+      }).join(' ');
+      
+      // Build parent link
+      const parentHtml = parent ? `
+        <div class="detail-section">
+          <h3>上位ロケーション</h3>
+          <a href="location.html?id=${App.escapeHtml(parent.id)}" class="location-parent-link">
+            ${getTypeIcon(parent.type)} ${App.escapeHtml(parent.name)}
+          </a>
+        </div>
+      ` : '';
+      
+      // Build children list
+      const childrenHtml = children.length > 0 ? `
+        <div class="detail-section">
+          <h3>含まれる場所 (${children.length})</h3>
+          <ul class="children-list">
+            ${children.map(child => `
+              <li>
+                <a href="location.html?id=${App.escapeHtml(child.id)}">
+                  ${getTypeIcon(child.type)} ${App.escapeHtml(child.name)}
+                </a>
+                <span class="tag">${App.escapeHtml(child.type || '')}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      ` : '';
+      
+      // Build lore section
+      const lore = location.lore || {};
+      let loreHtml = '';
+      if (lore.history || (lore.rumors && lore.rumors.length) || (lore.rules && lore.rules.length) || (lore.notable_features && lore.notable_features.length)) {
+        loreHtml = '<div class="detail-section"><h3>世界観設定</h3>';
+        if (lore.history) {
+          loreHtml += `<p><strong>歴史:</strong> ${App.escapeHtml(lore.history)}</p>`;
+        }
+        if (lore.notable_features && lore.notable_features.length) {
+          loreHtml += `<p><strong>特徴:</strong></p><ul>${lore.notable_features.map(f => `<li>${App.escapeHtml(f)}</li>`).join('')}</ul>`;
+        }
+        if (lore.rumors && lore.rumors.length) {
+          loreHtml += `<p><strong>噂・伝説:</strong></p><ul>${lore.rumors.map(r => `<li>${App.escapeHtml(r)}</li>`).join('')}</ul>`;
+        }
+        if (lore.rules && lore.rules.length) {
+          loreHtml += `<p><strong>ルール・慣習:</strong></p><ul>${lore.rules.map(r => `<li>${App.escapeHtml(r)}</li>`).join('')}</ul>`;
+        }
+        loreHtml += '</div>';
+      }
+      
+      // Build related characters section
+      let relatedCharsHtml = '';
+      const kindLabels = {
+        home: '住居', birthplace: '出生地', current: '現在地',
+        workplace: '勤務先', school: '通学先', hangout: 'よく訪れる',
+        hideout: '隠れ家', owned: '所有', frequented: '頻繁に訪問',
+        avoided: '避けている', memorable: '思い出の場所', other: 'その他'
+      };
+      
+      if (Object.keys(linksByKind).length > 0) {
+        relatedCharsHtml = '<div class="detail-section"><h3>関連キャラクター</h3>';
+        for (const [kind, items] of Object.entries(linksByKind)) {
+          relatedCharsHtml += `<h4>${kindLabels[kind] || kind} (${items.length})</h4><ul class="related-chars-list">`;
+          items.forEach(item => {
+            relatedCharsHtml += `
+              <li>
+                <a href="character.html?id=${App.escapeHtml(item.character_id)}">
+                  ${App.escapeHtml(item.character.name_display || item.character_id)}
+                </a>
+                ${item.note ? `<span class="note">- ${App.escapeHtml(item.note)}</span>` : ''}
+              </li>
+            `;
+          });
+          relatedCharsHtml += '</ul>';
+        }
+        relatedCharsHtml += '</div>';
+      }
+      
+      container.innerHTML = `
+        <h1>${getTypeIcon(location.type)} ${App.escapeHtml(location.name)}</h1>
+        ${location.short ? `<div class="short-name">${App.escapeHtml(location.short)}</div>` : ''}
+        
+        <div class="detail-section">
+          <h3>基本情報</h3>
+          <p><strong>ID:</strong> ${App.escapeHtml(location.id)}</p>
+          <p><strong>タイプ:</strong> <span class="tag">${App.escapeHtml(location.type || '')}</span></p>
+          ${location.description ? `<p><strong>説明:</strong> ${App.escapeHtml(location.description)}</p>` : ''}
+        </div>
+        
+        ${tagsHtml ? `
+          <div class="detail-section">
+            <h3>タグ</h3>
+            <div class="tags">${tagsHtml}</div>
+          </div>
+        ` : ''}
+        
+        ${parentHtml}
+        ${childrenHtml}
+        ${loreHtml}
+        ${relatedCharsHtml}
+      `;
+    }
+    
+    /**
+     * Initialize the page
+     */
+    async function init() {
+      const locationId = App.getQueryParam('id');
+      
+      if (!locationId) {
+        document.getElementById('locationDetail').innerHTML = `
+          <div class="error">
+            <h3>ロケーションIDが指定されていません</h3>
+            <p>URLに ?id=ロケーションID を追加してください。</p>
+            <a href="locations.html" class="back-link">一覧に戻る</a>
+          </div>
+        `;
+        return;
+      }
+      
+      try {
+        const [locations, characters, links] = await Promise.all([
+          App.fetchData('locations.json'),
+          App.fetchData('characters.json'),
+          App.fetchData('character_locations.json')
+        ]);
+        
+        const location = (locations || []).find(l => l.id === locationId);
+        renderLocationDetail(location, locations || [], characters || [], links || []);
+        
+      } catch (error) {
+        console.error('Failed to load location:', error);
+        document.getElementById('locationDetail').innerHTML = `
+          <div class="error">データの読み込みに失敗しました</div>
+        `;
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+  
+  <style>
+    .location-detail h1 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .short-name {
+      color: var(--text-muted, #666);
+      margin-bottom: 1rem;
+    }
+    .location-parent-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--hover-bg, #f5f5f5);
+      border-radius: 4px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .location-parent-link:hover {
+      background: var(--border-color, #ddd);
+    }
+    .children-list, .related-chars-list {
+      list-style: none;
+      padding: 0;
+    }
+    .children-list li, .related-chars-list li {
+      padding: 0.5rem;
+      border-bottom: 1px solid var(--border-color, #eee);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .children-list li:last-child, .related-chars-list li:last-child {
+      border-bottom: none;
+    }
+    .children-list a, .related-chars-list a {
+      text-decoration: none;
+      color: var(--primary-color, #4a6fa5);
+    }
+    .children-list a:hover, .related-chars-list a:hover {
+      text-decoration: underline;
+    }
+    .related-chars-list .note {
+      color: var(--text-muted, #666);
+      font-size: 0.85rem;
+    }
+    .detail-section h4 {
+      margin: 1rem 0 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted, #666);
+    }
+  </style>
+</body>
+</html>

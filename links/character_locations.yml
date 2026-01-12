@@ -1,0 +1,31 @@
+# キャラクター⇄ロケーション紐付けファイル
+# このファイルでキャラクターと場所の関係を一括管理します
+# 既存のキャラクターYAMLを編集せずに紐付けを追加できます
+#
+# 各リンクには以下を指定します:
+#   - character_id: キャラクターのID（characters/*.yml に存在する必要があります）
+#   - kind: 関係の種類（vocab.yml の link_kinds から選択）
+#   - location_id: ロケーションのID（locations/*.location.yml に存在する必要があります）
+#   - note: 補足説明（任意）
+#   - since: いつからの関係か（任意、YYYY-MM-DD または YYYY形式）
+#   - intensity: 関係の強さ 0-5（任意、例: 訪問頻度）
+
+version: "1.0"
+
+links: []
+
+# 記入例:
+# links:
+#   - character_id: haruto_tanaka
+#     kind: home
+#     location_id: nishigaoka_residential
+#     note: "実家がある住宅街"
+#   - character_id: haruto_tanaka
+#     kind: school
+#     location_id: nishigaoka_high_school
+#     note: "通学先"
+#   - character_id: haruto_tanaka
+#     kind: hangout
+#     location_id: nishigaoka_central_plaza
+#     note: "友人との待ち合わせ場所"
+#     intensity: 4

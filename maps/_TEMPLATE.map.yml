@@ -1,0 +1,37 @@
+# 地図テンプレート
+# このファイルをコピーして <your_map_id>.map.yml にリネームしてください
+# 地図は「特定の範囲のロケーションを可視化するビュー」です
+# 詳細な手順については README.md を参照してください
+
+version: "1.0"
+
+# 一意の識別子 - ファイル名（.map.yml なし）と一致する必要があります
+# 形式: 小文字、数字、アンダースコアのみ
+id: your_map_id
+
+profile:
+  name: "地図の表示名"
+  description: "この地図が何を表示するかの説明"
+
+# この地図のルートとなるロケーションのID
+# このロケーションとその子孫が地図に表示されます
+root_location_id: root_location
+
+# 表示するロケーションの設定
+include:
+  depth: 3                      # 何階層下まで含めるか（0 = ルートのみ）
+  types:                        # 表示対象のタイプ（空の場合は全て）
+    - district
+    - landmark
+    - building
+
+# 表示設定
+display:
+  layout: auto                  # auto: 自動配置, saved: 保存済みレイアウト使用
+  show_labels: true             # ノードラベルを表示するか
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "あなたの名前"
+  notes: "この地図ファイルに関する追加のメモ"

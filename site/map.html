@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>地図 | Character Database</title>
+  <link rel="stylesheet" href="assets/app.css">
+  <script src="assets/cytoscape.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>キャラクターデータベース</h1>
+    <nav>
+      <a href="index.html">一覧</a>
+      <a href="graph.html">相関図</a>
+      <a href="locations.html">ロケーション</a>
+    </nav>
+  </header>
+  
+  <main class="container" style="padding: 1rem; max-width: 100%;">
+    <div class="graph-container">
+      <div class="graph-main">
+        <div class="graph-controls">
+          <input 
+            type="text" 
+            id="mapSearch" 
+            class="search-input" 
+            placeholder="場所名で検索..."
+            autocomplete="off"
+          >
+          <button id="btnReset" class="secondary">リセット</button>
+          <button id="btnAutoLayout">自動整列</button>
+          <button id="btnExportLayout">レイアウト書き出し</button>
+        </div>
+        
+        <div class="status-bar">
+          <span id="mapStatus">読み込み中...</span>
+          <span id="mapName" style="margin-left: auto; font-weight: bold;"></span>
+        </div>
+        
+        <div id="cy"></div>
+      </div>
+      
+      <div class="graph-sidebar">
+        <div class="sidebar-panel">
+          <h3>タイプフィルタ</h3>
+          <div id="typeFilters" class="filter-chips">
+            <!-- Type filters -->
+          </div>
+        </div>
+        
+        <div class="sidebar-panel">
+          <h3>地図一覧</h3>
+          <div id="mapList" class="map-list">
+            <!-- Map list -->
+          </div>
+        </div>
+        
+        <div class="sidebar-panel detail">
+          <h3>詳細</h3>
+          <div id="detailEmpty" class="detail-content active">
+            <p style="color: var(--text-muted);">ノードをクリックして詳細を表示</p>
+          </div>
+          <div id="nodeDetail" class="detail-content">
+            <!-- Node detail -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="assets/app.js"></script>
+  <script>
+    let cy = null;
+    let currentMapId = null;
+    let allMaps = [];
+    let savedLayout = {};
+    let activeTypes = new Set();
+    
+    /**
+     * Get color for location type
+     */
+    function getTypeColor(type) {
+      const colors = {
+        world: '#9c27b0', continent: '#673ab7', country: '#3f51b5',
+        region: '#2196f3', city: '#03a9f4', district: '#00bcd4',
+        neighborhood: '#009688', street: '#4caf50', building: '#8bc34a',
+        house: '#cddc39', shop: '#ffeb3b', school: '#ffc107',
+        temple: '#ff9800', guild: '#ff5722', landmark: '#e91e63',
+        park: '#4caf50', plaza: '#00bcd4', forest: '#2e7d32',
+        mountain: '#5d4037', river: '#0288d1', lake: '#0277bd'
+      };
+      return colors[type] || '#607d8b';
+    }
+    
+    /**
+     * Get icon for location type
+     */
+    function getTypeIcon(type) {
+      const icons = {
+        world: '🌍', continent: '🗺️', country: '🏳️', region: '📍',
+        city: '🏙️', district: '🏘️', neighborhood: '🏠', street: '🛤️',
+        building: '🏢', house: '🏡', shop: '🏪', school: '🏫',
+        temple: '⛩️', guild: '🏛️', office: '🏢', hospital: '🏥',
+        station: '🚉', room: '🚪', floor: '📶', landmark: '🗿',
+        park: '🌳', plaza: '⛲', forest: '🌲', mountain: '⛰️',
+        river: '🏞️', lake: '💧'
+      };
+      return icons[type] || '📌';
+    }
+    
+    /**
+     * Initialize Cytoscape graph
+     */
+    function initGraph(container, graphData) {
+      const nodes = graphData.nodes.map(node => {
+        const savedPos = savedLayout[node.id];
+        return {
+          data: {
+            id: node.id,
+            label: node.label,
+            type: node.type,
+            tags: node.tags || []
+          },
+          position: savedPos ? { x: savedPos.x, y: savedPos.y } : undefined
+        };
+      });
+      
+      const edges = graphData.edges.map(edge => ({
+        data: {
+          id: edge.id,
+          source: edge.source,
+          target: edge.target,
+          type: edge.type
+        }
+      }));
+      
+      cy = cytoscape({
+        container: container,
+        elements: { nodes, edges },
+        style: [
+          {
+            selector: 'node',
+            style: {
+              'label': 'data(label)',
+              'text-valign': 'bottom',
+              'text-halign': 'center',
+              'text-margin-y': 8,
+              'font-size': '11px',
+              'font-family': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+              'background-color': function(ele) { return getTypeColor(ele.data('type')); },
+              'width': 35,
+              'height': 35,
+              'border-width': 2,
+              'border-color': '#fff',
+              'text-outline-width': 2,
+              'text-outline-color': '#fff'
+            }
+          },
+          {
+            selector: 'node.highlighted',
+            style: {
+              'border-width': 4,
+              'border-color': '#e8b04a',
+              'width': 45,
+              'height': 45,
+              'z-index': 999
+            }
+          },
+          {
+            selector: 'node.dimmed',
+            style: { 'opacity': 0.3 }
+          },
+          {
+            selector: 'node.hidden',
+            style: { 'display': 'none' }
+          },
+          {
+            selector: 'edge',
+            style: {
+              'width': 2,
+              'line-color': '#ccc',
+              'curve-style': 'bezier',
+              'target-arrow-shape': 'triangle',
+              'target-arrow-color': '#ccc',
+              'arrow-scale': 0.8,
+              'opacity': 0.6
+            }
+          },
+          {
+            selector: 'edge.highlighted',
+            style: {
+              'line-color': '#e8b04a',
+              'target-arrow-color': '#e8b04a',
+              'width': 3,
+              'opacity': 1
+            }
+          },
+          {
+            selector: 'edge.dimmed',
+            style: { 'opacity': 0.15 }
+          },
+          {
+            selector: 'edge.hidden',
+            style: { 'display': 'none' }
+          }
+        ],
+        layout: { name: 'preset' },
+        wheelSensitivity: 0.3,
+        minZoom: 0.2,
+        maxZoom: 3
+      });
+      
+      // Run layout if no saved positions
+      if (Object.keys(savedLayout).length === 0) {
+        runLayout();
+      } else {
+        cy.fit(50);
+      }
+      
+      return cy;
+    }
+    
+    /**
+     * Run automatic layout
+     */
+    function runLayout() {
+      cy.layout({
+        name: 'cose',
+        animate: true,
+        animationDuration: 800,
+        fit: true,
+        padding: 50,
+        nodeRepulsion: function() { return 8000; },
+        idealEdgeLength: function() { return 80; },
+        gravity: 0.4,
+        numIter: 500
+      }).run();
+    }
+    
+    /**
+     * Export layout
+     */
+    function exportLayout() {
+      if (!cy) return {};
+      
+      const layoutData = {};
+      cy.nodes().forEach(node => {
+        const pos = node.position();
+        layoutData[node.id()] = {
+          x: Math.round(pos.x * 100) / 100,
+          y: Math.round(pos.y * 100) / 100
+        };
+      });
+      return layoutData;
+    }
+    
+    /**
+     * Download layout
+     */
+    function downloadLayout() {
+      if (!cy) {
+        alert('地図がロードされていません。');
+        return;
+      }
+      const layoutData = exportLayout();
+      const json = JSON.stringify(layoutData, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `location_layout_${currentMapId}.json`;
+      a.click();
+      
+      URL.revokeObjectURL(url);
+    }
+    
+    /**
+     * Update status
+     */
+    function updateStatus(nodeCount, edgeCount) {
+      document.getElementById('mapStatus').textContent = 
+        `${nodeCount} ノード / ${edgeCount} エッジ`;
+    }
+    
+    /**
+     * Render type filters
+     */
+    function renderTypeFilters() {
+      const container = document.getElementById('typeFilters');
+      const types = new Set();
+      
+      cy.nodes().forEach(node => {
+        const type = node.data('type');
+        if (type) types.add(type);
+      });
+      
+      const sortedTypes = Array.from(types).sort();
+      
+      container.innerHTML = sortedTypes.map(type => `
+        <span class="filter-chip" data-type="${App.escapeHtml(type)}" style="border-left: 3px solid ${getTypeColor(type)};">
+          ${getTypeIcon(type)} ${App.escapeHtml(type)}
+        </span>
+      `).join('');
+      
+      // Add click handlers
+      container.querySelectorAll('.filter-chip').forEach(el => {
+        el.addEventListener('click', function() {
+          const type = this.dataset.type;
+          if (activeTypes.has(type)) {
+            activeTypes.delete(type);
+            this.classList.remove('active');
+          } else {
+            activeTypes.add(type);
+            this.classList.add('active');
+          }
+          applyTypeFilter();
+        });
+      });
+    }
+    
+    /**
+     * Apply type filter
+     */
+    function applyTypeFilter() {
+      if (activeTypes.size === 0) {
+        cy.elements().removeClass('hidden');
+        return;
+      }
+      
+      cy.nodes().forEach(node => {
+        if (activeTypes.has(node.data('type'))) {
+          node.removeClass('hidden');
+        } else {
+          node.addClass('hidden');
+        }
+      });
+      
+      cy.edges().forEach(edge => {
+        const source = edge.source();
+        const target = edge.target();
+        if (source.hasClass('hidden') || target.hasClass('hidden')) {
+          edge.addClass('hidden');
+        } else {
+          edge.removeClass('hidden');
+        }
+      });
+    }
+    
+    /**
+     * Render map list
+     */
+    function renderMapList() {
+      const container = document.getElementById('mapList');
+      
+      if (allMaps.length === 0) {
+        container.innerHTML = '<p style="color: var(--text-muted);">地図がありません</p>';
+        return;
+      }
+      
+      container.innerHTML = allMaps.map(map => `
+        <a href="map.html?map=${App.escapeHtml(map.id)}" 
+           class="map-item ${map.id === currentMapId ? 'active' : ''}">
+          ${App.escapeHtml(map.name)}
+        </a>
+      `).join('');
+    }
+    
+    /**
+     * Show node detail
+     */
+    function showNodeDetail(node) {
+      const nodeId = node.id();
+      const label = node.data('label');
+      const type = node.data('type');
+      const tags = node.data('tags') || [];
+      
+      const tagsHtml = tags.map(t => `<span class="tag">${App.escapeHtml(t)}</span>`).join(' ');
+      
+      // Get connected nodes
+      const connectedEdges = node.connectedEdges();
+      const children = connectedEdges.filter(e => e.source().id() === nodeId).targets();
+      const parent = connectedEdges.filter(e => e.target().id() === nodeId).sources();
+      
+      let connectionsHtml = '';
+      if (parent.length > 0) {
+        connectionsHtml += `<p><strong>親:</strong> ${parent.map(n => App.escapeHtml(n.data('label'))).join(', ')}</p>`;
+      }
+      if (children.length > 0) {
+        connectionsHtml += `<p><strong>子:</strong> ${children.map(n => App.escapeHtml(n.data('label'))).join(', ')}</p>`;
+      }
+      
+      document.getElementById('nodeDetail').innerHTML = `
+        <h4>${getTypeIcon(type)} ${App.escapeHtml(label)}</h4>
+        <p><strong>タイプ:</strong> <span class="tag" style="border-left: 3px solid ${getTypeColor(type)}; padding-left: 0.5rem;">${App.escapeHtml(type || '')}</span></p>
+        ${tagsHtml ? `<div class="tags" style="margin-top: 0.5rem;">${tagsHtml}</div>` : ''}
+        ${connectionsHtml}
+        <a href="location.html?id=${App.escapeHtml(nodeId)}" class="graph-link" style="margin-top: 1rem; display: inline-block; font-size: 0.85rem;">
+          詳細ページへ
+        </a>
+      `;
+      
+      document.querySelectorAll('.detail-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('nodeDetail').classList.add('active');
+    }
+    
+    /**
+     * Search and highlight
+     */
+    function searchAndHighlight(query) {
+      cy.elements().removeClass('highlighted dimmed');
+      
+      if (!query || !query.trim()) return null;
+      
+      const q = query.toLowerCase().trim();
+      const matchingNodes = cy.nodes().filter(node => {
+        const label = (node.data('label') || '').toLowerCase();
+        const id = (node.id() || '').toLowerCase();
+        return label.includes(q) || id.includes(q);
+      });
+      
+      if (matchingNodes.length > 0) {
+        matchingNodes.addClass('highlighted');
+        cy.elements().not(matchingNodes).not(matchingNodes.connectedEdges()).addClass('dimmed');
+        
+        cy.animate({
+          center: { eles: matchingNodes[0] },
+          zoom: 1.5
+        }, { duration: 300 });
+        
+        return matchingNodes[0];
+      }
+      
+      return null;
+    }
+    
+    /**
+     * Setup event handlers
+     */
+    function setupEventHandlers() {
+      // Search
+      const searchInput = document.getElementById('mapSearch');
+      searchInput.addEventListener('input', App.debounce(function() {
+        const node = searchAndHighlight(this.value);
+        if (node) showNodeDetail(node);
+      }, 300));
+      
+      // Reset
+      document.getElementById('btnReset').addEventListener('click', function() {
+        cy.elements().removeClass('highlighted dimmed hidden');
+        activeTypes.clear();
+        document.querySelectorAll('.filter-chip').forEach(el => el.classList.remove('active'));
+        document.getElementById('mapSearch').value = '';
+        document.querySelectorAll('.detail-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('detailEmpty').classList.add('active');
+        cy.fit(50);
+      });
+      
+      // Auto layout
+      document.getElementById('btnAutoLayout').addEventListener('click', function() {
+        if (confirm('レイアウトを再計算します。よろしいですか？')) {
+          runLayout();
+        }
+      });
+      
+      // Export layout
+      document.getElementById('btnExportLayout').addEventListener('click', downloadLayout);
+      
+      // Node click
+      cy.on('tap', 'node', function(evt) {
+        const node = evt.target;
+        cy.elements().removeClass('highlighted');
+        node.addClass('highlighted');
+        node.connectedEdges().addClass('highlighted');
+        showNodeDetail(node);
+      });
+      
+      // Background click
+      cy.on('tap', function(evt) {
+        if (evt.target === cy) {
+          cy.elements().removeClass('highlighted');
+        }
+      });
+    }
+    
+    /**
+     * Initialize
+     */
+    async function init() {
+      const mapId = App.getQueryParam('map');
+      
+      // Load maps list
+      allMaps = await App.fetchData('maps.json') || [];
+      
+      if (allMaps.length === 0) {
+        document.getElementById('mapStatus').textContent = '地図がありません。maps/ ディレクトリに地図定義を追加してください。';
+        document.getElementById('mapList').innerHTML = '<p style="color: var(--text-muted);">地図がありません</p>';
+        return;
+      }
+      
+      // Select map
+      currentMapId = mapId || allMaps[0].id;
+      const currentMap = allMaps.find(m => m.id === currentMapId);
+      
+      if (!currentMap) {
+        document.getElementById('mapStatus').textContent = '指定された地図が見つかりません。';
+        renderMapList();
+        return;
+      }
+      
+      document.getElementById('mapName').textContent = currentMap.name;
+      document.title = `${currentMap.name} | Character Database`;
+      
+      // Load graph data and layout
+      const [graphData, layoutData] = await Promise.all([
+        App.fetchData(`location_graph_${currentMapId}.json`),
+        App.fetchData(`location_layout_${currentMapId}.json`)
+      ]);
+      
+      if (!graphData || !graphData.nodes) {
+        document.getElementById('mapStatus').textContent = 'グラフデータが見つかりません。';
+        renderMapList();
+        return;
+      }
+      
+      savedLayout = layoutData || {};
+      
+      // Initialize graph
+      const container = document.getElementById('cy');
+      initGraph(container, graphData);
+      
+      updateStatus(graphData.nodes.length, graphData.edges.length);
+      renderTypeFilters();
+      renderMapList();
+      setupEventHandlers();
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+  
+  <style>
+    .map-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .map-item {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: inherit;
+      background: var(--hover-bg, #f5f5f5);
+      transition: background-color 0.2s;
+    }
+    .map-item:hover {
+      background: var(--border-color, #ddd);
+    }
+    .map-item.active {
+      background: var(--primary-color, #4a6fa5);
+      color: white;
+    }
+  </style>
+</body>
+</html>
