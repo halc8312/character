@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_downtown
+
+profile:
+  name: "西ヶ丘中心部"
+  short: "中心部"
+  aliases:
+    - "ダウンタウン"
+    - "駅前地区"
+  type: district
+  parent_id: nishigaoka_city
+  description: "西ヶ丘駅を中心とした商業地区。カフェ、書店、飲食店が立ち並ぶ。"
+
+tags:
+    - "location/district"
+    - "district/downtown"
+
+lore:
+  history: "駅の開業と共に発展した商業エリア。昔ながらの商店街と新しいショップが共存する。"
+  rumors:
+    - "駅前のカフェは学生の勉強スポットとして人気"
+  rules: []
+  notable_features:
+    - "西ヶ丘駅"
+    - "駅前広場"
+    - "商店街"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

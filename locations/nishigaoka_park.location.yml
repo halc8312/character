@@ -1,0 +1,35 @@
+version: "1.0"
+
+id: nishigaoka_park
+
+profile:
+  name: "西ヶ丘中央公園"
+  short: "中央公園"
+  aliases:
+    - "公園"
+    - "市民公園"
+  type: park
+  parent_id: nishigaoka_residential
+  description: "住宅街にある広い公園。遊具、ジョギングコース、芝生広場がある。"
+
+tags:
+    - "location/park"
+    - "poi/recreation"
+
+lore:
+  history: "市の緑化計画の一環として30年前に整備された。"
+  rumors:
+    - "桜の季節は花見客で賑わう"
+  rules:
+    - "夜間の利用は控えめに"
+  notable_features:
+    - "噴水"
+    - "遊具"
+    - "芝生広場"
+    - "ジョギングコース"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

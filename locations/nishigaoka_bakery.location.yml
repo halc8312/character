@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_bakery
+
+profile:
+  name: "商店街のパン屋「こむぎ堂」"
+  short: "こむぎ堂"
+  aliases:
+    - "商店街のパン屋"
+    - "パン屋"
+  type: shop
+  parent_id: nishigaoka_shopping_street
+  description: "商店街にある人気のパン屋。焼きたてパンの香りが漂う。"
+
+tags:
+    - "location/shop"
+    - "poi/food"
+
+lore:
+  history: "創業40年の老舗パン屋。地元の味として親しまれている。"
+  rumors:
+    - "クリームパンは午前中に売り切れる"
+  rules: []
+  notable_features:
+    - "焼きたてパン"
+    - "イートインスペース"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

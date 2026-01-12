@@ -1,0 +1,345 @@
+{
+  "nodes": [
+    {
+      "id": "nishigaoka_city",
+      "label": "西ヶ丘市",
+      "type": "city",
+      "tags": [
+        "location/city",
+        "district/urban"
+      ]
+    },
+    {
+      "id": "nishigaoka_downtown",
+      "label": "西ヶ丘中心部",
+      "type": "district",
+      "tags": [
+        "location/district",
+        "district/downtown"
+      ]
+    },
+    {
+      "id": "nishigaoka_bookstore",
+      "label": "駅前書店「ブックマート」",
+      "type": "shop",
+      "tags": [
+        "location/shop",
+        "poi/retail"
+      ]
+    },
+    {
+      "id": "nishigaoka_cafe",
+      "label": "駅前カフェ「ビーンズ」",
+      "type": "shop",
+      "tags": [
+        "location/shop",
+        "poi/hangout"
+      ]
+    },
+    {
+      "id": "nishigaoka_central_plaza",
+      "label": "中央広場",
+      "type": "plaza",
+      "tags": [
+        "location/plaza",
+        "poi/meeting_spot"
+      ]
+    },
+    {
+      "id": "nishigaoka_cram_school",
+      "label": "学習塾「進学館」",
+      "type": "building",
+      "tags": [
+        "location/building",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_shopping_street",
+      "label": "西ヶ丘商店街",
+      "type": "street",
+      "tags": [
+        "location/street",
+        "poi/shopping"
+      ]
+    },
+    {
+      "id": "nishigaoka_bakery",
+      "label": "商店街のパン屋「こむぎ堂」",
+      "type": "shop",
+      "tags": [
+        "location/shop",
+        "poi/food"
+      ]
+    },
+    {
+      "id": "nishigaoka_stationery_shop",
+      "label": "文具店「ペンハウス」",
+      "type": "shop",
+      "tags": [
+        "location/shop",
+        "poi/retail"
+      ]
+    },
+    {
+      "id": "nishigaoka_station",
+      "label": "西ヶ丘駅",
+      "type": "station",
+      "tags": [
+        "location/station",
+        "poi/transportation"
+      ]
+    },
+    {
+      "id": "nishigaoka_vocational_school",
+      "label": "西ヶ丘専門学校",
+      "type": "school",
+      "tags": [
+        "location/school",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_junior_college",
+      "label": "西ヶ丘短期大学",
+      "type": "school",
+      "tags": [
+        "location/school",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_public_high",
+      "label": "県立北関東高校",
+      "type": "school",
+      "tags": [
+        "location/school",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_residential",
+      "label": "西ヶ丘住宅街",
+      "type": "neighborhood",
+      "tags": [
+        "location/neighborhood",
+        "district/residential"
+      ]
+    },
+    {
+      "id": "nishigaoka_convenience_store",
+      "label": "コンビニ「デイリーマート」",
+      "type": "shop",
+      "tags": [
+        "location/shop",
+        "poi/convenience"
+      ]
+    },
+    {
+      "id": "nishigaoka_park",
+      "label": "西ヶ丘中央公園",
+      "type": "park",
+      "tags": [
+        "location/park",
+        "poi/recreation"
+      ]
+    },
+    {
+      "id": "nishigaoka_supermarket",
+      "label": "スーパー「フレッシュマート」",
+      "type": "shop",
+      "tags": [
+        "location/shop",
+        "poi/retail"
+      ]
+    },
+    {
+      "id": "nishigaoka_school_district",
+      "label": "西ヶ丘学園地区",
+      "type": "district",
+      "tags": [
+        "location/district",
+        "district/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_high_school",
+      "label": "県立西ヶ丘高校",
+      "type": "school",
+      "tags": [
+        "location/school",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_junior_high",
+      "label": "西ヶ丘市立第一中学校",
+      "type": "school",
+      "tags": [
+        "location/school",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_library",
+      "label": "西ヶ丘市立図書館",
+      "type": "building",
+      "tags": [
+        "location/building",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_university",
+      "label": "西ヶ丘大学",
+      "type": "school",
+      "tags": [
+        "location/school",
+        "poi/education"
+      ]
+    },
+    {
+      "id": "nishigaoka_warehouse",
+      "label": "地域配送センター",
+      "type": "building",
+      "tags": [
+        "location/building",
+        "poi/industrial"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_downtown",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_downtown",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_bookstore",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_bookstore",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_cafe",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_cafe",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_central_plaza",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_central_plaza",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_cram_school",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_cram_school",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_shopping_street",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_shopping_street",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_shopping_street__contains__nishigaoka_bakery",
+      "source": "nishigaoka_shopping_street",
+      "target": "nishigaoka_bakery",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_shopping_street__contains__nishigaoka_stationery_shop",
+      "source": "nishigaoka_shopping_street",
+      "target": "nishigaoka_stationery_shop",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_station",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_station",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_downtown__contains__nishigaoka_vocational_school",
+      "source": "nishigaoka_downtown",
+      "target": "nishigaoka_vocational_school",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_junior_college",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_junior_college",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_public_high",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_public_high",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_residential",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_residential",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_residential__contains__nishigaoka_convenience_store",
+      "source": "nishigaoka_residential",
+      "target": "nishigaoka_convenience_store",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_residential__contains__nishigaoka_park",
+      "source": "nishigaoka_residential",
+      "target": "nishigaoka_park",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_residential__contains__nishigaoka_supermarket",
+      "source": "nishigaoka_residential",
+      "target": "nishigaoka_supermarket",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_school_district",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_school_district",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_school_district__contains__nishigaoka_high_school",
+      "source": "nishigaoka_school_district",
+      "target": "nishigaoka_high_school",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_school_district__contains__nishigaoka_junior_high",
+      "source": "nishigaoka_school_district",
+      "target": "nishigaoka_junior_high",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_school_district__contains__nishigaoka_library",
+      "source": "nishigaoka_school_district",
+      "target": "nishigaoka_library",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_university",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_university",
+      "type": "contains"
+    },
+    {
+      "id": "nishigaoka_city__contains__nishigaoka_warehouse",
+      "source": "nishigaoka_city",
+      "target": "nishigaoka_warehouse",
+      "type": "contains"
+    }
+  ]
+}

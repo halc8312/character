@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_city
+
+profile:
+  name: "西ヶ丘市"
+  short: "西ヶ丘"
+  aliases:
+    - "Nishigaoka City"
+    - "西ケ丘市"
+  type: city
+  description: "北関東に位置する地方都市。県立西ヶ丘高校を中心に、住宅街と商業地区が広がる穏やかな街。"
+
+tags:
+    - "location/city"
+    - "district/urban"
+
+lore:
+  history: "50年前に鉄道の駅が開業して以来、ベッドタウンとして発展してきた。近年は若者向けの施設も増えている。"
+  rumors:
+    - "駅前の噴水広場は待ち合わせスポットとして有名"
+    - "夏祭りの花火大会は近隣からも見物客が訪れる"
+  rules: []
+  notable_features:
+    - "西ヶ丘駅"
+    - "中央広場"
+    - "商店街"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

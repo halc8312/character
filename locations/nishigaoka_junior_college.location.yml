@@ -1,0 +1,31 @@
+version: "1.0"
+
+id: nishigaoka_junior_college
+
+profile:
+  name: "西ヶ丘短期大学"
+  short: "西短"
+  aliases:
+    - "市内短大"
+    - "短大"
+  type: school
+  parent_id: nishigaoka_city
+  description: "市内にある短期大学。実践的な教育に力を入れている。"
+
+tags:
+    - "location/school"
+    - "poi/education"
+
+lore:
+  history: "女子短大として創立され、現在は共学。"
+  rumors: []
+  rules: []
+  notable_features:
+    - "講堂"
+    - "図書室"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

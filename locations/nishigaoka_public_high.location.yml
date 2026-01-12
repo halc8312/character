@@ -1,0 +1,31 @@
+version: "1.0"
+
+id: nishigaoka_public_high
+
+profile:
+  name: "県立北関東高校"
+  short: "北高"
+  aliases:
+    - "北関東高校"
+    - "地元の公立高校"
+  type: school
+  parent_id: nishigaoka_city
+  description: "西ヶ丘高校とは別の地元の公立高校。商業科と工業科がある。"
+
+tags:
+    - "location/school"
+    - "poi/education"
+
+lore:
+  history: "実業系の教育に力を入れている伝統校。"
+  rumors: []
+  rules: []
+  notable_features:
+    - "実習棟"
+    - "グラウンド"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

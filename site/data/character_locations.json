@@ -1,1 +1,4484 @@
-[]
+[
+  {
+    "character_id": "akari_numata",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "akari_numata",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "akari_numata_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "akari_numata_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "aya_kishimoto",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "aya_kishimoto",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "aya_kishimoto_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "chika_aoyagi",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "chika_aoyagi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "chika_aoyagi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "chika_aoyagi_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "daichi_yamamoto",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "daichi_yamamoto",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "daichi_yamamoto",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "daichi_yamamoto_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "eito_kirishima",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "eito_kirishima",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "eito_kirishima_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "haruka_morishita",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "haruka_morishita",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "haruka_morishita_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "haruto_tanaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "haruto_tanaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "haruto_tanaka_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "hina_sugawara",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "hina_sugawara",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "hina_sugawara_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "hinata_ogura",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "hinata_ogura",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "hinata_ogura_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_akane",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_akane",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_akane_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_aya",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_aya",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_aya_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_aya_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_daiki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_daiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_daiki_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_emi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_emi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "ito_emi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_emi_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_haru",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_haru",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_haru_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_hina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_hina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_hina_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "ito_itsuki",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "ito_itsuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_itsuki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "ito_kaede",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_kaede",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_kaede_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "ito_kaito",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_kaito_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_kanna",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_kanna",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_kanna_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_kenta",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_kenta",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_kenta",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_kenta_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_mei",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_mei",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_mei_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_mei_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_miki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_miki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_miki_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_minori",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_minori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_minori_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_nana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_nana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_nana_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "ito_nao",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_nao",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_nao",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_nao_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "ito_ren",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_ren",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_ren_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "ito_riku",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_riku",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_riku",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_riku_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_rina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_rina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_rina_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_risa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_risa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "ito_risa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_risa_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_ryo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_ryo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_ryo_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_sayaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_sayaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_sayaka_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_sayaka_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_seiji",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_seiji",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_seiji",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_seiji_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_sho",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_sho",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_sho_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_shota",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "ito_shota",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_shota_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "ito_sora",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_sora",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_sora_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "ito_takumi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_takumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_takumi_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "ito_tomo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_tomo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_tomo_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_yui",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ito_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "ito_yui",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_yui_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "ito_yuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "ito_yuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ito_yuki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "junpei_morozumi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "junpei_morozumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "junpei_morozumi_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "kano_yoshino",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "kano_yoshino",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "kano_yoshino_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "kano_yoshino_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "kazuomi_hirai",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "kazuomi_hirai",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "kazuomi_hirai_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "keita_morikawa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "keita_morikawa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "keita_morikawa_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "kouta_shimura",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "kouta_shimura",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "kouta_shimura_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "mao_tachibana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "mao_tachibana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "mao_tachibana_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "mei_kurata",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "mei_kurata",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "mei_kurata",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "mei_kurata_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "miki_sawada",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "miki_sawada",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "miki_sawada_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "miyu_kato",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "miyu_kato",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "miyu_kato_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "momo_tachiki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "momo_tachiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "momo_tachiki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "naoto_sano",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "naoto_sano",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "naoto_sano_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "natsu_asakura",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "natsu_asakura",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "natsu_asakura_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "natsu_asakura_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ren_kobayashi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ren_kobayashi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ren_kobayashi_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "rena_fujimori",
+    "kind": "school",
+    "location_id": "nishigaoka_vocational_school",
+    "note": "市内専門学校に通学"
+  },
+  {
+    "character_id": "rena_fujimori",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "rena_fujimori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "rena_fujimori_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "rio_fujii",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "rio_fujii",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "rio_fujii_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "ryohei_tsuda",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "ryohei_tsuda",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "ryohei_tsuda_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "sakura_minato",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sakura_minato",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sakura_minato_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "sato_akane",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_akane",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_akane_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_aya",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_aya",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_aya_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_daiki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_daiki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_warehouse",
+    "note": "地域倉庫でアルバイト"
+  },
+  {
+    "character_id": "sato_daiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_daiki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_emi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_emi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "sato_emi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_emi_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_haru",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_haru",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_haru_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_haru_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_hina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_hina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_hina_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_itsuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "sato_itsuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_itsuki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_kaede",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_kaede",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_kaede_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_kaito",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "sato_kaito",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_kaito_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "sato_kanna",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_kanna",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_kanna_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "sato_kenta",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_kenta",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_kenta_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_mei",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_mei",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_mei_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_miki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_miki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_miki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_minori",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_minori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_minori_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_nana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_nana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_nana_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_nana_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_nao",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_nao",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_nao_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_ren",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_ren",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_ren_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_riku",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_riku",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_riku_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_rina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_rina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_rina_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "sato_risa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_risa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "sato_risa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_risa_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "sato_ryo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_ryo",
+    "kind": "workplace",
+    "location_id": "nishigaoka_warehouse",
+    "note": "地域倉庫でアルバイト"
+  },
+  {
+    "character_id": "sato_ryo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_ryo_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_sayaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_sayaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_sayaka_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_seiji",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_seiji",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_seiji_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_sho",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_sho",
+    "kind": "workplace",
+    "location_id": "nishigaoka_warehouse",
+    "note": "地域倉庫でアルバイト"
+  },
+  {
+    "character_id": "sato_sho",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_sho_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_shota",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "sato_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_warehouse",
+    "note": "地域倉庫でアルバイト"
+  },
+  {
+    "character_id": "sato_shota",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_shota_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_shota_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_sora",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_sora",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_sora_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sato_takumi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_takumi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_warehouse",
+    "note": "地域倉庫でアルバイト"
+  },
+  {
+    "character_id": "sato_takumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_takumi_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_tomo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_tomo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_tomo_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sato_yui",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "sato_yui",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_yui_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "sato_yuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sato_yuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sato_yuki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "sayaka_uchida",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sayaka_uchida",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sayaka_uchida_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "shinpei_arai",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "shinpei_arai",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "shinpei_arai_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "shunpei_okazaki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "shunpei_okazaki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "shunpei_okazaki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "shunpei_okazaki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sora_adachi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sora_adachi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sora_adachi_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "sosuke_kajimoto",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "sosuke_kajimoto",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "sosuke_kajimoto_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "sosuke_kajimoto_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_akane",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_akane",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_akane_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_aya",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_aya",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_aya_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_daiki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_daiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_daiki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_emi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_emi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "suzuki_emi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_emi_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "suzuki_haru",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_haru",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_haru_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "suzuki_hina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_hina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_hina_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_itsuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "suzuki_itsuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_itsuki_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_kaede",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_kaede",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_kaede_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_kaito",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "suzuki_kaito",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_kaito_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_kanna",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_kanna",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_kanna_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_kanna_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_kenta",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_kenta",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_kenta_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_mei",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_mei",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_mei_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_miki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_miki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_miki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_minori",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_minori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_minori_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "suzuki_nana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_nana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_nana_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "suzuki_nao",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_nao",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_nao_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_ren",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_ren",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_ren_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_riku",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_riku",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_riku_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_rina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_rina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_rina_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_risa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_risa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "suzuki_risa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_risa_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_risa_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_ryo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_ryo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_ryo_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_sayaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_sayaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_sayaka_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_seiji",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_seiji",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_seiji_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_sho",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_sho",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_sho_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "suzuki_shota",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "suzuki_shota",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_shota_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "suzuki_sora",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_sora",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_sora_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_takumi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_takumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_takumi_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_tomo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_tomo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_tomo_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_yui",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "suzuki_yui",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_yui_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "suzuki_yuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "suzuki_yuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "suzuki_yuki_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "suzuki_yuki_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_akane",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_akane",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_akane_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_aya",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_aya",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_aya_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_daiki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_daiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_daiki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_emi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_emi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "takahashi_emi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_emi_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "takahashi_haru",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_haru",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "takahashi_haru",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_haru_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "takahashi_hina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_hina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_hina_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_itsuki",
+    "kind": "school",
+    "location_id": "nishigaoka_vocational_school",
+    "note": "市内専門学校に通学"
+  },
+  {
+    "character_id": "takahashi_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "takahashi_itsuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_itsuki_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_kaede",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_kaede",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_kaede_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_kaito",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "takahashi_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "takahashi_kaito",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_kaito_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_kanna",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_kanna",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_kanna_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_kanna_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_kenta",
+    "kind": "school",
+    "location_id": "nishigaoka_vocational_school",
+    "note": "市内専門学校に通学"
+  },
+  {
+    "character_id": "takahashi_kenta",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "takahashi_kenta",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_kenta_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_mei",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_mei",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_mei_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_miki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_miki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_miki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_minori",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_minori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_minori_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "takahashi_nana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_nana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_nana_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "takahashi_nao",
+    "kind": "school",
+    "location_id": "nishigaoka_vocational_school",
+    "note": "市内専門学校に通学"
+  },
+  {
+    "character_id": "takahashi_nao",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "takahashi_nao",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_nao_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_ren",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_ren",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "takahashi_ren",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_ren_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_riku",
+    "kind": "school",
+    "location_id": "nishigaoka_vocational_school",
+    "note": "市内専門学校に通学"
+  },
+  {
+    "character_id": "takahashi_riku",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "takahashi_riku",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_riku_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_rina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_rina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_rina_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_risa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_risa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "takahashi_risa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_risa_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_risa_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_ryo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_ryo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_ryo_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_sayaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_sayaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_sayaka_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_seiji",
+    "kind": "school",
+    "location_id": "nishigaoka_vocational_school",
+    "note": "市内専門学校に通学"
+  },
+  {
+    "character_id": "takahashi_seiji",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "takahashi_seiji",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_seiji_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_sho",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_sho",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_sho_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "takahashi_shota",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "takahashi_shota",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_shota_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "takahashi_sora",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_sora",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "takahashi_sora",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_sora_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_takumi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_takumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_takumi_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_tomo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_tomo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_tomo_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_yui",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "takahashi_yui",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_yui_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "takahashi_yuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takahashi_yuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "takahashi_yuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takahashi_yuki_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takahashi_yuki_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takeru_noma",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_college",
+    "note": "市内短大に通学"
+  },
+  {
+    "character_id": "takeru_noma",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "takeru_noma",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takeru_noma_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "takumi_inoue",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "takumi_inoue",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "takumi_inoue_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_akane",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_akane",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_akane_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_aya",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_aya",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_aya",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_aya_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "tanaka_daiki",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_college",
+    "note": "市内短大に通学"
+  },
+  {
+    "character_id": "tanaka_daiki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_daiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_daiki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "tanaka_emi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_emi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "tanaka_emi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_emi_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_haru",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_haru",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_haru_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_hina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_hina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_hina_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_itsuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "tanaka_itsuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_itsuki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_kaede",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_kaede",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_kaede_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_kaede_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_kaito",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "tanaka_kaito",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_kaito_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_kanna",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_kanna",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_kanna_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_kenta",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_kenta",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_kenta",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_kenta_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_mei",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_mei",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_mei",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_mei_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "tanaka_miki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_miki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_miki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "tanaka_minori",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_minori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_minori_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_nana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_nana",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_nana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_nana_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_nao",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_nao",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_nao",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_nao_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_ren",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_ren",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_ren_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_riku",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_riku",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_riku",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_riku_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_riku_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_rina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_rina",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_rina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_rina_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_risa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_risa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "tanaka_risa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_risa_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_ryo",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_college",
+    "note": "市内短大に通学"
+  },
+  {
+    "character_id": "tanaka_ryo",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_ryo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_ryo_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_sayaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_sayaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_sayaka_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "tanaka_seiji",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_seiji",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_seiji",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_seiji_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "tanaka_sho",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_college",
+    "note": "市内短大に通学"
+  },
+  {
+    "character_id": "tanaka_sho",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_sho",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_sho_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_shota",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_college",
+    "note": "市内短大に通学"
+  },
+  {
+    "character_id": "tanaka_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "tanaka_shota",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_shota_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_sora",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_sora",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_sora_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_takumi",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_college",
+    "note": "市内短大に通学"
+  },
+  {
+    "character_id": "tanaka_takumi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_takumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_takumi_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tanaka_tomo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_tomo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_tomo_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_tomo_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_yui",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_convenience_store",
+    "note": "コンビニでアルバイト"
+  },
+  {
+    "character_id": "tanaka_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "tanaka_yui",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_yui_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "tanaka_yuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tanaka_yuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tanaka_yuki_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "tomoya_seto",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "tomoya_seto",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "tomoya_seto_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_akane",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_akane",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_akane_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "watanabe_aya",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_aya",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_aya_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "watanabe_daiki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_daiki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_daiki_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_emi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_emi",
+    "kind": "workplace",
+    "location_id": "nishigaoka_supermarket",
+    "note": "スーパーでアルバイト"
+  },
+  {
+    "character_id": "watanabe_emi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_emi_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_haru",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_haru",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_haru_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_hina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_hina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_hina_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_itsuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_itsuki",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bakery",
+    "note": "商店街のパン屋でアルバイト"
+  },
+  {
+    "character_id": "watanabe_itsuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_itsuki_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_itsuki_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_kaede",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_kaede",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_kaede_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_kaito",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_kaito",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "watanabe_kaito",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_kaito_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_kanna",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_kanna",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_kanna_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "watanabe_kenta",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_kenta",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_kenta_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "watanabe_mei",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_mei",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_mei_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "watanabe_miki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_miki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_miki_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_minori",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_minori",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_minori_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_nana",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_nana",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_nana_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "watanabe_nao",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_nao",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_nao_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_ren",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_ren",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_ren_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_ren_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_riku",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_riku",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_riku_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_rina",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_rina",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_rina_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "watanabe_risa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_risa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_bookstore",
+    "note": "駅前書店でアルバイト"
+  },
+  {
+    "character_id": "watanabe_risa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_risa_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_ryo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_ryo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_ryo_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "watanabe_sayaka",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_sayaka",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_sayaka_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  },
+  {
+    "character_id": "watanabe_seiji",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_seiji",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_seiji_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_sho",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_sho",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_sho_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_shota",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_shota",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cafe",
+    "note": "駅前カフェでアルバイト"
+  },
+  {
+    "character_id": "watanabe_shota",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_shota_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_sora",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_sora",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_sora_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_takumi",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_takumi",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_takumi_mother",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_takumi_mother",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_tomo",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_tomo",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_tomo_father",
+    "kind": "home",
+    "location_id": "nishigaoka_residential",
+    "note": "西ヶ丘住宅街に居住"
+  },
+  {
+    "character_id": "watanabe_yui",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_yui",
+    "kind": "workplace",
+    "location_id": "nishigaoka_cram_school",
+    "note": "学習塾の受付でアルバイト"
+  },
+  {
+    "character_id": "watanabe_yui",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_yui_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "watanabe_yuki",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "watanabe_yuki",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "watanabe_yuki_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_university",
+    "note": "市内大学に通学"
+  },
+  {
+    "character_id": "yu_ishikawa",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "yu_ishikawa",
+    "kind": "workplace",
+    "location_id": "nishigaoka_warehouse",
+    "note": "地域倉庫でアルバイト"
+  },
+  {
+    "character_id": "yu_ishikawa",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "yu_ishikawa_sister",
+    "kind": "school",
+    "location_id": "nishigaoka_public_high",
+    "note": "地元の公立高校に通学"
+  },
+  {
+    "character_id": "yuna_kirishima",
+    "kind": "school",
+    "location_id": "nishigaoka_high_school",
+    "note": "県立西ヶ丘高校に通学"
+  },
+  {
+    "character_id": "yuna_kirishima",
+    "kind": "birthplace",
+    "location_id": "nishigaoka_city",
+    "note": "西ヶ丘市出身"
+  },
+  {
+    "character_id": "yuna_kirishima_brother",
+    "kind": "school",
+    "location_id": "nishigaoka_junior_high",
+    "note": "地元の公立中学校に通学"
+  }
+]

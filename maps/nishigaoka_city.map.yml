@@ -1,0 +1,23 @@
+version: "1.0"
+
+id: nishigaoka_city
+
+profile:
+  name: "西ヶ丘市 全体図"
+  description: "西ヶ丘市の主要地区と施設を俯瞰する地図"
+
+root_location_id: nishigaoka_city
+
+include:
+  depth: 4
+  types: []
+
+display:
+  layout: auto
+  show_labels: true
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成された地図ビュー"

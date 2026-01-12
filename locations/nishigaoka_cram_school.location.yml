@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_cram_school
+
+profile:
+  name: "学習塾「進学館」"
+  short: "進学館"
+  aliases:
+    - "学習塾"
+    - "塾"
+  type: building
+  parent_id: nishigaoka_downtown
+  description: "駅前にある学習塾。高校受験・大学受験対策を行う。"
+
+tags:
+    - "location/building"
+    - "poi/education"
+
+lore:
+  history: "20年前に開校。多くの卒業生を送り出している。"
+  rumors:
+    - "厳しいけど結果を出す塾"
+  rules: []
+  notable_features:
+    - "自習室"
+    - "個別指導ブース"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"
