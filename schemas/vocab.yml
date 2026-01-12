@@ -1,5 +1,5 @@
 # キャラクターデータベースの制御語彙
-# このファイルはタグと関係性タイプの有効な値を定義します。
+# このファイルはタグ、関係性タイプ、ロケーションタイプの有効な値を定義します。
 # 世界観が拡張されるにつれて、このファイルを更新して新しいカテゴリを追加してください。
 
 # キャラクター間の関係性タイプ
@@ -48,6 +48,9 @@ tag_prefixes:
   - power       # 能力タイプや魔法システムとの親和性
   - era         # 時代
   - genre       # ジャンルタグ（fantasy, scifi, modern など）
+  - location    # ロケーション用タグ（landmark, shop など）
+  - district    # 地区タグ（downtown, suburbs など）
+  - poi         # 興味地点タグ（meeting_spot, dangerous など）
 
 # よく使われるケースの推奨タグ
 # これらは提案であり、必須ではありません
@@ -83,3 +86,56 @@ recommended_tags:
   - archetype/trickster
   - archetype/sage
   - archetype/innocent
+
+# ロケーション（場所）のタイプ
+# locations/*.location.yml の profile.type で使用されます
+location_types:
+  # 大規模単位
+  - world         # 世界
+  - continent     # 大陸
+  - country       # 国
+  - region        # 地方/州
+  - city          # 都市/市
+  # 中規模単位
+  - district      # 地区
+  - neighborhood  # 近隣/町内
+  - street        # 通り
+  # 施設・建物
+  - building      # 建物（一般）
+  - house         # 住居
+  - shop          # 店舗
+  - school        # 学校
+  - temple        # 神社/寺院/教会
+  - guild         # ギルド/組合
+  - office        # オフィス/事務所
+  - hospital      # 病院
+  - station       # 駅/停留所
+  # 建物内部
+  - room          # 部屋
+  - floor         # フロア/階
+  # ランドマーク・自然
+  - landmark      # ランドマーク
+  - park          # 公園
+  - plaza         # 広場
+  - forest        # 森
+  - mountain      # 山
+  - river         # 川
+  - lake          # 湖
+  # その他
+  - other         # その他
+
+# キャラクター⇄ロケーションの関係タイプ
+# links/character_locations.yml の links[].kind で使用されます
+link_kinds:
+  - home          # 自宅/住居
+  - birthplace    # 出生地
+  - current       # 現在地
+  - workplace     # 勤務先
+  - school        # 通学先
+  - hangout       # よく訪れる場所
+  - hideout       # 隠れ家
+  - owned         # 所有物件
+  - frequented    # 頻繁に訪れる
+  - avoided       # 避けている場所
+  - memorable     # 思い出の場所
+  - other         # その他

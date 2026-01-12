@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ロケーション一覧 | Character Database</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="header">
+    <h1>キャラクターデータベース</h1>
+    <nav>
+      <a href="index.html">一覧</a>
+      <a href="graph.html">相関図</a>
+      <a href="locations.html" class="active">ロケーション</a>
+    </nav>
+  </header>
+  
+  <main class="container">
+    <h2 style="margin-bottom: 1rem;">ロケーション</h2>
+    
+    <div class="search-bar">
+      <input 
+        type="text" 
+        id="searchInput" 
+        class="search-input" 
+        placeholder="場所名、IDで検索..."
+        autocomplete="off"
+      >
+    </div>
+    
+    <div class="filter-section" id="filterSection">
+      <h3>タイプで絞り込み</h3>
+      <div id="typeFilters" class="filter-group">
+        <!-- Type filters will be inserted here -->
+      </div>
+    </div>
+    
+    <div class="status-bar">
+      <span id="resultCount">読み込み中...</span>
+      <span id="mapLinks" style="margin-left: auto;"></span>
+    </div>
+    
+    <div id="locationTree" class="location-tree">
+      <div class="loading">データを読み込んでいます...</div>
+    </div>
+  </main>
+  
+  <script src="assets/app.js"></script>
+  <script>
+    let allLocations = [];
+    let allMaps = [];
+    let activeTags = new Set();
+    
+    /**
+     * Build hierarchical tree structure
+     */
+    function buildTree(locations) {
+      const byParent = {};
+      const roots = [];
+      
+      locations.forEach(loc => {
+        const parentId = loc.parent_id || null;
+        if (!byParent[parentId]) {
+          byParent[parentId] = [];
+        }
+        byParent[parentId].push(loc);
+      });
+      
+      function buildNode(loc) {
+        const children = byParent[loc.id] || [];
+        return {
+          ...loc,
+          children: children.map(buildNode)
+        };
+      }
+      
+      // Roots are locations with no parent or parent not in list
+      const locationIds = new Set(locations.map(l => l.id));
+      locations.forEach(loc => {
+        if (!loc.parent_id || !locationIds.has(loc.parent_id)) {
+          roots.push(buildNode(loc));
+        }
+      });
+      
+      return roots;
+    }
+    
+    /**
+     * Render location tree
+     */
+    function renderTree(tree, level = 0) {
+      if (!tree || tree.length === 0) return '';
+      
+      return tree.map(node => {
+        const hasChildren = node.children && node.children.length > 0;
+        const indent = level * 20;
+        
+        return `
+          <div class="location-node" style="margin-left: ${indent}px;">
+            <a href="location.html?id=${App.escapeHtml(node.id)}" class="location-link">
+              <span class="location-icon">${getTypeIcon(node.type)}</span>
+              <span class="location-name">${App.escapeHtml(node.name)}</span>
+              <span class="location-type tag">${App.escapeHtml(node.type || '')}</span>
+            </a>
+            ${node.description ? `<div class="location-desc">${App.escapeHtml(node.description.substring(0, 80))}${node.description.length > 80 ? '...' : ''}</div>` : ''}
+            ${hasChildren ? renderTree(node.children, level + 1) : ''}
+          </div>
+        `;
+      }).join('');
+    }
+    
+    /**
+     * Get icon for location type
+     */
+    function getTypeIcon(type) {
+      const icons = {
+        world: '🌍',
+        continent: '🗺️',
+        country: '🏳️',
+        region: '📍',
+        city: '🏙️',
+        district: '🏘️',
+        neighborhood: '🏠',
+        street: '🛤️',
+        building: '🏢',
+        house: '🏡',
+        shop: '🏪',
+        school: '🏫',
+        temple: '⛩️',
+        guild: '🏛️',
+        office: '🏢',
+        hospital: '🏥',
+        station: '🚉',
+        room: '🚪',
+        floor: '📶',
+        landmark: '🗿',
+        park: '🌳',
+        plaza: '⛲',
+        forest: '🌲',
+        mountain: '⛰️',
+        river: '🏞️',
+        lake: '💧'
+      };
+      return icons[type] || '📌';
+    }
+    
+    /**
+     * Render locations
+     */
+    function renderLocations(locations) {
+      const container = document.getElementById('locationTree');
+      const countEl = document.getElementById('resultCount');
+      
+      if (locations.length === 0) {
+        container.innerHTML = `
+          <div class="no-results">
+            <h3>ロケーションが見つかりません</h3>
+            <p>検索条件を変更するか、locations/ ディレクトリにロケーションを追加してください。</p>
+          </div>
+        `;
+        countEl.textContent = '0件';
+        return;
+      }
+      
+      countEl.textContent = `${locations.length}件`;
+      
+      const tree = buildTree(locations);
+      container.innerHTML = renderTree(tree);
+    }
+    
+    /**
+     * Render type filters
+     */
+    function renderFilters() {
+      const typeFilters = document.getElementById('typeFilters');
+      const types = new Set();
+      
+      allLocations.forEach(loc => {
+        if (loc.type) types.add(loc.type);
+      });
+      
+      const sortedTypes = Array.from(types).sort();
+      
+      typeFilters.innerHTML = sortedTypes.map(type => `
+        <label class="filter-tag" data-type="${App.escapeHtml(type)}">
+          <input type="checkbox" value="${App.escapeHtml(type)}">
+          ${getTypeIcon(type)} ${App.escapeHtml(type)}
+        </label>
+      `).join('');
+      
+      // Hide filter section if no filters
+      const filterSection = document.getElementById('filterSection');
+      if (sortedTypes.length === 0) {
+        filterSection.style.display = 'none';
+      }
+    }
+    
+    /**
+     * Render map links
+     */
+    function renderMapLinks() {
+      const container = document.getElementById('mapLinks');
+      if (allMaps.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+      
+      container.innerHTML = '地図: ' + allMaps.map(m => 
+        `<a href="map.html?map=${App.escapeHtml(m.id)}" class="map-link">${App.escapeHtml(m.name)}</a>`
+      ).join(' | ');
+    }
+    
+    /**
+     * Search locations
+     */
+    function searchLocations(locations, query) {
+      if (!query || !query.trim()) return locations;
+      
+      const q = query.toLowerCase().trim();
+      return locations.filter(loc => {
+        if (loc.name && loc.name.toLowerCase().includes(q)) return true;
+        if (loc.id && loc.id.toLowerCase().includes(q)) return true;
+        if (loc.description && loc.description.toLowerCase().includes(q)) return true;
+        return false;
+      });
+    }
+    
+    /**
+     * Filter by type
+     */
+    function filterByTypes(locations, activeTypes) {
+      if (!activeTypes || activeTypes.size === 0) return locations;
+      return locations.filter(loc => activeTypes.has(loc.type));
+    }
+    
+    /**
+     * Apply filters and search
+     */
+    function applyFiltersAndSearch() {
+      const searchQuery = document.getElementById('searchInput').value;
+      let filtered = searchLocations(allLocations, searchQuery);
+      filtered = filterByTypes(filtered, activeTags);
+      renderLocations(filtered);
+    }
+    
+    /**
+     * Initialize the page
+     */
+    async function init() {
+      try {
+        // Load location data
+        const [locations, maps] = await Promise.all([
+          App.fetchData('locations.json'),
+          App.fetchData('maps.json')
+        ]);
+        
+        allLocations = locations || [];
+        allMaps = maps || [];
+        
+        renderFilters();
+        renderMapLinks();
+        renderLocations(allLocations);
+        
+        // Search input handler
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', App.debounce(() => {
+          applyFiltersAndSearch();
+        }, 200));
+        
+        // Filter click handlers
+        document.querySelectorAll('.filter-tag').forEach(el => {
+          el.addEventListener('click', function(e) {
+            const type = this.dataset.type;
+            const checkbox = this.querySelector('input');
+            
+            if (activeTags.has(type)) {
+              activeTags.delete(type);
+              this.classList.remove('active');
+              checkbox.checked = false;
+            } else {
+              activeTags.add(type);
+              this.classList.add('active');
+              checkbox.checked = true;
+            }
+            
+            applyFiltersAndSearch();
+          });
+        });
+        
+      } catch (error) {
+        console.error('Failed to initialize:', error);
+        document.getElementById('locationTree').innerHTML = `
+          <div class="error">データの読み込みに失敗しました</div>
+        `;
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+  
+  <style>
+    .location-tree {
+      margin-top: 1rem;
+    }
+    .location-node {
+      margin-bottom: 0.5rem;
+      border-left: 2px solid var(--border-color, #ddd);
+      padding-left: 0.75rem;
+    }
+    .location-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: inherit;
+      transition: background-color 0.2s;
+    }
+    .location-link:hover {
+      background-color: var(--hover-bg, #f5f5f5);
+    }
+    .location-icon {
+      font-size: 1.2rem;
+    }
+    .location-name {
+      font-weight: 500;
+    }
+    .location-type {
+      font-size: 0.75rem;
+      margin-left: auto;
+    }
+    .location-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted, #666);
+      padding-left: 2.5rem;
+      margin-top: -0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .map-link {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background: var(--primary-color, #4a6fa5);
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+    .map-link:hover {
+      opacity: 0.9;
+    }
+  </style>
+</body>
+</html>

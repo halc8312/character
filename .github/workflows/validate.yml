@@ -1,10 +1,13 @@
-name: Validate Characters
+name: Validate Characters and Locations
 
 on:
   push:
     branches: [ main, master ]
     paths:
       - 'characters/**'
+      - 'locations/**'
+      - 'maps/**'
+      - 'links/**'
       - 'schemas/**'
       - 'scripts/**'
       - 'relations/**'
@@ -12,6 +15,9 @@ on:
     branches: [ main, master ]
     paths:
       - 'characters/**'
+      - 'locations/**'
+      - 'maps/**'
+      - 'links/**'
       - 'schemas/**'
       - 'scripts/**'
       - 'relations/**'
@@ -40,3 +46,6 @@ jobs:
       
       - name: Run character validation
         run: python scripts/validate_characters.py
+      
+      - name: Run location validation
+        run: python scripts/validate_locations.py

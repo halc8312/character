@@ -1,0 +1,40 @@
+# ロケーションテンプレート
+# このファイルをコピーして <your_location_id>.location.yml にリネームしてください
+# すべてのプレースホルダーの値を実際のロケーションデータに置き換えてください
+# 詳細な手順については README.md を参照してください
+
+version: "1.0"
+
+# 一意の識別子 - ファイル名（.location.yml なし）と一致する必要があります
+# 形式: 小文字、数字、アンダースコアのみ
+# 推奨: 親ID_場所名 の形式（例: eldvale_central_plaza）
+id: your_location_id
+
+profile:
+  name: "場所のフルネーム"
+  short: "短縮名"              # 任意
+  type: landmark               # vocab.yml の location_types から選択
+  parent_id: parent_location   # 任意: 親ロケーションのID（階層構造用）
+  description: "この場所の説明文。特徴や雰囲気を記述します。"
+
+# prefix/value 形式の分類タグ
+# 有効なプレフィックス: location, district, poi など
+tags:
+  - location/landmark
+  - district/downtown
+
+# 世界観設定（任意）
+lore:
+  history: "この場所の歴史的背景"
+  rumors:
+    - "この場所にまつわる噂や伝説"
+  rules:
+    - "この場所特有のルールや慣習"
+  notable_features:
+    - "目立つ特徴やランドマーク"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "あなたの名前"
+  notes: "このロケーションファイルに関する追加のメモ"

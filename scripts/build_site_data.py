@@ -241,12 +241,193 @@ def validate_tags(characters: list[dict], valid_prefixes: list[str]) -> list[str
     return warnings
 
 
+def get_location_files(locations_dir: Path) -> list[Path]:
+    """Get all location YAML files, excluding the template."""
+    files = []
+    for pattern in ['*.location.yml', '*.location.yaml']:
+        files.extend(locations_dir.glob(pattern))
+    return [f for f in files if not f.name.startswith('_TEMPLATE')]
+
+
+def get_map_files(maps_dir: Path) -> list[Path]:
+    """Get all map YAML files, excluding the template."""
+    files = []
+    for pattern in ['*.map.yml', '*.map.yaml']:
+        files.extend(maps_dir.glob(pattern))
+    return [f for f in files if not f.name.startswith('_TEMPLATE')]
+
+
+def build_location_data(locations_dir: Path, maps_dir: Path, links_path: Path, 
+                        site_data_dir: Path, character_ids: set[str], vocab: dict):
+    """Build location-related JSON files for the site."""
+    
+    # Load locations
+    locations_raw = []
+    location_ids = set()
+    
+    if locations_dir.exists():
+        for filepath in sorted(get_location_files(locations_dir)):
+            try:
+                loc = load_yaml(filepath)
+                if loc:
+                    locations_raw.append(loc)
+                    if 'id' in loc:
+                        location_ids.add(loc['id'])
+            except Exception as e:
+                print(f"WARNING: Failed to load {filepath}: {e}")
+    
+    # Build locations.json
+    locations_json = []
+    for loc in locations_raw:
+        profile = loc.get('profile', {})
+        locations_json.append({
+            'id': loc.get('id', ''),
+            'name': profile.get('name', ''),
+            'short': profile.get('short', ''),
+            'type': profile.get('type', ''),
+            'parent_id': profile.get('parent_id'),
+            'description': profile.get('description', ''),
+            'tags': loc.get('tags', []),
+            'lore': loc.get('lore', {})
+        })
+    
+    # Write locations.json
+    with open(site_data_dir / 'locations.json', 'w', encoding='utf-8') as f:
+        json.dump(locations_json, f, ensure_ascii=False, indent=2)
+    
+    if locations_json:
+        print(f"✓ Generated site/data/locations.json ({len(locations_json)} locations)")
+    
+    # Load and build maps.json
+    maps_json = []
+    if maps_dir.exists():
+        for filepath in sorted(get_map_files(maps_dir)):
+            try:
+                map_data = load_yaml(filepath)
+                if map_data:
+                    profile = map_data.get('profile', {})
+                    maps_json.append({
+                        'id': map_data.get('id', ''),
+                        'name': profile.get('name', ''),
+                        'description': profile.get('description', ''),
+                        'root_location_id': map_data.get('root_location_id', ''),
+                        'include': map_data.get('include', {}),
+                        'display': map_data.get('display', {})
+                    })
+            except Exception as e:
+                print(f"WARNING: Failed to load {filepath}: {e}")
+    
+    # Write maps.json
+    with open(site_data_dir / 'maps.json', 'w', encoding='utf-8') as f:
+        json.dump(maps_json, f, ensure_ascii=False, indent=2)
+    
+    if maps_json:
+        print(f"✓ Generated site/data/maps.json ({len(maps_json)} maps)")
+    
+    # Load and build character_locations.json
+    links_json = []
+    if links_path.exists():
+        try:
+            links_data = load_yaml(links_path)
+            if links_data and 'links' in links_data:
+                links_json = links_data['links']
+        except Exception as e:
+            print(f"WARNING: Failed to load character_locations.yml: {e}")
+    
+    # Write character_locations.json
+    with open(site_data_dir / 'character_locations.json', 'w', encoding='utf-8') as f:
+        json.dump(links_json, f, ensure_ascii=False, indent=2)
+    
+    if links_json:
+        print(f"✓ Generated site/data/character_locations.json ({len(links_json)} links)")
+    
+    # Build location graph data for each map
+    for map_info in maps_json:
+        map_id = map_info.get('id', '')
+        root_id = map_info.get('root_location_id', '')
+        include = map_info.get('include', {})
+        max_depth = include.get('depth', 3)
+        allowed_types = include.get('types', [])
+        
+        if not root_id:
+            continue
+        
+        # Build location tree from root
+        loc_by_id = {loc['id']: loc for loc in locations_json}
+        
+        # Find all descendants
+        def get_descendants(parent_id, depth):
+            if depth > max_depth:
+                return []
+            result = []
+            for loc in locations_json:
+                if loc.get('parent_id') == parent_id:
+                    if not allowed_types or loc.get('type') in allowed_types:
+                        result.append(loc)
+                    result.extend(get_descendants(loc['id'], depth + 1))
+            return result
+        
+        # Include root if it passes type filter
+        graph_locations = []
+        if root_id in loc_by_id:
+            root_loc = loc_by_id[root_id]
+            if not allowed_types or root_loc.get('type') in allowed_types:
+                graph_locations.append(root_loc)
+        
+        graph_locations.extend(get_descendants(root_id, 1))
+        
+        # Build nodes and edges for this map
+        loc_graph_nodes = []
+        loc_graph_edges = []
+        
+        graph_loc_ids = {loc['id'] for loc in graph_locations}
+        
+        for loc in graph_locations:
+            loc_graph_nodes.append({
+                'id': loc['id'],
+                'label': loc.get('name', loc['id']),
+                'type': loc.get('type', ''),
+                'tags': loc.get('tags', [])
+            })
+            
+            # Add edge to parent if parent is in graph
+            parent_id = loc.get('parent_id')
+            if parent_id and parent_id in graph_loc_ids:
+                loc_graph_edges.append({
+                    'id': f"{parent_id}__contains__{loc['id']}",
+                    'source': parent_id,
+                    'target': loc['id'],
+                    'type': 'contains'
+                })
+        
+        location_graph = {
+            'nodes': loc_graph_nodes,
+            'edges': loc_graph_edges
+        }
+        
+        # Write location_graph_<map_id>.json
+        graph_path = site_data_dir / f'location_graph_{map_id}.json'
+        with open(graph_path, 'w', encoding='utf-8') as f:
+            json.dump(location_graph, f, ensure_ascii=False, indent=2)
+        
+        print(f"✓ Generated site/data/location_graph_{map_id}.json ({len(loc_graph_nodes)} nodes)")
+        
+        # Create layout file if it doesn't exist
+        layout_path = site_data_dir / f'location_layout_{map_id}.json'
+        if not layout_path.exists():
+            with open(layout_path, 'w', encoding='utf-8') as f:
+                json.dump({}, f, ensure_ascii=False, indent=2)
+
+
 def main():
     """Main build function."""
     script_dir = Path(__file__).parent
     repo_root = script_dir.parent
     
     characters_dir = repo_root / 'characters'
+    locations_dir = repo_root / 'locations'
+    maps_dir = repo_root / 'maps'
+    links_path = repo_root / 'links' / 'character_locations.yml'
     vocab_path = repo_root / 'schemas' / 'vocab.yml'
     graph_path = repo_root / 'relations' / 'graph.yml'
     site_data_dir = repo_root / 'site' / 'data'
@@ -364,6 +545,10 @@ def main():
     
     print(f"✓ Generated site/data/characters.json ({len(characters_json)} characters)")
     print(f"✓ Generated site/data/graph.json ({len(nodes)} nodes, {len(all_edges)} edges)")
+    
+    # === Location System Data Generation ===
+    build_location_data(locations_dir, maps_dir, links_path, site_data_dir, valid_ids, vocab)
+    
     print(f"✓ Build complete")
     
     sys.exit(0)

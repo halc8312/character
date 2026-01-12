@@ -1,0 +1,113 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/halc8312/character/schemas/map.schema.json",
+  "title": "Map Schema",
+  "description": "Schema for map definition files (view configuration for locations)",
+  "type": "object",
+  "required": [
+    "version",
+    "id",
+    "profile",
+    "root_location_id",
+    "meta"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique map identifier (must match filename)",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "profile": {
+      "type": "object",
+      "description": "Basic map profile",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name of the map"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of what this map shows"
+        }
+      }
+    },
+    "root_location_id": {
+      "type": "string",
+      "description": "ID of the root location to display (shows this and its descendants)",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "include": {
+      "type": "object",
+      "description": "Configuration for which locations to include",
+      "additionalProperties": false,
+      "properties": {
+        "depth": {
+          "type": "integer",
+          "description": "How many levels of descendants to include (0 = root only)",
+          "minimum": 0,
+          "maximum": 10,
+          "default": 3
+        },
+        "types": {
+          "type": "array",
+          "description": "Only include locations of these types (empty = all)",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "display": {
+      "type": "object",
+      "description": "Display settings",
+      "additionalProperties": false,
+      "properties": {
+        "layout": {
+          "type": "string",
+          "description": "Layout mode: 'auto' or 'saved'",
+          "enum": ["auto", "saved"],
+          "default": "auto"
+        },
+        "show_labels": {
+          "type": "boolean",
+          "description": "Whether to show node labels",
+          "default": true
+        }
+      }
+    },
+    "meta": {
+      "type": "object",
+      "description": "Metadata",
+      "required": ["created", "updated", "author"],
+      "additionalProperties": false,
+      "properties": {
+        "created": {
+          "type": "string",
+          "description": "Creation date (YYYY-MM-DD)",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "updated": {
+          "type": "string",
+          "description": "Last update date (YYYY-MM-DD)",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "author": {
+          "type": "string",
+          "description": "Author or contributor"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional notes"
+        }
+      }
+    }
+  }
+}
