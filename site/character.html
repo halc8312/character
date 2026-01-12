@@ -29,7 +29,7 @@
     /**
      * Render character detail
      */
-    function renderCharacterDetail(char, edges) {
+    function renderCharacterDetail(char, edges, locationLinks) {
       const container = document.getElementById('characterDetail');
       
       if (!char) {
@@ -75,6 +75,30 @@
         relationsHtml = '<li class="relationship-item">関係情報がありません</li>';
       }
       
+      // Build related locations HTML
+      let locationsHtml = '';
+      if (locationLinks && locationLinks.length > 0) {
+        const kindLabels = {
+          home: '住居', birthplace: '出生地', current: '現在地',
+          workplace: '勤務先', school: '通学先', hangout: 'よく行く場所',
+          hideout: '隠れ家', owned: '所有', frequented: '頻繁に訪問',
+          avoided: '避けている', memorable: '思い出の場所', other: 'その他'
+        };
+        
+        locationsHtml = locationLinks.map(link => {
+          const kindLabel = kindLabels[link.kind] || link.kind;
+          return `
+            <li class="relationship-item">
+              <a href="location.html?id=${App.escapeHtml(link.location_id)}" class="target">
+                ${App.escapeHtml(link.location_name || link.location_id)}
+              </a>
+              <span class="type">${App.escapeHtml(kindLabel)}</span>
+              ${link.note ? `<div class="summary">${App.escapeHtml(link.note)}</div>` : ''}
+            </li>
+          `;
+        }).join('');
+      }
+      
       container.innerHTML = `
         <h1>${App.escapeHtml(char.name_display)}</h1>
         <div class="romanized">${App.escapeHtml(char.name_romanized || '')}</div>
@@ -118,6 +142,15 @@
           </ul>
         </div>
         
+        ${locationsHtml ? `
+          <div class="detail-section">
+            <h3>関連ロケーション</h3>
+            <ul class="relationship-list">
+              ${locationsHtml}
+            </ul>
+          </div>
+        ` : ''}
+        
         <a href="graph.html?focus=${App.escapeHtml(char.id)}" class="graph-link">
           相関図で開く
         </a>
@@ -142,12 +175,32 @@
       }
       
       try {
-        await App.loadAllData();
+        // Load character data and location links in parallel
+        const [_, locationLinksData, locationsData] = await Promise.all([
+          App.loadAllData(),
+          App.fetchData('character_locations.json'),
+          App.fetchData('locations.json')
+        ]);
         
         const char = App.getCharacterById(characterId);
         const edges = App.getCharacterEdges(characterId);
         
-        renderCharacterDetail(char, edges);
+        // Build location lookup map for O(1) access
+        const locationMap = new Map();
+        (locationsData || []).forEach(loc => locationMap.set(loc.id, loc));
+        
+        // Find location links for this character and resolve location names
+        const locationLinks = (locationLinksData || [])
+          .filter(link => link.character_id === characterId)
+          .map(link => {
+            const location = locationMap.get(link.location_id);
+            return {
+              ...link,
+              location_name: location ? location.name : null
+            };
+          });
+        
+        renderCharacterDetail(char, edges, locationLinks);
         
       } catch (error) {
         console.error('Failed to load character:', error);

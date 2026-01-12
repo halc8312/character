@@ -23,6 +23,10 @@ except ImportError:
     print("ERROR: jsonschema not installed. Run: pip install jsonschema")
     sys.exit(1)
 
+# Constants for cardinality values
+CARDINALITY_SINGLE = 'single'
+CARDINALITY_MULTIPLE = 'multiple'
+
 
 def load_yaml(filepath: Path) -> dict:
     """Load a YAML file and return its contents."""
@@ -223,7 +227,11 @@ def validate_links(links_path: Path, schema: dict, character_ids: set[str], loca
         return errors, warnings
     
     valid_kinds = vocab.get('link_kinds', [])
+    cardinality = vocab.get('link_cardinality', {})
     links = data.get('links', [])
+    
+    # Track links by character_id and kind for cardinality check
+    char_kind_counts = {}
     
     for i, link in enumerate(links):
         char_id = link.get('character_id', '')
@@ -241,6 +249,21 @@ def validate_links(links_path: Path, schema: dict, character_ids: set[str], loca
         # Kind validation
         if kind and kind not in valid_kinds:
             errors.append(f"character_locations.yml link[{i}]: kind '{kind}' not in vocab.yml link_kinds")
+        
+        # Track for cardinality check
+        if char_id and kind:
+            key = (char_id, kind)
+            if key not in char_kind_counts:
+                char_kind_counts[key] = []
+            char_kind_counts[key].append(i)
+    
+    # Cardinality validation
+    for (char_id, kind), indices in char_kind_counts.items():
+        if cardinality.get(kind) == CARDINALITY_SINGLE and len(indices) > 1:
+            errors.append(
+                f"character_locations.yml: character '{char_id}' has {len(indices)} '{kind}' links "
+                f"(links [{', '.join(str(i) for i in indices)}]), but only 1 is allowed"
+            )
     
     return errors, warnings
 

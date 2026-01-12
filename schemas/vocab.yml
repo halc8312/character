@@ -139,3 +139,20 @@ link_kinds:
   - avoided       # 避けている場所
   - memorable     # 思い出の場所
   - other         # その他
+
+# link_kindsのカーディナリティ（重複制限）
+# single: 1キャラクターにつき1件のみ
+# multiple: 1キャラクターにつき複数可
+link_cardinality:
+  birthplace: single    # 出生地は1つ
+  current: single       # 現在地は1つ
+  home: multiple        # 住居は複数可（引越し履歴など）
+  workplace: multiple   # 勤務先は複数可
+  school: multiple      # 通学先は複数可
+  hangout: multiple     # よく行く場所は複数可
+  hideout: multiple     # 隠れ家は複数可
+  owned: multiple       # 所有物件は複数可
+  frequented: multiple  # 頻繁に訪れるは複数可
+  avoided: multiple     # 避けているは複数可
+  memorable: multiple   # 思い出の場所は複数可
+  other: multiple       # その他は複数可
