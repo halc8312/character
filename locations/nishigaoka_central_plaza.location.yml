@@ -1,0 +1,34 @@
+version: "1.0"
+
+id: nishigaoka_central_plaza
+
+profile:
+  name: "中央広場"
+  short: "広場"
+  aliases:
+    - "駅前広場"
+    - "噴水広場"
+  type: plaza
+  parent_id: nishigaoka_downtown
+  description: "駅前にある広場。噴水があり、待ち合わせスポットとして人気。"
+
+tags:
+    - "location/plaza"
+    - "poi/meeting_spot"
+
+lore:
+  history: "駅の改装と共に整備された市民の憩いの場。"
+  rumors:
+    - "満月の夜、噴水が青く光るという噂がある"
+  rules:
+    - "大声での演説は禁止"
+  notable_features:
+    - "大噴水"
+    - "ベンチ"
+    - "花壇"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

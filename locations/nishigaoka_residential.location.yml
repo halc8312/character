@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_residential
+
+profile:
+  name: "西ヶ丘住宅街"
+  short: "住宅街"
+  aliases:
+    - "住宅地区"
+    - "ニュータウン"
+  type: neighborhood
+  parent_id: nishigaoka_city
+  description: "静かな住宅が立ち並ぶエリア。多くの学生や家族が暮らしている。"
+
+tags:
+    - "location/neighborhood"
+    - "district/residential"
+
+lore:
+  history: "高度成長期に開発されたニュータウン。現在は第二世代の家族が中心。"
+  rumors:
+    - "夕方になると学校帰りの学生で賑わう"
+  rules: []
+  notable_features:
+    - "公園"
+    - "スーパーマーケット"
+    - "コンビニ"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

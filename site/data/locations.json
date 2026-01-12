@@ -1,1 +1,645 @@
-[]
+[
+  {
+    "id": "nishigaoka_bakery",
+    "name": "商店街のパン屋「こむぎ堂」",
+    "short": "こむぎ堂",
+    "aliases": [
+      "商店街のパン屋",
+      "パン屋"
+    ],
+    "type": "shop",
+    "parent_id": "nishigaoka_shopping_street",
+    "description": "商店街にある人気のパン屋。焼きたてパンの香りが漂う。",
+    "tags": [
+      "location/shop",
+      "poi/food"
+    ],
+    "lore": {
+      "history": "創業40年の老舗パン屋。地元の味として親しまれている。",
+      "rumors": [
+        "クリームパンは午前中に売り切れる"
+      ],
+      "rules": [],
+      "notable_features": [
+        "焼きたてパン",
+        "イートインスペース"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_bookstore",
+    "name": "駅前書店「ブックマート」",
+    "short": "ブックマート",
+    "aliases": [
+      "駅前書店",
+      "書店"
+    ],
+    "type": "shop",
+    "parent_id": "nishigaoka_downtown",
+    "description": "駅前にある大型書店。参考書から漫画まで幅広く取り揃える。",
+    "tags": [
+      "location/shop",
+      "poi/retail"
+    ],
+    "lore": {
+      "history": "地元で30年以上愛されている老舗書店。",
+      "rumors": [
+        "奥の棚に珍しい本があるらしい"
+      ],
+      "rules": [],
+      "notable_features": [
+        "2階建て",
+        "カフェスペース併設"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_cafe",
+    "name": "駅前カフェ「ビーンズ」",
+    "short": "ビーンズ",
+    "aliases": [
+      "駅前のカフェ",
+      "カフェ"
+    ],
+    "type": "shop",
+    "parent_id": "nishigaoka_downtown",
+    "description": "学生に人気のカフェ。勉強や読書をする人が多い。",
+    "tags": [
+      "location/shop",
+      "poi/hangout"
+    ],
+    "lore": {
+      "history": "5年前にオープンした新しいカフェ。",
+      "rumors": [
+        "ブレンドコーヒーが絶品"
+      ],
+      "rules": [
+        "長時間の占有はお控えください"
+      ],
+      "notable_features": [
+        "電源コンセント完備",
+        "Wi-Fi完備"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_central_plaza",
+    "name": "中央広場",
+    "short": "広場",
+    "aliases": [
+      "駅前広場",
+      "噴水広場"
+    ],
+    "type": "plaza",
+    "parent_id": "nishigaoka_downtown",
+    "description": "駅前にある広場。噴水があり、待ち合わせスポットとして人気。",
+    "tags": [
+      "location/plaza",
+      "poi/meeting_spot"
+    ],
+    "lore": {
+      "history": "駅の改装と共に整備された市民の憩いの場。",
+      "rumors": [
+        "満月の夜、噴水が青く光るという噂がある"
+      ],
+      "rules": [
+        "大声での演説は禁止"
+      ],
+      "notable_features": [
+        "大噴水",
+        "ベンチ",
+        "花壇"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_city",
+    "name": "西ヶ丘市",
+    "short": "西ヶ丘",
+    "aliases": [
+      "Nishigaoka City",
+      "西ケ丘市"
+    ],
+    "type": "city",
+    "parent_id": null,
+    "description": "北関東に位置する地方都市。県立西ヶ丘高校を中心に、住宅街と商業地区が広がる穏やかな街。",
+    "tags": [
+      "location/city",
+      "district/urban"
+    ],
+    "lore": {
+      "history": "50年前に鉄道の駅が開業して以来、ベッドタウンとして発展してきた。近年は若者向けの施設も増えている。",
+      "rumors": [
+        "駅前の噴水広場は待ち合わせスポットとして有名",
+        "夏祭りの花火大会は近隣からも見物客が訪れる"
+      ],
+      "rules": [],
+      "notable_features": [
+        "西ヶ丘駅",
+        "中央広場",
+        "商店街"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_convenience_store",
+    "name": "コンビニ「デイリーマート」",
+    "short": "デイリーマート",
+    "aliases": [
+      "近所のコンビニ",
+      "コンビニ"
+    ],
+    "type": "shop",
+    "parent_id": "nishigaoka_residential",
+    "description": "住宅街にある24時間営業のコンビニエンスストア。",
+    "tags": [
+      "location/shop",
+      "poi/convenience"
+    ],
+    "lore": {
+      "history": "10年前にオープン。地域住民の生活を支えている。",
+      "rumors": [
+        "夜勤スタッフは親切で有名"
+      ],
+      "rules": [],
+      "notable_features": [
+        "ATM",
+        "コピー機",
+        "イートインスペース"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_cram_school",
+    "name": "学習塾「進学館」",
+    "short": "進学館",
+    "aliases": [
+      "学習塾",
+      "塾"
+    ],
+    "type": "building",
+    "parent_id": "nishigaoka_downtown",
+    "description": "駅前にある学習塾。高校受験・大学受験対策を行う。",
+    "tags": [
+      "location/building",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "20年前に開校。多くの卒業生を送り出している。",
+      "rumors": [
+        "厳しいけど結果を出す塾"
+      ],
+      "rules": [],
+      "notable_features": [
+        "自習室",
+        "個別指導ブース"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_downtown",
+    "name": "西ヶ丘中心部",
+    "short": "中心部",
+    "aliases": [
+      "ダウンタウン",
+      "駅前地区"
+    ],
+    "type": "district",
+    "parent_id": "nishigaoka_city",
+    "description": "西ヶ丘駅を中心とした商業地区。カフェ、書店、飲食店が立ち並ぶ。",
+    "tags": [
+      "location/district",
+      "district/downtown"
+    ],
+    "lore": {
+      "history": "駅の開業と共に発展した商業エリア。昔ながらの商店街と新しいショップが共存する。",
+      "rumors": [
+        "駅前のカフェは学生の勉強スポットとして人気"
+      ],
+      "rules": [],
+      "notable_features": [
+        "西ヶ丘駅",
+        "駅前広場",
+        "商店街"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_high_school",
+    "name": "県立西ヶ丘高校",
+    "short": "西高",
+    "aliases": [
+      "西ヶ丘高校",
+      "Nishigaoka High School"
+    ],
+    "type": "school",
+    "parent_id": "nishigaoka_school_district",
+    "description": "地域の中核を担う県立高校。普通科のみの進学校で、部活動も盛ん。",
+    "tags": [
+      "location/school",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "創立40年を迎える伝統校。卒業生には地元で活躍する人材が多い。",
+      "rumors": [
+        "図書室は放課後の穴場スポット",
+        "屋上は立ち入り禁止だが、こっそり入る生徒がいるとか"
+      ],
+      "rules": [
+        "スマートフォンは授業中使用禁止",
+        "制服着用が原則"
+      ],
+      "notable_features": [
+        "グラウンド",
+        "体育館",
+        "図書室",
+        "音楽室",
+        "美術室"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_junior_college",
+    "name": "西ヶ丘短期大学",
+    "short": "西短",
+    "aliases": [
+      "市内短大",
+      "短大"
+    ],
+    "type": "school",
+    "parent_id": "nishigaoka_city",
+    "description": "市内にある短期大学。実践的な教育に力を入れている。",
+    "tags": [
+      "location/school",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "女子短大として創立され、現在は共学。",
+      "rumors": [],
+      "rules": [],
+      "notable_features": [
+        "講堂",
+        "図書室"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_junior_high",
+    "name": "西ヶ丘市立第一中学校",
+    "short": "一中",
+    "aliases": [
+      "第一中学校",
+      "一中"
+    ],
+    "type": "school",
+    "parent_id": "nishigaoka_school_district",
+    "description": "地元の公立中学校。西ヶ丘高校への進学者が多い。",
+    "tags": [
+      "location/school",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "市の中心部に位置する伝統ある中学校。",
+      "rumors": [],
+      "rules": [],
+      "notable_features": [
+        "グラウンド",
+        "体育館",
+        "プール"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_library",
+    "name": "西ヶ丘市立図書館",
+    "short": "図書館",
+    "aliases": [
+      "市立図書館",
+      "公立図書館"
+    ],
+    "type": "building",
+    "parent_id": "nishigaoka_school_district",
+    "description": "市民に開放された公立図書館。学生の自習スポットとしても人気。",
+    "tags": [
+      "location/building",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "市制施行と共に開館。蔵書数は県内でも有数。",
+      "rumors": [
+        "3階の閲覧室は静かで集中できる"
+      ],
+      "rules": [
+        "館内は静粛に",
+        "飲食禁止"
+      ],
+      "notable_features": [
+        "閲覧室",
+        "自習スペース",
+        "郷土資料室"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_park",
+    "name": "西ヶ丘中央公園",
+    "short": "中央公園",
+    "aliases": [
+      "公園",
+      "市民公園"
+    ],
+    "type": "park",
+    "parent_id": "nishigaoka_residential",
+    "description": "住宅街にある広い公園。遊具、ジョギングコース、芝生広場がある。",
+    "tags": [
+      "location/park",
+      "poi/recreation"
+    ],
+    "lore": {
+      "history": "市の緑化計画の一環として30年前に整備された。",
+      "rumors": [
+        "桜の季節は花見客で賑わう"
+      ],
+      "rules": [
+        "夜間の利用は控えめに"
+      ],
+      "notable_features": [
+        "噴水",
+        "遊具",
+        "芝生広場",
+        "ジョギングコース"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_public_high",
+    "name": "県立北関東高校",
+    "short": "北高",
+    "aliases": [
+      "北関東高校",
+      "地元の公立高校"
+    ],
+    "type": "school",
+    "parent_id": "nishigaoka_city",
+    "description": "西ヶ丘高校とは別の地元の公立高校。商業科と工業科がある。",
+    "tags": [
+      "location/school",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "実業系の教育に力を入れている伝統校。",
+      "rumors": [],
+      "rules": [],
+      "notable_features": [
+        "実習棟",
+        "グラウンド"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_residential",
+    "name": "西ヶ丘住宅街",
+    "short": "住宅街",
+    "aliases": [
+      "住宅地区",
+      "ニュータウン"
+    ],
+    "type": "neighborhood",
+    "parent_id": "nishigaoka_city",
+    "description": "静かな住宅が立ち並ぶエリア。多くの学生や家族が暮らしている。",
+    "tags": [
+      "location/neighborhood",
+      "district/residential"
+    ],
+    "lore": {
+      "history": "高度成長期に開発されたニュータウン。現在は第二世代の家族が中心。",
+      "rumors": [
+        "夕方になると学校帰りの学生で賑わう"
+      ],
+      "rules": [],
+      "notable_features": [
+        "公園",
+        "スーパーマーケット",
+        "コンビニ"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_school_district",
+    "name": "西ヶ丘学園地区",
+    "short": "学園地区",
+    "aliases": [
+      "文教地区",
+      "学校エリア"
+    ],
+    "type": "district",
+    "parent_id": "nishigaoka_city",
+    "description": "県立西ヶ丘高校を中心に、中学校や教育施設が集まるエリア。",
+    "tags": [
+      "location/district",
+      "district/education"
+    ],
+    "lore": {
+      "history": "教育重視の街づくりの一環として整備された文教地区。",
+      "rumors": [
+        "文化祭シーズンは地域住民も楽しみにしている"
+      ],
+      "rules": [],
+      "notable_features": [
+        "県立西ヶ丘高校",
+        "公立中学校",
+        "図書館"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_shopping_street",
+    "name": "西ヶ丘商店街",
+    "short": "商店街",
+    "aliases": [
+      "駅前商店街",
+      "アーケード街"
+    ],
+    "type": "street",
+    "parent_id": "nishigaoka_downtown",
+    "description": "昔ながらの商店街。個人商店が軒を連ねる。",
+    "tags": [
+      "location/street",
+      "poi/shopping"
+    ],
+    "lore": {
+      "history": "駅の開業と共に発展した伝統ある商店街。",
+      "rumors": [
+        "商店街の福引きは当たりやすいと評判"
+      ],
+      "rules": [],
+      "notable_features": [
+        "アーケード",
+        "個人商店",
+        "八百屋"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_station",
+    "name": "西ヶ丘駅",
+    "short": "駅",
+    "aliases": [
+      "Nishigaoka Station",
+      "駅前"
+    ],
+    "type": "station",
+    "parent_id": "nishigaoka_downtown",
+    "description": "市の中心にある鉄道駅。通勤・通学の拠点。",
+    "tags": [
+      "location/station",
+      "poi/transportation"
+    ],
+    "lore": {
+      "history": "50年前に開業。市の発展の起点となった。",
+      "rumors": [
+        "朝の通勤ラッシュは混雑する"
+      ],
+      "rules": [],
+      "notable_features": [
+        "改札口",
+        "駅前広場",
+        "バスターミナル"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_stationery_shop",
+    "name": "文具店「ペンハウス」",
+    "short": "ペンハウス",
+    "aliases": [
+      "文具店",
+      "文房具屋"
+    ],
+    "type": "shop",
+    "parent_id": "nishigaoka_shopping_street",
+    "description": "商店街にある老舗文具店。学生からビジネスマンまで幅広い客層。",
+    "tags": [
+      "location/shop",
+      "poi/retail"
+    ],
+    "lore": {
+      "history": "創業50年。美希の実家が経営している。",
+      "rumors": [
+        "珍しい筆記具が見つかることがある"
+      ],
+      "rules": [],
+      "notable_features": [
+        "筆記具コーナー",
+        "画材コーナー"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_supermarket",
+    "name": "スーパー「フレッシュマート」",
+    "short": "フレッシュマート",
+    "aliases": [
+      "スーパー",
+      "スーパーの品出し"
+    ],
+    "type": "shop",
+    "parent_id": "nishigaoka_residential",
+    "description": "住宅街にある中規模スーパーマーケット。",
+    "tags": [
+      "location/shop",
+      "poi/retail"
+    ],
+    "lore": {
+      "history": "地元密着型のスーパーとして長年愛されている。",
+      "rumors": [
+        "夕方のタイムセールは争奪戦"
+      ],
+      "rules": [],
+      "notable_features": [
+        "生鮮食品コーナー",
+        "惣菜コーナー"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_university",
+    "name": "西ヶ丘大学",
+    "short": "西大",
+    "aliases": [
+      "市内大学",
+      "Nishigaoka University"
+    ],
+    "type": "school",
+    "parent_id": "nishigaoka_city",
+    "description": "市内にある私立大学。経営学部や教育学部がある。",
+    "tags": [
+      "location/school",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "地域密着型の私立大学として発展。",
+      "rumors": [
+        "学食のカレーが美味しいと評判"
+      ],
+      "rules": [],
+      "notable_features": [
+        "図書館",
+        "学食",
+        "グラウンド"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_vocational_school",
+    "name": "西ヶ丘専門学校",
+    "short": "専門学校",
+    "aliases": [
+      "市内専門学校",
+      "Nishigaoka Vocational School"
+    ],
+    "type": "school",
+    "parent_id": "nishigaoka_downtown",
+    "description": "駅前にある専門学校。出版、デザイン、IT系のコースがある。",
+    "tags": [
+      "location/school",
+      "poi/education"
+    ],
+    "lore": {
+      "history": "社会人の学び直し需要にも応えている。",
+      "rumors": [],
+      "rules": [],
+      "notable_features": [
+        "コンピュータ室",
+        "デザインスタジオ"
+      ]
+    }
+  },
+  {
+    "id": "nishigaoka_warehouse",
+    "name": "地域配送センター",
+    "short": "配送センター",
+    "aliases": [
+      "地域倉庫",
+      "倉庫"
+    ],
+    "type": "building",
+    "parent_id": "nishigaoka_city",
+    "description": "市郊外にある物流倉庫。アルバイトを募集していることが多い。",
+    "tags": [
+      "location/building",
+      "poi/industrial"
+    ],
+    "lore": {
+      "history": "EC需要の増加に伴い5年前に建設された。",
+      "rumors": [
+        "夜勤は高時給だが体力勝負"
+      ],
+      "rules": [],
+      "notable_features": [
+        "大型トラック搬入口",
+        "作業スペース"
+      ]
+    }
+  }
+]

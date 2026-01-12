@@ -1,0 +1,38 @@
+version: "1.0"
+
+id: nishigaoka_high_school
+
+profile:
+  name: "県立西ヶ丘高校"
+  short: "西高"
+  aliases:
+    - "西ヶ丘高校"
+    - "Nishigaoka High School"
+  type: school
+  parent_id: nishigaoka_school_district
+  description: "地域の中核を担う県立高校。普通科のみの進学校で、部活動も盛ん。"
+
+tags:
+    - "location/school"
+    - "poi/education"
+
+lore:
+  history: "創立40年を迎える伝統校。卒業生には地元で活躍する人材が多い。"
+  rumors:
+    - "図書室は放課後の穴場スポット"
+    - "屋上は立ち入り禁止だが、こっそり入る生徒がいるとか"
+  rules:
+    - "スマートフォンは授業中使用禁止"
+    - "制服着用が原則"
+  notable_features:
+    - "グラウンド"
+    - "体育館"
+    - "図書室"
+    - "音楽室"
+    - "美術室"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

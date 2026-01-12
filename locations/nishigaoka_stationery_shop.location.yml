@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_stationery_shop
+
+profile:
+  name: "文具店「ペンハウス」"
+  short: "ペンハウス"
+  aliases:
+    - "文具店"
+    - "文房具屋"
+  type: shop
+  parent_id: nishigaoka_shopping_street
+  description: "商店街にある老舗文具店。学生からビジネスマンまで幅広い客層。"
+
+tags:
+    - "location/shop"
+    - "poi/retail"
+
+lore:
+  history: "創業50年。美希の実家が経営している。"
+  rumors:
+    - "珍しい筆記具が見つかることがある"
+  rules: []
+  notable_features:
+    - "筆記具コーナー"
+    - "画材コーナー"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

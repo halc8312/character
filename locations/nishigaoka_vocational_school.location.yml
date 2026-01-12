@@ -1,0 +1,31 @@
+version: "1.0"
+
+id: nishigaoka_vocational_school
+
+profile:
+  name: "西ヶ丘専門学校"
+  short: "専門学校"
+  aliases:
+    - "市内専門学校"
+    - "Nishigaoka Vocational School"
+  type: school
+  parent_id: nishigaoka_downtown
+  description: "駅前にある専門学校。出版、デザイン、IT系のコースがある。"
+
+tags:
+    - "location/school"
+    - "poi/education"
+
+lore:
+  history: "社会人の学び直し需要にも応えている。"
+  rumors: []
+  rules: []
+  notable_features:
+    - "コンピュータ室"
+    - "デザインスタジオ"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

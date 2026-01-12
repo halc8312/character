@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_convenience_store
+
+profile:
+  name: "コンビニ「デイリーマート」"
+  short: "デイリーマート"
+  aliases:
+    - "近所のコンビニ"
+    - "コンビニ"
+  type: shop
+  parent_id: nishigaoka_residential
+  description: "住宅街にある24時間営業のコンビニエンスストア。"
+
+tags:
+    - "location/shop"
+    - "poi/convenience"
+
+lore:
+  history: "10年前にオープン。地域住民の生活を支えている。"
+  rumors:
+    - "夜勤スタッフは親切で有名"
+  rules: []
+  notable_features:
+    - "ATM"
+    - "コピー機"
+    - "イートインスペース"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

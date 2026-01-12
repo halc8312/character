@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "nishigaoka_city",
+    "name": "西ヶ丘市 全体図",
+    "description": "西ヶ丘市の主要地区と施設を俯瞰する地図",
+    "root_location_id": "nishigaoka_city",
+    "include": {
+      "depth": 4,
+      "types": []
+    },
+    "display": {
+      "layout": "auto",
+      "show_labels": true
+    }
+  }
+]

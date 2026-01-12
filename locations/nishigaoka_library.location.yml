@@ -1,0 +1,35 @@
+version: "1.0"
+
+id: nishigaoka_library
+
+profile:
+  name: "西ヶ丘市立図書館"
+  short: "図書館"
+  aliases:
+    - "市立図書館"
+    - "公立図書館"
+  type: building
+  parent_id: nishigaoka_school_district
+  description: "市民に開放された公立図書館。学生の自習スポットとしても人気。"
+
+tags:
+    - "location/building"
+    - "poi/education"
+
+lore:
+  history: "市制施行と共に開館。蔵書数は県内でも有数。"
+  rumors:
+    - "3階の閲覧室は静かで集中できる"
+  rules:
+    - "館内は静粛に"
+    - "飲食禁止"
+  notable_features:
+    - "閲覧室"
+    - "自習スペース"
+    - "郷土資料室"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

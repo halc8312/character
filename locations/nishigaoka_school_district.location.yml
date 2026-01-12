@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_school_district
+
+profile:
+  name: "西ヶ丘学園地区"
+  short: "学園地区"
+  aliases:
+    - "文教地区"
+    - "学校エリア"
+  type: district
+  parent_id: nishigaoka_city
+  description: "県立西ヶ丘高校を中心に、中学校や教育施設が集まるエリア。"
+
+tags:
+    - "location/district"
+    - "district/education"
+
+lore:
+  history: "教育重視の街づくりの一環として整備された文教地区。"
+  rumors:
+    - "文化祭シーズンは地域住民も楽しみにしている"
+  rules: []
+  notable_features:
+    - "県立西ヶ丘高校"
+    - "公立中学校"
+    - "図書館"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

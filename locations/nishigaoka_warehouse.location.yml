@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_warehouse
+
+profile:
+  name: "地域配送センター"
+  short: "配送センター"
+  aliases:
+    - "地域倉庫"
+    - "倉庫"
+  type: building
+  parent_id: nishigaoka_city
+  description: "市郊外にある物流倉庫。アルバイトを募集していることが多い。"
+
+tags:
+    - "location/building"
+    - "poi/industrial"
+
+lore:
+  history: "EC需要の増加に伴い5年前に建設された。"
+  rumors:
+    - "夜勤は高時給だが体力勝負"
+  rules: []
+  notable_features:
+    - "大型トラック搬入口"
+    - "作業スペース"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

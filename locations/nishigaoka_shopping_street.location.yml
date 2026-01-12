@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_shopping_street
+
+profile:
+  name: "西ヶ丘商店街"
+  short: "商店街"
+  aliases:
+    - "駅前商店街"
+    - "アーケード街"
+  type: street
+  parent_id: nishigaoka_downtown
+  description: "昔ながらの商店街。個人商店が軒を連ねる。"
+
+tags:
+    - "location/street"
+    - "poi/shopping"
+
+lore:
+  history: "駅の開業と共に発展した伝統ある商店街。"
+  rumors:
+    - "商店街の福引きは当たりやすいと評判"
+  rules: []
+  notable_features:
+    - "アーケード"
+    - "個人商店"
+    - "八百屋"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

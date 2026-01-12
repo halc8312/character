@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_bookstore
+
+profile:
+  name: "駅前書店「ブックマート」"
+  short: "ブックマート"
+  aliases:
+    - "駅前書店"
+    - "書店"
+  type: shop
+  parent_id: nishigaoka_downtown
+  description: "駅前にある大型書店。参考書から漫画まで幅広く取り揃える。"
+
+tags:
+    - "location/shop"
+    - "poi/retail"
+
+lore:
+  history: "地元で30年以上愛されている老舗書店。"
+  rumors:
+    - "奥の棚に珍しい本があるらしい"
+  rules: []
+  notable_features:
+    - "2階建て"
+    - "カフェスペース併設"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

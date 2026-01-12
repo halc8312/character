@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_cafe
+
+profile:
+  name: "駅前カフェ「ビーンズ」"
+  short: "ビーンズ"
+  aliases:
+    - "駅前のカフェ"
+    - "カフェ"
+  type: shop
+  parent_id: nishigaoka_downtown
+  description: "学生に人気のカフェ。勉強や読書をする人が多い。"
+
+tags:
+    - "location/shop"
+    - "poi/hangout"
+
+lore:
+  history: "5年前にオープンした新しいカフェ。"
+  rumors:
+    - "ブレンドコーヒーが絶品"
+  rules:
+    - "長時間の占有はお控えください"
+  notable_features:
+    - "電源コンセント完備"
+    - "Wi-Fi完備"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

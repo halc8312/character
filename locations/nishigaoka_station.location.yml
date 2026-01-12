@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_station
+
+profile:
+  name: "西ヶ丘駅"
+  short: "駅"
+  aliases:
+    - "Nishigaoka Station"
+    - "駅前"
+  type: station
+  parent_id: nishigaoka_downtown
+  description: "市の中心にある鉄道駅。通勤・通学の拠点。"
+
+tags:
+    - "location/station"
+    - "poi/transportation"
+
+lore:
+  history: "50年前に開業。市の発展の起点となった。"
+  rumors:
+    - "朝の通勤ラッシュは混雑する"
+  rules: []
+  notable_features:
+    - "改札口"
+    - "駅前広場"
+    - "バスターミナル"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_supermarket
+
+profile:
+  name: "スーパー「フレッシュマート」"
+  short: "フレッシュマート"
+  aliases:
+    - "スーパー"
+    - "スーパーの品出し"
+  type: shop
+  parent_id: nishigaoka_residential
+  description: "住宅街にある中規模スーパーマーケット。"
+
+tags:
+    - "location/shop"
+    - "poi/retail"
+
+lore:
+  history: "地元密着型のスーパーとして長年愛されている。"
+  rumors:
+    - "夕方のタイムセールは争奪戦"
+  rules: []
+  notable_features:
+    - "生鮮食品コーナー"
+    - "惣菜コーナー"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

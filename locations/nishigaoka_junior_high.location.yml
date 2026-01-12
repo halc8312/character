@@ -1,0 +1,32 @@
+version: "1.0"
+
+id: nishigaoka_junior_high
+
+profile:
+  name: "西ヶ丘市立第一中学校"
+  short: "一中"
+  aliases:
+    - "第一中学校"
+    - "一中"
+  type: school
+  parent_id: nishigaoka_school_district
+  description: "地元の公立中学校。西ヶ丘高校への進学者が多い。"
+
+tags:
+    - "location/school"
+    - "poi/education"
+
+lore:
+  history: "市の中心部に位置する伝統ある中学校。"
+  rumors: []
+  rules: []
+  notable_features:
+    - "グラウンド"
+    - "体育館"
+    - "プール"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"

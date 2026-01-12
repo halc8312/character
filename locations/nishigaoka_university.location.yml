@@ -1,0 +1,33 @@
+version: "1.0"
+
+id: nishigaoka_university
+
+profile:
+  name: "西ヶ丘大学"
+  short: "西大"
+  aliases:
+    - "市内大学"
+    - "Nishigaoka University"
+  type: school
+  parent_id: nishigaoka_city
+  description: "市内にある私立大学。経営学部や教育学部がある。"
+
+tags:
+    - "location/school"
+    - "poi/education"
+
+lore:
+  history: "地域密着型の私立大学として発展。"
+  rumors:
+    - "学食のカレーが美味しいと評判"
+  rules: []
+  notable_features:
+    - "図書館"
+    - "学食"
+    - "グラウンド"
+
+meta:
+  created: "2026-01-12"
+  updated: "2026-01-12"
+  author: "AI Assistant"
+  notes: "既存キャラクター用に作成されたロケーション"
