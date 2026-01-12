@@ -71,10 +71,12 @@ site/
 # キャラクターファイルの拡張
 background:
   key_events:
-    - date: "2020-04"
+    - date: "2020-04"           # YYYY-MM 形式（年と月のみ）
       event: "高校入学"
       related_characters: [yuna_kirishima]
 ```
+
+> **注**: 実装時には日付形式（ISO 8601推奨）やフィールドの必須/任意の定義が必要です。
 
 ### なぜ面白いか
 物語の時系列を整理し、過去のイベントがどう現在に影響しているかを理解できる。
@@ -93,8 +95,9 @@ background:
 
 ### イベント例
 ```
-「[haruto_tanaka]の秘密[合唱のソロ挑戦]が[ren_kobayashi]に発覚！」
-「[miki_sawada]が[haruto_tanaka]の[決断が遅い]という弱点を指摘するシーン」
+# テンプレート構文例: {{character.field}} 形式
+「{{haruto_tanaka.name}}の秘密「{{haruto_tanaka.secrets[0]}}」が{{ren_kobayashi.name}}に発覚！」
+「{{miki_sawada.name}}が{{haruto_tanaka.name}}の「{{haruto_tanaka.weaknesses[0]}}」という弱点を指摘するシーン」
 ```
 
 ### なぜ面白いか
@@ -119,6 +122,18 @@ locations/
 ├── _TEMPLATE.location.yml
 ├── nishigaoka_high_school.yml
 └── north_kanto_city.yml
+
+# location ファイルのスキーマ案
+id: nishigaoka_high_school
+name: "県立西ヶ丘高校"
+type: school                    # school, city, region など
+coordinates:                    # 任意: 地図表示用
+  lat: 36.3xxx
+  lng: 139.0xxx
+description: "物語の主要舞台となる公立高校"
+affiliated_characters:
+  - haruto_tanaka
+  - yuna_kirishima
 ```
 
 ### なぜ面白いか
@@ -166,16 +181,18 @@ relationships:
   - target_id: yuna_kirishima
     type: friend
     intensity: 4
-    history:
-      - date: "2015"
-        type: acquaintance
-        intensity: 2
+    history:                      # 任意: 関係の変遷を記録
+      - date: "2015"              # YYYY または YYYY-MM 形式
+        type: acquaintance        # vocab.yml の relationship_types から
+        intensity: 2              # -5〜5 の範囲
         note: "隣に引っ越してきた"
       - date: "2018"
         type: friend
         intensity: 4
         note: "中学で同じクラスになった"
 ```
+
+> **注**: `history` は任意フィールド。各エントリには `date`、`type`、`intensity` が必須で、`note` は任意。
 
 ### なぜ面白いか
 相関図の「静的なスナップショット」に対して、関係性の「動的な物語」を表現できる。
