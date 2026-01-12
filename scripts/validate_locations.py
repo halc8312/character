@@ -253,8 +253,11 @@ def main():
     
     try:
         vocab = load_yaml(vocab_path)
-    except Exception as e:
-        print(f"ERROR: Failed to load vocab.yml: {e}")
+    except yaml.YAMLError as e:
+        print(f"ERROR: Invalid YAML in vocab.yml: {e}")
+        sys.exit(1)
+    except IOError as e:
+        print(f"ERROR: Failed to read vocab.yml: {e}")
         sys.exit(1)
     
     # Load schemas
@@ -263,8 +266,11 @@ def main():
         if path.exists():
             try:
                 schemas[name] = load_json(path)
-            except Exception as e:
-                print(f"ERROR: Failed to load {path.name}: {e}")
+            except json.JSONDecodeError as e:
+                print(f"ERROR: Invalid JSON in {path.name}: {e}")
+                sys.exit(1)
+            except IOError as e:
+                print(f"ERROR: Failed to read {path.name}: {e}")
                 sys.exit(1)
         else:
             print(f"WARNING: {path.name} not found, skipping {name} validation")

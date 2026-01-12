@@ -268,24 +268,26 @@
           applyFiltersAndSearch();
         }, 200));
         
-        // Filter click handlers
-        document.querySelectorAll('.filter-tag').forEach(el => {
-          el.addEventListener('click', function(e) {
-            const type = this.dataset.type;
-            const checkbox = this.querySelector('input');
-            
-            if (activeTags.has(type)) {
-              activeTags.delete(type);
-              this.classList.remove('active');
-              checkbox.checked = false;
-            } else {
-              activeTags.add(type);
-              this.classList.add('active');
-              checkbox.checked = true;
-            }
-            
-            applyFiltersAndSearch();
-          });
+        // Filter click handlers using event delegation
+        const typeFilters = document.getElementById('typeFilters');
+        typeFilters.addEventListener('click', function(e) {
+          const el = e.target.closest('.filter-tag');
+          if (!el) return;
+          
+          const type = el.dataset.type;
+          const checkbox = el.querySelector('input');
+          
+          if (activeTags.has(type)) {
+            activeTags.delete(type);
+            el.classList.remove('active');
+            if (checkbox) checkbox.checked = false;
+          } else {
+            activeTags.add(type);
+            el.classList.add('active');
+            if (checkbox) checkbox.checked = true;
+          }
+          
+          applyFiltersAndSearch();
         });
         
       } catch (error) {

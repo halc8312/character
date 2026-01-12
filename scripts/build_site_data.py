@@ -355,16 +355,23 @@ def build_location_data(locations_dir: Path, maps_dir: Path, links_path: Path,
         # Build location tree from root
         loc_by_id = {loc['id']: loc for loc in locations_json}
         
-        # Find all descendants
+        # Build parent->children mapping for O(1) lookups
+        children_by_parent = {}
+        for loc in locations_json:
+            parent_id = loc.get('parent_id')
+            if parent_id not in children_by_parent:
+                children_by_parent[parent_id] = []
+            children_by_parent[parent_id].append(loc)
+        
+        # Find all descendants using the prebuilt mapping
         def get_descendants(parent_id, depth):
             if depth > max_depth:
                 return []
             result = []
-            for loc in locations_json:
-                if loc.get('parent_id') == parent_id:
-                    if not allowed_types or loc.get('type') in allowed_types:
-                        result.append(loc)
-                    result.extend(get_descendants(loc['id'], depth + 1))
+            for loc in children_by_parent.get(parent_id, []):
+                if not allowed_types or loc.get('type') in allowed_types:
+                    result.append(loc)
+                result.extend(get_descendants(loc['id'], depth + 1))
             return result
         
         # Include root if it passes type filter

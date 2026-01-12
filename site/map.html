@@ -13,7 +13,7 @@
     <nav>
       <a href="index.html">一覧</a>
       <a href="graph.html">相関図</a>
-      <a href="locations.html" class="active">ロケーション</a>
+      <a href="locations.html">ロケーション</a>
     </nav>
   </header>
   
@@ -242,6 +242,8 @@
      * Export layout
      */
     function exportLayout() {
+      if (!cy) return {};
+      
       const layoutData = {};
       cy.nodes().forEach(node => {
         const pos = node.position();
@@ -257,6 +259,10 @@
      * Download layout
      */
     function downloadLayout() {
+      if (!cy) {
+        alert('地図がロードされていません。');
+        return;
+      }
       const layoutData = exportLayout();
       const json = JSON.stringify(layoutData, null, 2);
       const blob = new Blob([json], { type: 'application/json' });
