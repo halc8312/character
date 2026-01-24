@@ -8,6 +8,7 @@
   <script src="assets/cytoscape.min.js"></script>
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">メインコンテンツへスキップ</a>
   <header class="header">
     <h1>キャラクターデータベース</h1>
     <nav>
@@ -17,7 +18,7 @@
     </nav>
   </header>
   
-  <main class="container" style="padding: 1rem; max-width: 100%;">
+  <main class="container" id="mainContent" style="padding: 1rem; max-width: 100%;">
     <div class="graph-container">
       <div class="graph-main">
         <div class="graph-controls">
@@ -27,6 +28,7 @@
             class="search-input" 
             placeholder="名前/IDで検索..."
             autocomplete="off"
+            aria-label="相関図のノードを検索"
           >
           <button id="btnReset" class="secondary">リセット</button>
           <button id="btnAutoLayout">自動整列（全体）</button>
@@ -127,9 +129,9 @@
       const sortedTags = Array.from(tags).sort();
       
       container.innerHTML = sortedTags.map(tag => `
-        <span class="filter-chip" data-tag="${App.escapeHtml(tag)}">
+        <button type="button" class="filter-chip" data-tag="${App.escapeHtml(tag)}" aria-pressed="false">
           ${App.escapeHtml(tag.split('/')[1])}
-        </span>
+        </button>
       `).join('');
       
       // Add click handlers
@@ -139,9 +141,11 @@
           if (activeRoleTags.has(tag)) {
             activeRoleTags.delete(tag);
             this.classList.remove('active');
+            this.setAttribute('aria-pressed', 'false');
           } else {
             activeRoleTags.add(tag);
             this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
           }
           applyFilters();
         });
@@ -156,9 +160,9 @@
       const types = GraphApp.getRelationshipTypes();
       
       container.innerHTML = types.map(type => `
-        <span class="filter-chip" data-type="${App.escapeHtml(type)}">
+        <button type="button" class="filter-chip" data-type="${App.escapeHtml(type)}" aria-pressed="false">
           ${App.escapeHtml(type)}
-        </span>
+        </button>
       `).join('');
       
       // Add click handlers
@@ -168,9 +172,11 @@
           if (activeRelationTypes.has(type)) {
             activeRelationTypes.delete(type);
             this.classList.remove('active');
+            this.setAttribute('aria-pressed', 'false');
           } else {
             activeRelationTypes.add(type);
             this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
           }
           applyFilters();
         });
@@ -342,7 +348,10 @@
         GraphApp.resetVisibility();
         activeRoleTags.clear();
         activeRelationTypes.clear();
-        document.querySelectorAll('.filter-chip').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.filter-chip').forEach(el => {
+          el.classList.remove('active');
+          el.setAttribute('aria-pressed', 'false');
+        });
         document.getElementById('graphSearch').value = '';
         document.getElementById('neighborMode').checked = false;
         

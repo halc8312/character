@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">メインコンテンツへスキップ</a>
   <header class="header">
     <h1>キャラクターデータベース</h1>
     <nav>
@@ -16,7 +17,7 @@
     </nav>
   </header>
   
-  <main class="container">
+  <main class="container" id="mainContent">
     <div class="search-bar">
       <input 
         type="text" 
@@ -24,7 +25,9 @@
         class="search-input" 
         placeholder="名前、ローマ字、別名、IDで検索..."
         autocomplete="off"
+        aria-label="キャラクターを検索"
       >
+      <button type="button" id="clearFilters" class="button secondary">クリア</button>
     </div>
     
     <div class="filter-section" id="filterSection">
@@ -39,6 +42,7 @@
     
     <div class="status-bar">
       <span id="resultCount">読み込み中...</span>
+      <span id="activeFilters" class="active-filters"></span>
     </div>
     
     <div id="characterGrid" class="character-grid">
@@ -54,9 +58,10 @@
     /**
      * Render character cards
      */
-    function renderCharacters(characters) {
+    function renderCharacters(characters, options = {}) {
       const grid = document.getElementById('characterGrid');
       const countEl = document.getElementById('resultCount');
+      const isFiltered = options.isFiltered || false;
       
       if (characters.length === 0) {
         grid.innerHTML = `
@@ -69,7 +74,7 @@
         return;
       }
       
-      countEl.textContent = `${characters.length}件`;
+      countEl.textContent = `${characters.length}件${isFiltered ? '（絞り込み中）' : ''}`;
       
       grid.innerHTML = characters.map(char => {
         const tags = (char.tags || []).slice(0, 4).map(t => App.createTagHtml(t)).join('');
@@ -96,18 +101,16 @@
       
       // Render role filters
       roleFilters.innerHTML = roleTags.map(tag => `
-        <label class="filter-tag" data-tag="${App.escapeHtml(tag)}">
-          <input type="checkbox" value="${App.escapeHtml(tag)}">
+        <button type="button" class="filter-tag" data-tag="${App.escapeHtml(tag)}" aria-pressed="false">
           ${App.escapeHtml(tag.split('/')[1])}
-        </label>
+        </button>
       `).join('');
       
       // Render faction filters
       factionFilters.innerHTML = factionTags.map(tag => `
-        <label class="filter-tag" data-tag="${App.escapeHtml(tag)}">
-          <input type="checkbox" value="${App.escapeHtml(tag)}">
+        <button type="button" class="filter-tag" data-tag="${App.escapeHtml(tag)}" aria-pressed="false">
           ${App.escapeHtml(tag.split('/')[1])}
-        </label>
+        </button>
       `).join('');
       
       // Hide filter section if no filters
@@ -124,7 +127,56 @@
       const searchQuery = document.getElementById('searchInput').value;
       let filtered = App.searchCharacters(allCharacters, searchQuery);
       filtered = App.filterByTags(filtered, Array.from(activeTags));
-      renderCharacters(filtered);
+      const isFiltered = Boolean(searchQuery.trim()) || activeTags.size > 0;
+      renderCharacters(filtered, { isFiltered });
+      renderActiveFilters(searchQuery);
+    }
+    
+    /**
+     * Render active filters summary
+     */
+    function renderActiveFilters(searchQuery) {
+      const container = document.getElementById('activeFilters');
+      const items = [];
+      
+      if (searchQuery && searchQuery.trim()) {
+        items.push({
+          type: 'search',
+          label: `検索: ${searchQuery.trim()}`
+        });
+      }
+      
+      activeTags.forEach(tag => {
+        const label = tag.includes('/') ? tag.split('/')[1] : tag;
+        items.push({ type: 'tag', value: tag, label });
+      });
+      
+      if (items.length === 0) {
+        container.innerHTML = '<span class="active-filters-empty">絞り込みなし</span>';
+        return;
+      }
+      
+      container.innerHTML = items.map(item => `
+        <span class="active-filter-chip" data-type="${item.type}" ${item.value ? `data-tag="${App.escapeHtml(item.value)}"` : ''}>
+          ${App.escapeHtml(item.label)}
+          <button type="button" class="remove" aria-label="フィルタを解除">×</button>
+        </span>
+      `).join('') + `
+        <button type="button" class="button secondary" id="clearAllFilters">すべて解除</button>
+      `;
+    }
+    
+    /**
+     * Clear all filters and search
+     */
+    function clearAllFilters() {
+      activeTags.clear();
+      document.getElementById('searchInput').value = '';
+      document.querySelectorAll('.filter-tag').forEach(el => {
+        el.classList.remove('active');
+        el.setAttribute('aria-pressed', 'false');
+      });
+      applyFiltersAndSearch();
     }
     
     /**
@@ -136,7 +188,8 @@
         allCharacters = App.data.characters;
         
         renderFilters();
-        renderCharacters(allCharacters);
+        renderCharacters(allCharacters, { isFiltered: false });
+        renderActiveFilters('');
         
         // Search input handler
         const searchInput = document.getElementById('searchInput');
@@ -145,23 +198,53 @@
         }, 200));
         
         // Filter click handlers
-        document.querySelectorAll('.filter-tag').forEach(el => {
-          el.addEventListener('click', function(e) {
-            const tag = this.dataset.tag;
-            const checkbox = this.querySelector('input');
-            
-            if (activeTags.has(tag)) {
-              activeTags.delete(tag);
-              this.classList.remove('active');
-              checkbox.checked = false;
-            } else {
-              activeTags.add(tag);
-              this.classList.add('active');
-              checkbox.checked = true;
+        const filterSection = document.getElementById('filterSection');
+        filterSection.addEventListener('click', function(e) {
+          const button = e.target.closest('.filter-tag');
+          if (!button) return;
+          
+          const tag = button.dataset.tag;
+          
+          if (activeTags.has(tag)) {
+            activeTags.delete(tag);
+            button.classList.remove('active');
+            button.setAttribute('aria-pressed', 'false');
+          } else {
+            activeTags.add(tag);
+            button.classList.add('active');
+            button.setAttribute('aria-pressed', 'true');
+          }
+          
+          applyFiltersAndSearch();
+        });
+        
+        document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
+        
+        document.getElementById('activeFilters').addEventListener('click', function(e) {
+          if (e.target && e.target.id === 'clearAllFilters') {
+            clearAllFilters();
+            return;
+          }
+          const removeButton = e.target.closest('.remove');
+          if (!removeButton) return;
+          
+          const chip = removeButton.closest('.active-filter-chip');
+          if (!chip) return;
+          
+          const type = chip.dataset.type;
+          if (type === 'search') {
+            document.getElementById('searchInput').value = '';
+          } else if (type === 'tag') {
+            const tag = chip.dataset.tag;
+            activeTags.delete(tag);
+            const button = document.querySelector(`.filter-tag[data-tag="${tag}"]`);
+            if (button) {
+              button.classList.remove('active');
+              button.setAttribute('aria-pressed', 'false');
             }
-            
-            applyFiltersAndSearch();
-          });
+          }
+          
+          applyFiltersAndSearch();
         });
         
         // Check for pre-selected tag from URL
@@ -171,7 +254,7 @@
           const tagEl = document.querySelector(`[data-tag="${preTag}"]`);
           if (tagEl) {
             tagEl.classList.add('active');
-            tagEl.querySelector('input').checked = true;
+            tagEl.setAttribute('aria-pressed', 'true');
           }
           applyFiltersAndSearch();
         }

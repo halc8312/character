@@ -11,6 +11,7 @@
   --border-color: #dce1e6;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --radius: 8px;
+  --focus-outline: 3px solid rgba(232, 176, 74, 0.6);
 }
 
 * {
@@ -25,6 +26,41 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   min-height: 100vh;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--accent-color);
+  color: #1f2d3d;
+  border-radius: 6px;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+  z-index: 999;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* Header */
@@ -74,6 +110,7 @@ body {
   gap: 1rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .search-input {
@@ -124,6 +161,8 @@ body {
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s;
+  color: var(--text-color);
+  appearance: none;
 }
 
 .filter-tag:hover {
@@ -136,8 +175,36 @@ body {
   border-color: var(--primary-color);
 }
 
-.filter-tag input {
-  display: none;
+.filter-tag[aria-pressed="true"] {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+.button.secondary {
+  background: var(--bg-color);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+.button.secondary:hover {
+  background: var(--border-color);
 }
 
 /* Character Grid */
@@ -451,6 +518,8 @@ body {
   border-radius: 15px;
   font-size: 0.8rem;
   cursor: pointer;
+  color: var(--text-color);
+  appearance: none;
 }
 
 .filter-chip:hover {
@@ -463,6 +532,12 @@ body {
   border-color: var(--primary-color);
 }
 
+.filter-chip[aria-pressed="true"] {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
 /* Status bar */
 .status-bar {
   display: flex;
@@ -470,6 +545,40 @@ body {
   align-items: center;
   padding: 0.5rem 0;
   font-size: 0.85rem;
+  color: var(--text-muted);
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.active-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+
+.active-filter-chip .remove {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.active-filters-empty {
   color: var(--text-muted);
 }
 
