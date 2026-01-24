@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">メインコンテンツへスキップ</a>
   <header class="header">
     <h1>キャラクターデータベース</h1>
     <nav>
@@ -16,7 +17,7 @@
     </nav>
   </header>
   
-  <main class="container">
+  <main class="container" id="mainContent">
     <h2 style="margin-bottom: 1rem;">ロケーション</h2>
     
     <div class="search-bar">
@@ -26,7 +27,9 @@
         class="search-input" 
         placeholder="場所名、IDで検索..."
         autocomplete="off"
+        aria-label="ロケーションを検索"
       >
+      <button type="button" id="clearFilters" class="button secondary">クリア</button>
     </div>
     
     <div class="filter-section" id="filterSection">
@@ -39,6 +42,9 @@
     <div class="status-bar">
       <span id="resultCount">読み込み中...</span>
       <span id="mapLinks" style="margin-left: auto;"></span>
+    </div>
+    <div class="status-bar">
+      <span id="activeFilters" class="active-filters"></span>
     </div>
     
     <div id="locationTree" class="location-tree">
@@ -183,10 +189,9 @@
       const sortedTypes = Array.from(types).sort();
       
       typeFilters.innerHTML = sortedTypes.map(type => `
-        <label class="filter-tag" data-type="${App.escapeHtml(type)}">
-          <input type="checkbox" value="${App.escapeHtml(type)}">
+        <button type="button" class="filter-tag" data-type="${App.escapeHtml(type)}" aria-pressed="false">
           ${getTypeIcon(type)} ${App.escapeHtml(type)}
-        </label>
+        </button>
       `).join('');
       
       // Hide filter section if no filters
@@ -248,6 +253,53 @@
       let filtered = searchLocations(allLocations, searchQuery);
       filtered = filterByTypes(filtered, activeTags);
       renderLocations(filtered);
+      renderActiveFilters(searchQuery);
+    }
+    
+    /**
+     * Render active filters summary
+     */
+    function renderActiveFilters(searchQuery) {
+      const container = document.getElementById('activeFilters');
+      const items = [];
+      
+      if (searchQuery && searchQuery.trim()) {
+        items.push({
+          type: 'search',
+          label: `検索: ${searchQuery.trim()}`
+        });
+      }
+      
+      activeTags.forEach(type => {
+        items.push({ type: 'type', value: type, label: `${getTypeIcon(type)} ${type}` });
+      });
+      
+      if (items.length === 0) {
+        container.innerHTML = '<span class="active-filters-empty">絞り込みなし</span>';
+        return;
+      }
+      
+      container.innerHTML = items.map(item => `
+        <span class="active-filter-chip" data-type="${item.type}" ${item.value ? `data-value="${App.escapeHtml(item.value)}"` : ''}>
+          ${App.escapeHtml(item.label)}
+          <button type="button" class="remove" aria-label="フィルタを解除">×</button>
+        </span>
+      `).join('') + `
+        <button type="button" class="button secondary" id="clearAllFilters">すべて解除</button>
+      `;
+    }
+    
+    /**
+     * Clear all filters and search
+     */
+    function clearAllFilters() {
+      activeTags.clear();
+      document.getElementById('searchInput').value = '';
+      document.querySelectorAll('.filter-tag').forEach(el => {
+        el.classList.remove('active');
+        el.setAttribute('aria-pressed', 'false');
+      });
+      applyFiltersAndSearch();
     }
     
     /**
@@ -267,6 +319,7 @@
         renderFilters();
         renderMapLinks();
         renderLocations(allLocations);
+        renderActiveFilters('');
         
         // Search input handler
         const searchInput = document.getElementById('searchInput');
@@ -281,16 +334,45 @@
           if (!el) return;
           
           const type = el.dataset.type;
-          const checkbox = el.querySelector('input');
           
           if (activeTags.has(type)) {
             activeTags.delete(type);
             el.classList.remove('active');
-            if (checkbox) checkbox.checked = false;
+            el.setAttribute('aria-pressed', 'false');
           } else {
             activeTags.add(type);
             el.classList.add('active');
-            if (checkbox) checkbox.checked = true;
+            el.setAttribute('aria-pressed', 'true');
+          }
+          
+          applyFiltersAndSearch();
+        });
+        
+        document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
+        
+        document.getElementById('activeFilters').addEventListener('click', function(e) {
+          if (e.target && e.target.id === 'clearAllFilters') {
+            clearAllFilters();
+            return;
+          }
+          
+          const removeButton = e.target.closest('.remove');
+          if (!removeButton) return;
+          
+          const chip = removeButton.closest('.active-filter-chip');
+          if (!chip) return;
+          
+          const type = chip.dataset.type;
+          if (type === 'search') {
+            document.getElementById('searchInput').value = '';
+          } else if (type === 'type') {
+            const value = chip.dataset.value;
+            activeTags.delete(value);
+            const button = document.querySelector(`.filter-tag[data-type="${value}"]`);
+            if (button) {
+              button.classList.remove('active');
+              button.setAttribute('aria-pressed', 'false');
+            }
           }
           
           applyFiltersAndSearch();

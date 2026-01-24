@@ -8,6 +8,7 @@
   <script src="assets/cytoscape.min.js"></script>
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">メインコンテンツへスキップ</a>
   <header class="header">
     <h1>キャラクターデータベース</h1>
     <nav>
@@ -17,7 +18,7 @@
     </nav>
   </header>
   
-  <main class="container" style="padding: 1rem; max-width: 100%;">
+  <main class="container" id="mainContent" style="padding: 1rem; max-width: 100%;">
     <div class="graph-container">
       <div class="graph-main">
         <div class="graph-controls">
@@ -27,6 +28,7 @@
             class="search-input" 
             placeholder="場所名で検索..."
             autocomplete="off"
+            aria-label="地図内の場所を検索"
           >
           <button id="btnReset" class="secondary">リセット</button>
           <button id="btnAutoLayout">自動整列</button>
@@ -299,9 +301,9 @@
       const sortedTypes = Array.from(types).sort();
       
       container.innerHTML = sortedTypes.map(type => `
-        <span class="filter-chip" data-type="${App.escapeHtml(type)}" style="border-left: 3px solid ${getTypeColor(type)};">
+        <button type="button" class="filter-chip" data-type="${App.escapeHtml(type)}" aria-pressed="false" style="border-left: 3px solid ${getTypeColor(type)};">
           ${getTypeIcon(type)} ${App.escapeHtml(type)}
-        </span>
+        </button>
       `).join('');
       
       // Add click handlers
@@ -311,9 +313,11 @@
           if (activeTypes.has(type)) {
             activeTypes.delete(type);
             this.classList.remove('active');
+            this.setAttribute('aria-pressed', 'false');
           } else {
             activeTypes.add(type);
             this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
           }
           applyTypeFilter();
         });
@@ -450,7 +454,10 @@
       document.getElementById('btnReset').addEventListener('click', function() {
         cy.elements().removeClass('highlighted dimmed hidden');
         activeTypes.clear();
-        document.querySelectorAll('.filter-chip').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.filter-chip').forEach(el => {
+          el.classList.remove('active');
+          el.setAttribute('aria-pressed', 'false');
+        });
         document.getElementById('mapSearch').value = '';
         document.querySelectorAll('.detail-content').forEach(el => el.classList.remove('active'));
         document.getElementById('detailEmpty').classList.add('active');
